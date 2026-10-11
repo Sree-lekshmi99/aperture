@@ -103,8 +103,6 @@ Three candidate context strategies are evaluated on *validation only*:
 
 For each validation task, `output.faulty_agents` is read **only after prediction** to score the response. The controller chooses the best strategy using `mean(F1 - 0.02 * prompt_tokens/1000)` and stores it as a durable policy in `policies`. If a task type has at least three validation examples it gets a task-specific choice; otherwise the global policy applies.
 
-This is a **simple first-generation self-tuning context policy**, not a reinforcement-learning system. It is intentionally limited to keep the project buildable in a day.
-
 ## 8. Compare on held-out examples
 
 ```sh
@@ -121,26 +119,11 @@ Caution: AEGIS injects several errors into many trajectories; this prototype mea
 streamlit run dashboard.py
 ```
 
-The Streamlit page reads aggregate evaluation results and learned policy records from MongoDB Atlas.
 
-## 10. Prepare the one-minute demo
 
-- **0–10s:** show Raindrop's documented problem: agents retrieve lots of context but do not always investigate efficiently. Clearly distinguish their already-published hierarchical fix.
-- **10–20s:** show one held-out AEGIS conversation and the agent diagnosis. Note that AEGIS is an independent synthetic-error dataset, not Raindrop's production traces.
-- **20–35s:** show three fixed context strategies and the model's results.
-- **35–50s:** show `policies` changing after validation and explain how Atlas persists that change.
-- **50–60s:** show your real test-set results, even if the improvement is modest or non-positive.
 
-## Troubleshooting
-
-- **No usable records:** run `python inspect_data.py`; check the nested schema and adjust `ingest` if the dataset changed.
-- **Atlas timeout:** allow your current public IP, verify username/password/URI, and confirm the cluster is running.
-- **Model API error:** verify a usable API key, quota, and that the configured model supports JSON output.
-- **Too expensive:** lower `--limit` to 3 or 4; the `results` collection caches repeated model calls.
-- **Context truncated:** 25,000 characters is a **cost safeguard**. Do not label the result “full trace” without acknowledging this cap.
-- **Policies don't beat fixed strategies:** this is an empirical result, not a software error. Document it and inspect why on validation examples without tuning on the test split.
 
 ### Attribution and ethical demo claims
 
 Cite the AEGIS dataset: https://huggingface.co/datasets/Fancylalala/AEGIS.
-Cite Raindrop's case study in your presentation. Don't claim your benchmark is their data, don't claim to have fixed their production service, and don't claim this is novel across the whole industry without broader competitor comparison.
+
