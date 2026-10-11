@@ -1,4 +1,4 @@
-# Aperture — a five-hour AEGIS harness project
+# Aperture — AEGIS harness project
 
 **What it is:** a small investigator agent that labels faulty agents in AEGIS multi-agent execution traces, plus a **Python harness** that compares three context-selection strategies and records a better-performing strategy in MongoDB Atlas. The existing agent model is unchanged. This is a proof of concept, not a production system.
 
