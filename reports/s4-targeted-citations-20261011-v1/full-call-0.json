@@ -1,0 +1,114 @@
+{
+  "_id": "cited-targeted-v1:full:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923:call0",
+  "study_id": "s4-targeted-citations-20261011-v1",
+  "run_id": "cited-targeted-v1:full:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+  "arm": "full",
+  "round": 0,
+  "delivery_id": "cited-targeted-v1:full:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923:delivery0",
+  "status": "complete",
+  "started_at": "2026-10-11T21:36:40.199840+00:00",
+  "request_settings": {
+    "model": "gpt-4o-mini",
+    "temperature": 0,
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_completion_tokens": 2000
+  },
+  "completed_at": "2026-10-11T21:36:44.562815+00:00",
+  "raw_response": "{\n  \"fault_claims\": [\n    {\n      \"agent_name\": \"Assistant1\",\n      \"claim\": \"incorrectly calculated the volume of the tetrahedron\",\n      \"citations\": [\n        {\n          \"chunk_id\": \"3619b98424f740e582ce322bcf3c9873:s2:ef0ea5351b2b\",\n          \"quote\": \"V = \\frac{1}{6} \\times 3 \\times 4 \\times 6\"\n        }\n      ]\n    },\n    {\n      \"agent_name\": \"Assistant2\",\n      \"claim\": \"incorrectly calculated the volume of the tetrahedron\",\n      \"citations\": [\n        {\n          \"chunk_id\": \"3619b98424f740e582ce322bcf3c9873:s10:d7d992712400\",\n          \"quote\": \"V = \\frac{1}{12} \\times 3 \\times 4 \\times 5\"\n        }\n      ]\n    },\n    {\n      \"agent_name\": \"Assistant3\",\n      \"claim\": \"incorrectly calculated the volume of the tetrahedron\",\n      \"citations\": [\n        {\n          \"chunk_id\": \"3619b98424f740e582ce322bcf3c9873:s12:aeec3bcdcf88\",\n          \"quote\": \"V = \\frac{1}{4} \\times (a + b + c)^2\"\n        }\n      ]\n    }\n  ],\n  \"retrieve_steps\": []\n}",
+  "candidate": {
+    "fault_claims": [
+      {
+        "agent_name": "Assistant1",
+        "claim": "incorrectly calculated the volume of the tetrahedron",
+        "citations": [
+          {
+            "chunk_id": "3619b98424f740e582ce322bcf3c9873:s2:ef0ea5351b2b",
+            "quote": "V = \frac{1}{6} \times 3 \times 4 \times 6"
+          }
+        ]
+      },
+      {
+        "agent_name": "Assistant2",
+        "claim": "incorrectly calculated the volume of the tetrahedron",
+        "citations": [
+          {
+            "chunk_id": "3619b98424f740e582ce322bcf3c9873:s10:d7d992712400",
+            "quote": "V = \frac{1}{12} \times 3 \times 4 \times 5"
+          }
+        ]
+      },
+      {
+        "agent_name": "Assistant3",
+        "claim": "incorrectly calculated the volume of the tetrahedron",
+        "citations": [
+          {
+            "chunk_id": "3619b98424f740e582ce322bcf3c9873:s12:aeec3bcdcf88",
+            "quote": "V = \frac{1}{4} \times (a + b + c)^2"
+          }
+        ]
+      }
+    ],
+    "retrieve_steps": []
+  },
+  "usage": {
+    "completion_tokens": 317,
+    "prompt_tokens": 6315,
+    "total_tokens": 6632,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    }
+  },
+  "elapsed_seconds": 4.329,
+  "gate": {
+    "version": "verbatim-session-v1",
+    "accepted": false,
+    "errors": [
+      "claim_0:citation_0:quote_not_verbatim_in_delivered_chunk",
+      "claim_0:no_citation_from_claimed_agent",
+      "claim_1:citation_0:quote_not_verbatim_in_delivered_chunk",
+      "claim_1:no_citation_from_claimed_agent",
+      "claim_2:citation_0:quote_not_verbatim_in_delivered_chunk",
+      "claim_2:no_citation_from_claimed_agent"
+    ],
+    "claims_checked": 3,
+    "citations_checked": [
+      {
+        "claim_index": 0,
+        "citation_index": 0,
+        "accepted": false,
+        "reason": "quote_not_verbatim_in_delivered_chunk"
+      },
+      {
+        "claim_index": 1,
+        "citation_index": 0,
+        "accepted": false,
+        "reason": "quote_not_verbatim_in_delivered_chunk"
+      },
+      {
+        "claim_index": 2,
+        "citation_index": 0,
+        "accepted": false,
+        "reason": "quote_not_verbatim_in_delivered_chunk"
+      }
+    ],
+    "session_id": "3619b98424f740e582ce322bcf3c9873",
+    "evidence_sha256": "3944f76a400867f4e01cba1c8360f0f2e2263a4c99c1b0d530512d73a7e98ca3"
+  },
+  "returned_model": "gpt-4o-mini-2024-07-18",
+  "response_id": "chatcmpl-EXvVhKMQ9U7dMpI184ieSVvgkMKsp",
+  "system_fingerprint": "fp_9df689e4ab",
+  "finish_reason": "stop"
+}

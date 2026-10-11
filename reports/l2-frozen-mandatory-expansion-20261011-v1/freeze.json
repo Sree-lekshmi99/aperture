@@ -1,0 +1,40 @@
+{
+  "reference_study": "s4-mandatory-expansion-spans-20261011-v3",
+  "code_sha256_before": {
+    "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+    "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+    "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+    "run_s4_targeted.py": "ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1",
+    "test_targeted_retrieval.py": "400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02"
+  },
+  "additional_hashes_before": {
+    "dashboard.py": "9ec718351b361260975e420d8335a7d8fd03afe020f28f58faec1d902e3bda3c",
+    "requirements.txt": "44b29ae6ee8f0ce63c8c1839e56fffeddfde19de7406a9e8032c11d7fcc61821"
+  },
+  "matches_completed_s4": true,
+  "driver_sha256": "f1fdbcce2fcf1406223acd899cce43a7f93fa2ea45a6e82ffac7bb1216c78ecd",
+  "only_runtime_overrides": [
+    "TRACE_ID",
+    "STUDY_ID",
+    "OUT"
+  ],
+  "only_config_differences": [
+    "trace_id",
+    "source_sha256",
+    "known_agents",
+    "code_sha256 (completed S4 decoder recovery)",
+    "experiment_id (fresh-cache namespace)"
+  ],
+  "code_sha256_after": {
+    "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+    "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+    "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+    "run_s4_targeted.py": "ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1",
+    "test_targeted_retrieval.py": "400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02"
+  },
+  "additional_hashes_after": {
+    "dashboard.py": "9ec718351b361260975e420d8335a7d8fd03afe020f28f58faec1d902e3bda3c",
+    "requirements.txt": "44b29ae6ee8f0ce63c8c1839e56fffeddfde19de7406a9e8032c11d7fcc61821"
+  },
+  "unchanged_after_comparison": true
+}

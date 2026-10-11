@@ -1,0 +1,79 @@
+[
+  {
+    "_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:retrieval1",
+    "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+    "run_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+    "round": 1,
+    "requested_steps": [
+      5,
+      8,
+      11,
+      25,
+      39
+    ],
+    "selected_by": "investigator_response",
+    "request_call_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:call0",
+    "actually_delivered_steps": [
+      5,
+      8,
+      11,
+      25,
+      39
+    ],
+    "log": [
+      {
+        "step": 5,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e",
+        "delivered_chars": 316,
+        "source_chars": 316,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 8,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c",
+        "delivered_chars": 1787,
+        "source_chars": 1787,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 11,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e",
+        "delivered_chars": 2288,
+        "source_chars": 2288,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 25,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa",
+        "delivered_chars": 2653,
+        "source_chars": 2653,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 39,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s39:e36b18addeb2",
+        "delivered_chars": 1817,
+        "source_chars": 2772,
+        "truncated": true,
+        "expanded_beyond_overview": true
+      }
+    ],
+    "before_chars": 16999,
+    "after_chars": 27690,
+    "retrieval_model_tokens": 0,
+    "transport_audit": {
+      "expanded_events_received_by_investigator": [],
+      "status": "blocked_before_next_api_call",
+      "original_actually_delivered_steps_means": "prepared locally only"
+    }
+  }
+]

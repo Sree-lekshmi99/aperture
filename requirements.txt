@@ -1,0 +1,7 @@
+openai>=1.70.0
+pymongo>=4.10.0
+python-dotenv>=1.0.0
+streamlit>=1.41.0
+pandas>=2.2.0
+certifi>=2023.5.7
+tiktoken>=0.12.0

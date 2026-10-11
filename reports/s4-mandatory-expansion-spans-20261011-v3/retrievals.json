@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "mandatory-expansion-spans-v3:short_targeted:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c:retrieval1",
+    "study_id": "s4-mandatory-expansion-spans-20261011-v3",
+    "run_id": "mandatory-expansion-spans-v3:short_targeted:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+    "round": 1,
+    "requested_steps": [
+      2,
+      4,
+      6,
+      10,
+      12
+    ],
+    "selected_by": "investigator_response",
+    "request_call_id": "mandatory-expansion-spans-v3:short_targeted:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c:call0",
+    "actually_delivered_steps": [
+      2,
+      4,
+      6,
+      10,
+      12
+    ],
+    "log": [
+      {
+        "step": 2,
+        "status": "delivered",
+        "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b",
+        "delivered_chars": 1622,
+        "source_chars": 1622,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 4,
+        "status": "delivered",
+        "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s4:79a44a962994",
+        "delivered_chars": 965,
+        "source_chars": 965,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 6,
+        "status": "delivered",
+        "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s6:938fcfd3f692",
+        "delivered_chars": 1268,
+        "source_chars": 1268,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 10,
+        "status": "delivered",
+        "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400",
+        "delivered_chars": 887,
+        "source_chars": 887,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 12,
+        "status": "delivered",
+        "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88",
+        "delivered_chars": 896,
+        "source_chars": 896,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      }
+    ],
+    "before_chars": 4920,
+    "after_chars": 15817,
+    "retrieval_model_tokens": 0
+  }
+]

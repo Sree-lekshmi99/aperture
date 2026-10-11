@@ -1,0 +1,46 @@
+{
+  "status": "verified",
+  "matching": "decoded strings; no fuzzy matching or extra unescaping",
+  "findings": [
+    {
+      "arm": "full",
+      "quote_type": "str",
+      "delivered_text_type": "str",
+      "decoded_exact_match": false,
+      "contains_form_feed": true,
+      "json_roundtrip_preserves_delivered_text": true
+    },
+    {
+      "arm": "full",
+      "quote_type": "str",
+      "delivered_text_type": "str",
+      "decoded_exact_match": false,
+      "contains_form_feed": true,
+      "json_roundtrip_preserves_delivered_text": true
+    },
+    {
+      "arm": "full",
+      "quote_type": "str",
+      "delivered_text_type": "str",
+      "decoded_exact_match": false,
+      "contains_form_feed": true,
+      "json_roundtrip_preserves_delivered_text": true
+    },
+    {
+      "arm": "short",
+      "quote_type": "str",
+      "delivered_text_type": "str",
+      "decoded_exact_match": false,
+      "contains_form_feed": false,
+      "json_roundtrip_preserves_delivered_text": true
+    },
+    {
+      "arm": "short_targeted",
+      "quote_type": "str",
+      "delivered_text_type": "str",
+      "decoded_exact_match": false,
+      "contains_form_feed": false,
+      "json_roundtrip_preserves_delivered_text": true
+    }
+  ]
+}

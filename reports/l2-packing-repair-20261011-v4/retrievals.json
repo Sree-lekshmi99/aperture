@@ -1,0 +1,117 @@
+[
+  {
+    "_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d:retrieval1",
+    "study_id": "l2-packing-repair-20261011-v4",
+    "run_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d",
+    "round": 1,
+    "requested_steps": [
+      5,
+      8,
+      19,
+      25,
+      39
+    ],
+    "selected_by": "investigator_response",
+    "request_call_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d:call0",
+    "actually_delivered_steps": [
+      5,
+      8,
+      19,
+      25,
+      39
+    ],
+    "packing": {
+      "status": "ready",
+      "prepared_steps": [
+        5,
+        8,
+        19,
+        25,
+        39
+      ],
+      "input_tokens_with_framing_reserve": 10900,
+      "context_token_budget": 12000,
+      "evidence_tokens": 8530,
+      "retained_history": "one current chunk per event; no prior message transcript",
+      "selection_order": [
+        5,
+        8,
+        19,
+        25,
+        39
+      ]
+    },
+    "delivery_status": "received_by_investigator",
+    "log": [
+      {
+        "step": 5,
+        "status": "prepared",
+        "chunk_id": "77bc38380c8b493d9ece615513d972a4:s5:9040c8ea676e",
+        "packing_status": "complete",
+        "previous_chars": 180,
+        "delivered_chars": 316,
+        "source_chars": 316,
+        "omitted_chars": 0,
+        "additional_chars": 136,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 8,
+        "status": "prepared",
+        "chunk_id": "77bc38380c8b493d9ece615513d972a4:s8:fea3351c1e5c",
+        "packing_status": "complete",
+        "previous_chars": 180,
+        "delivered_chars": 1787,
+        "source_chars": 1787,
+        "omitted_chars": 0,
+        "additional_chars": 1607,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 19,
+        "status": "prepared",
+        "chunk_id": "77bc38380c8b493d9ece615513d972a4:s19:6363217d2a5c",
+        "packing_status": "complete",
+        "previous_chars": 180,
+        "delivered_chars": 586,
+        "source_chars": 586,
+        "omitted_chars": 0,
+        "additional_chars": 406,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 25,
+        "status": "prepared",
+        "chunk_id": "77bc38380c8b493d9ece615513d972a4:s25:a4a91d9189aa",
+        "packing_status": "complete",
+        "previous_chars": 180,
+        "delivered_chars": 2653,
+        "source_chars": 2653,
+        "omitted_chars": 0,
+        "additional_chars": 2473,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 39,
+        "status": "prepared",
+        "chunk_id": "77bc38380c8b493d9ece615513d972a4:s39:23760412ec85",
+        "packing_status": "complete",
+        "previous_chars": 180,
+        "delivered_chars": 2772,
+        "source_chars": 2772,
+        "omitted_chars": 0,
+        "additional_chars": 2592,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      }
+    ],
+    "before_chars": 16999,
+    "after_chars": 24805,
+    "retrieval_model_tokens": 0,
+    "received_call_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d:call1"
+  }
+]

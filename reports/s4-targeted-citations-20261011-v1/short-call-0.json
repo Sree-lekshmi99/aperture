@@ -1,0 +1,78 @@
+{
+  "_id": "cited-targeted-v1:short:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923:call0",
+  "study_id": "s4-targeted-citations-20261011-v1",
+  "run_id": "cited-targeted-v1:short:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+  "arm": "short",
+  "round": 0,
+  "delivery_id": "cited-targeted-v1:short:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923:delivery0",
+  "status": "complete",
+  "started_at": "2026-10-11T21:36:44.969491+00:00",
+  "request_settings": {
+    "model": "gpt-4o-mini",
+    "temperature": 0,
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_completion_tokens": 2000
+  },
+  "completed_at": "2026-10-11T21:36:46.924923+00:00",
+  "raw_response": "{\n  \"fault_claims\": [\n    {\n      \"agent_name\": \"Assistant1\",\n      \"claim\": \"incorrect edge length used in volume calculation\",\n      \"citations\": [\n        {\n          \"chunk_id\": \"6ef01a3ff8c74b16aabbf41250a17a8a:s2:74a0191240eb\",\n          \"quote\": \"three mutually perpendicular edges of lengths 3 \\\\, \\\\text{cm}, 4 \\\\, \\\\text{cm}, and 6 \\\\, \\\\text{cm}\"\n        }\n      ]\n    }\n  ],\n  \"retrieve_steps\": []\n}",
+  "candidate": {
+    "fault_claims": [
+      {
+        "agent_name": "Assistant1",
+        "claim": "incorrect edge length used in volume calculation",
+        "citations": [
+          {
+            "chunk_id": "6ef01a3ff8c74b16aabbf41250a17a8a:s2:74a0191240eb",
+            "quote": "three mutually perpendicular edges of lengths 3 \\, \\text{cm}, 4 \\, \\text{cm}, and 6 \\, \\text{cm}"
+          }
+        ]
+      }
+    ],
+    "retrieve_steps": []
+  },
+  "usage": {
+    "completion_tokens": 131,
+    "prompt_tokens": 1576,
+    "total_tokens": 1707,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    }
+  },
+  "elapsed_seconds": 1.939,
+  "gate": {
+    "version": "verbatim-session-v1",
+    "accepted": false,
+    "errors": [
+      "claim_0:citation_0:quote_not_verbatim_in_delivered_chunk",
+      "claim_0:no_citation_from_claimed_agent"
+    ],
+    "claims_checked": 1,
+    "citations_checked": [
+      {
+        "claim_index": 0,
+        "citation_index": 0,
+        "accepted": false,
+        "reason": "quote_not_verbatim_in_delivered_chunk"
+      }
+    ],
+    "session_id": "6ef01a3ff8c74b16aabbf41250a17a8a",
+    "evidence_sha256": "6b39b605ec6e16bef65c43f9599da63154bca3a3c1e125067fd50b504e2796ed"
+  },
+  "returned_model": "gpt-4o-mini-2024-07-18",
+  "response_id": "chatcmpl-EXvVlzvny56oTLGmwY3KY95FSMQKl",
+  "system_fingerprint": "fp_9df689e4ab",
+  "finish_reason": "stop"
+}

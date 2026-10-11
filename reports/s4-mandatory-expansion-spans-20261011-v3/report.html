@@ -1,0 +1,314 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aperture S4 targeted retrieval</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;color:#182938;background:#f7fafb;margin:0}main{max-width:1220px;margin:auto;padding:36px 24px}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;background:white;font-size:14px}th,td{padding:12px;border-bottom:1px solid #d9e1e6;text-align:left;vertical-align:top}th{background:#e6f0f3}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;padding:18px;border-left:3px solid #19868b}code{overflow-wrap:anywhere}details{padding:14px;background:#fff;margin:12px 0}h2{margin-top:32px}</style><main>
+<p>APERTURE · S4 CITED COMPARISON · 11 OCTOBER 2026</p><h1>Mandatory first expansion with exact span citations</h1>
+<p><code>val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c</code></p>
+<p>Same model, temperature 0, JSON response format, 2,000-token output cap, system prompt and citation requirements in all arms. Short context keeps 180 characters per event. Mandatory first expansion requires an investigator-selected expansion before targeted diagnosis when the overview is clipped. This is not learned retrieval. Limits: five events per round, two rounds; 12,000 input tokens including instructions and a 256-token framing reserve, of which at most 10,000 are evidence. The gate has no policy switch.</p>
+<p>The model returns chunk_id + span_id. Exact quotations are attached by application code from the received-evidence log registered after clipping and token-budget enforcement. Cross-author evidence is allowed. Provenance does not establish attribution correctness.</p>
+<div class="scroll"><table><tr><th>Context</th><th>Candidate predictions</th><th>F1</th><th>Exact</th><th>Gate</th><th>Input tokens</th><th>Output tokens</th><th>Total tokens</th><th>Calls</th><th>Retrieval rounds</th><th>Requested events</th><th>Actually expanded events</th><th>Omitted formulas delivered</th></tr><tr><td>capped-large</td><td>Assistant1, Assistant3</td><td>1.0</td><td>True</td><td>accepted</td><td>11244</td><td>274</td><td>11518</td><td>1</td><td>0</td><td>[]</td><td>[]</td><td>step 10: yes, round 0; step 12: no</td></tr><tr><td>short context</td><td>Assistant1</td><td>0.6667</td><td>False</td><td>accepted</td><td>3007</td><td>133</td><td>3140</td><td>1</td><td>0</td><td>[]</td><td>[]</td><td>step 10: no; step 12: no</td></tr><tr><td>short + mandatory first expansion</td><td>Assistant1, Assistant3</td><td>1.0</td><td>True</td><td>accepted</td><td>11264</td><td>404</td><td>11668</td><td>2</td><td>1</td><td>[[2, 4, 6, 10, 12]]</td><td>[[2, 4, 6, 10, 12]]</td><td>step 10: yes, round 1; step 12: yes, round 1</td></tr></table></div>
+<p>Actual faulty agents (evaluation only): Assistant1, Assistant3. A rejected candidate is retained for audit and scoring only; it is not published as an accepted diagnosis.</p>
+<h2>All calls, including retrieval decisions</h2>
+<div class="scroll"><table><tr><th>Arm</th><th>Round</th><th>Input</th><th>Output</th><th>Total</th><th>Seconds</th><th>Provisional gate</th><th>Requested steps</th></tr><tr><td>full</td><td>0</td><td>11244</td><td>274</td><td>11518</td><td>3.372</td><td>True</td><td>[]</td></tr><tr><td>short</td><td>0</td><td>3007</td><td>133</td><td>3140</td><td>1.537</td><td>True</td><td>[]</td></tr><tr><td>short_targeted</td><td>0</td><td>3188</td><td>14</td><td>3202</td><td>1.056</td><td>True</td><td>[2, 4, 6, 10, 12]</td></tr><tr><td>short_targeted</td><td>1</td><td>8076</td><td>390</td><td>8466</td><td>4.343</td><td>True</td><td>[]</td></tr></table></div>
+<p>Total usage across every call: {&#x27;prompt_tokens&#x27;: 25515, &#x27;completion_tokens&#x27;: 811, &#x27;total_tokens&#x27;: 26326}. Database retrieval itself makes zero model calls.</p>
+<p>Initial selection uses a forced strict select_events tool call; it uses the same model, temperature and output limit. All final diagnoses use identical span citations and the same provenance gate.</p>
+<p>Earlier implementation attempt retained for transparency: {&#x27;study_id&#x27;: &#x27;s4-mandatory-expansion-spans-20261011-v2&#x27;, &#x27;calls&#x27;: 3, &#x27;usage&#x27;: {&#x27;prompt_tokens&#x27;: 17165, &#x27;completion_tokens&#x27;: 726, &#x27;total_tokens&#x27;: 17891}, &#x27;reason&#x27;: &#x27;JSON-only mandatory selection was ignored; host rejected premature diagnosis. Preserved, not reused.&#x27;}. Total for this request, including that attempt: {&#x27;prompt_tokens&#x27;: 42680, &#x27;completion_tokens&#x27;: 1537, &#x27;total_tokens&#x27;: 44217} across 7 calls.</p>
+<p>Decoder recovery: Valid forced tool call returned finish_reason=stop; re-decoded without a model call. Baseline and selection responses were preserved; no duplicate API calls were made for them.</p>
+<h2>Evidence actually delivered after clipping</h2>
+<div class="scroll"><table><tr><th>Round</th><th>Requested events</th><th>Delivered expansions</th><th>Delivery details</th></tr><tr><td>1</td><td>[2, 4, 6, 10, 12]</td><td>[2, 4, 6, 10, 12]</td><td>[{&quot;step&quot;: 2, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b&quot;, &quot;delivered_chars&quot;: 1622, &quot;source_chars&quot;: 1622, &quot;truncated&quot;: false, &quot;expanded_beyond_overview&quot;: true}, {&quot;step&quot;: 4, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s4:79a44a962994&quot;, &quot;delivered_chars&quot;: 965, &quot;source_chars&quot;: 965, &quot;truncated&quot;: false, &quot;expanded_beyond_overview&quot;: true}, {&quot;step&quot;: 6, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s6:938fcfd3f692&quot;, &quot;delivered_chars&quot;: 1268, &quot;source_chars&quot;: 1268, &quot;truncated&quot;: false, &quot;expanded_beyond_overview&quot;: true}, {&quot;step&quot;: 10, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400&quot;, &quot;delivered_chars&quot;: 887, &quot;source_chars&quot;: 887, &quot;truncated&quot;: false, &quot;expanded_beyond_overview&quot;: true}, {&quot;step&quot;: 12, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88&quot;, &quot;delivered_chars&quot;: 896, &quot;source_chars&quot;: 896, &quot;truncated&quot;: false, &quot;expanded_beyond_overview&quot;: true}]</td></tr></table></div>
+<h2>Final claims and citation audits</h2>
+<details open><summary>capped-large — accepted</summary><pre>{
+  &quot;fault_claims&quot;: [
+    {
+      &quot;agent_name&quot;: &quot;Assistant1&quot;,
+      &quot;claim&quot;: &quot;Incorrectly used the edge length of 6 cm instead of 5 cm in the volume calculation.&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;cbfd9061a588454b8b7517e54b8e5f06:s2:ef0ea5351b2b&quot;,
+          &quot;span_id&quot;: &quot;cbfd9061a588454b8b7517e54b8e5f06:s2:ef0ea5351b2b:p6&quot;
+        }
+      ]
+    },
+    {
+      &quot;agent_name&quot;: &quot;Assistant3&quot;,
+      &quot;claim&quot;: &quot;Incorrectly calculated the volume using the formula for a tetrahedron with a factor of 1/12 instead of 1/6.&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;cbfd9061a588454b8b7517e54b8e5f06:s10:d7d992712400&quot;,
+          &quot;span_id&quot;: &quot;cbfd9061a588454b8b7517e54b8e5f06:s10:d7d992712400:p2&quot;
+        }
+      ]
+    }
+  ],
+  &quot;retrieve_steps&quot;: []
+}</pre><pre>{
+  &quot;version&quot;: &quot;decoded-delivered-spans-v2&quot;,
+  &quot;accepted&quot;: true,
+  &quot;errors&quot;: [],
+  &quot;claims_checked&quot;: 2,
+  &quot;citations_checked&quot;: [
+    {
+      &quot;claim_index&quot;: 0,
+      &quot;citation_index&quot;: 0,
+      &quot;accepted&quot;: true,
+      &quot;reason&quot;: null
+    },
+    {
+      &quot;claim_index&quot;: 1,
+      &quot;citation_index&quot;: 0,
+      &quot;accepted&quot;: true,
+      &quot;reason&quot;: null
+    }
+  ],
+  &quot;session_id&quot;: &quot;cbfd9061a588454b8b7517e54b8e5f06&quot;,
+  &quot;evidence_sha256&quot;: &quot;8a020437e7c5703e7f6a3fd3c79af7b3ba30d4b758e10117c29d194440627e86&quot;,
+  &quot;resolved_claims&quot;: [
+    {
+      &quot;agent_name&quot;: &quot;Assistant1&quot;,
+      &quot;claim&quot;: &quot;Incorrectly used the edge length of 6 cm instead of 5 cm in the volume calculation.&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;cbfd9061a588454b8b7517e54b8e5f06:s2:ef0ea5351b2b&quot;,
+          &quot;span_id&quot;: &quot;cbfd9061a588454b8b7517e54b8e5f06:s2:ef0ea5351b2b:p6&quot;,
+          &quot;quote&quot;: &quot;- \\(a = 3 \\, \\text{cm}\\)\n- \\(b = 4 \\, \\text{cm}\\)\n- \\(c = 6 \\, \\text{cm}\\)\n\n&quot;,
+          &quot;start&quot;: 623,
+          &quot;end&quot;: 699,
+          &quot;source_author&quot;: &quot;Assistant1&quot;
+        }
+      ]
+    },
+    {
+      &quot;agent_name&quot;: &quot;Assistant3&quot;,
+      &quot;claim&quot;: &quot;Incorrectly calculated the volume using the formula for a tetrahedron with a factor of 1/12 instead of 1/6.&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;cbfd9061a588454b8b7517e54b8e5f06:s10:d7d992712400&quot;,
+          &quot;span_id&quot;: &quot;cbfd9061a588454b8b7517e54b8e5f06:s10:d7d992712400:p2&quot;,
+          &quot;quote&quot;: &quot;\\[\nV = \\frac{1}{12} \\times a \\times b \\times c\n\\]\n\n&quot;,
+          &quot;start&quot;: 337,
+          &quot;end&quot;: 388,
+          &quot;source_author&quot;: &quot;Assistant3&quot;
+        }
+      ]
+    }
+  ],
+  &quot;provenance_accepted&quot;: true,
+  &quot;protocol_errors&quot;: []
+}</pre></details>
+<details open><summary>short context — accepted</summary><pre>{
+  &quot;fault_claims&quot;: [
+    {
+      &quot;agent_name&quot;: &quot;Assistant1&quot;,
+      &quot;claim&quot;: &quot;Incorrectly stated one of the edge lengths as 6 cm instead of 5 cm.&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;a3790ab4191a461a9de879b63753aa37:s2:74a0191240eb&quot;,
+          &quot;span_id&quot;: &quot;a3790ab4191a461a9de879b63753aa37:s2:74a0191240eb:p1&quot;
+        }
+      ]
+    }
+  ],
+  &quot;retrieve_steps&quot;: []
+}</pre><pre>{
+  &quot;version&quot;: &quot;decoded-delivered-spans-v2&quot;,
+  &quot;accepted&quot;: true,
+  &quot;errors&quot;: [],
+  &quot;claims_checked&quot;: 1,
+  &quot;citations_checked&quot;: [
+    {
+      &quot;claim_index&quot;: 0,
+      &quot;citation_index&quot;: 0,
+      &quot;accepted&quot;: true,
+      &quot;reason&quot;: null
+    }
+  ],
+  &quot;session_id&quot;: &quot;a3790ab4191a461a9de879b63753aa37&quot;,
+  &quot;evidence_sha256&quot;: &quot;8d88df6aeae649abd812ca6621411801dec81ea6e31ca33654710e3e3f3ef3da&quot;,
+  &quot;resolved_claims&quot;: [
+    {
+      &quot;agent_name&quot;: &quot;Assistant1&quot;,
+      &quot;claim&quot;: &quot;Incorrectly stated one of the edge lengths as 6 cm instead of 5 cm.&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;a3790ab4191a461a9de879b63753aa37:s2:74a0191240eb&quot;,
+          &quot;span_id&quot;: &quot;a3790ab4191a461a9de879b63753aa37:s2:74a0191240eb:p1&quot;,
+          &quot;quote&quot;: &quot;To find the volume of the tetrahedron with three mutually perpendicular edges of lengths \\(3 \\, \\text{cm}\\), \\(4 \\, \\text{cm}\\), and \\(6 \\, \\text{cm}\\), we can use the formula for &quot;,
+          &quot;start&quot;: 0,
+          &quot;end&quot;: 180,
+          &quot;source_author&quot;: &quot;Assistant1&quot;
+        }
+      ]
+    }
+  ],
+  &quot;provenance_accepted&quot;: true,
+  &quot;protocol_errors&quot;: []
+}</pre></details>
+<details open><summary>short + mandatory first expansion — accepted</summary><pre>{
+  &quot;fault_claims&quot;: [
+    {
+      &quot;agent_name&quot;: &quot;Assistant1&quot;,
+      &quot;claim&quot;: &quot;incorrectly calculated the volume of the tetrahedron as 12 cm³ instead of 10 cm³&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b&quot;,
+          &quot;span_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b:p11&quot;
+        }
+      ]
+    },
+    {
+      &quot;agent_name&quot;: &quot;Assistant3&quot;,
+      &quot;claim&quot;: &quot;incorrectly calculated the volume of the tetrahedron as 5 cm³ instead of 10 cm³&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400&quot;,
+          &quot;span_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400:p11&quot;
+        }
+      ]
+    },
+    {
+      &quot;agent_name&quot;: &quot;Assistant3&quot;,
+      &quot;claim&quot;: &quot;incorrectly calculated the volume of the tetrahedron as 36 cm³ instead of 10 cm³&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88&quot;,
+          &quot;span_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88:p14&quot;
+        }
+      ]
+    }
+  ],
+  &quot;retrieve_steps&quot;: []
+}</pre><pre>{
+  &quot;version&quot;: &quot;decoded-delivered-spans-v2&quot;,
+  &quot;accepted&quot;: true,
+  &quot;errors&quot;: [],
+  &quot;claims_checked&quot;: 3,
+  &quot;citations_checked&quot;: [
+    {
+      &quot;claim_index&quot;: 0,
+      &quot;citation_index&quot;: 0,
+      &quot;accepted&quot;: true,
+      &quot;reason&quot;: null
+    },
+    {
+      &quot;claim_index&quot;: 1,
+      &quot;citation_index&quot;: 0,
+      &quot;accepted&quot;: true,
+      &quot;reason&quot;: null
+    },
+    {
+      &quot;claim_index&quot;: 2,
+      &quot;citation_index&quot;: 0,
+      &quot;accepted&quot;: true,
+      &quot;reason&quot;: null
+    }
+  ],
+  &quot;session_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c&quot;,
+  &quot;evidence_sha256&quot;: &quot;5fa6fa4b6487479e48d2633d06c45c5e4746bbfe1bdabcbe2f7d75512aa9156f&quot;,
+  &quot;resolved_claims&quot;: [
+    {
+      &quot;agent_name&quot;: &quot;Assistant1&quot;,
+      &quot;claim&quot;: &quot;incorrectly calculated the volume of the tetrahedron as 12 cm³ instead of 10 cm³&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b&quot;,
+          &quot;span_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b:p11&quot;,
+          &quot;quote&quot;: &quot;\\[\nV = \\frac{72}{6} = 12 \\, \\text{cm}^3\n\\]\n\n&quot;,
+          &quot;start&quot;: 937,
+          &quot;end&quot;: 981,
+          &quot;source_author&quot;: &quot;Assistant1&quot;
+        }
+      ]
+    },
+    {
+      &quot;agent_name&quot;: &quot;Assistant3&quot;,
+      &quot;claim&quot;: &quot;incorrectly calculated the volume of the tetrahedron as 5 cm³ instead of 10 cm³&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400&quot;,
+          &quot;span_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400:p11&quot;,
+          &quot;quote&quot;: &quot;\\[\n\\boxed{5 \\, \\text{cm}^3}\n\\]&quot;,
+          &quot;start&quot;: 857,
+          &quot;end&quot;: 887,
+          &quot;source_author&quot;: &quot;Assistant3&quot;
+        }
+      ]
+    },
+    {
+      &quot;agent_name&quot;: &quot;Assistant3&quot;,
+      &quot;claim&quot;: &quot;incorrectly calculated the volume of the tetrahedron as 36 cm³ instead of 10 cm³&quot;,
+      &quot;citations&quot;: [
+        {
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88&quot;,
+          &quot;span_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88:p14&quot;,
+          &quot;quote&quot;: &quot;\\[\n\\boxed{36 \\, \\text{cm}^3}\n\\]&quot;,
+          &quot;start&quot;: 865,
+          &quot;end&quot;: 896,
+          &quot;source_author&quot;: &quot;Assistant3&quot;
+        }
+      ]
+    }
+  ],
+  &quot;provenance_accepted&quot;: true,
+  &quot;protocol_errors&quot;: []
+}</pre></details>
+<h2>Gate tests</h2>
+<div class="scroll"><table><tr><th>Test</th><th>Result</th></tr><tr><td>test_cache_version_and_configuration_are_part_of_key</td><td>passed</td></tr><tr><td>test_claim_without_citations_is_rejected</td><td>passed</td></tr><tr><td>test_clipped_event_can_support_a_valid_claim</td><td>passed</td></tr><tr><td>test_cross_author_reference_has_valid_provenance</td><td>passed</td></tr><tr><td>test_cross_session_chunk_in_ledger_is_rejected</td><td>passed</td></tr><tr><td>test_cross_session_citation_is_rejected</td><td>passed</td></tr><tr><td>test_decoded_latex_and_unicode_are_exact_not_json_escaped</td><td>passed</td></tr><tr><td>test_delivery_is_immutable_and_tampering_is_rejected</td><td>passed</td></tr><tr><td>test_delivery_roundtrip_preserves_exact_text</td><td>passed</td></tr><tr><td>test_duplicate_json_keys_are_rejected</td><td>passed</td></tr><tr><td>test_empty_and_whitespace_span_ids_are_rejected</td><td>passed</td></tr><tr><td>test_environment_cannot_disable_gate</td><td>passed</td></tr><tr><td>test_every_claim_and_every_citation_is_checked</td><td>passed</td></tr><tr><td>test_five_events_can_be_requested_but_six_cannot</td><td>passed</td></tr><tr><td>test_forced_selector_uses_only_dynamic_clipped_event_ids</td><td>passed</td></tr><tr><td>test_foreign_session_span_with_local_chunk_is_rejected</td><td>passed</td></tr><tr><td>test_generic_requested_step_is_expanded_without_labels</td><td>passed</td></tr><tr><td>test_ground_truth_metadata_is_not_delivered</td><td>passed</td></tr><tr><td>test_initial_expansion_only_applies_to_targeted_clipped_overview</td><td>passed</td></tr><tr><td>test_intermediate_claims_are_not_published</td><td>passed</td></tr><tr><td>test_invalid_response_is_fail_closed</td><td>passed</td></tr><tr><td>test_invented_id_is_rejected</td><td>passed</td></tr><tr><td>test_invented_span_is_rejected</td><td>passed</td></tr><tr><td>test_mandatory_expansion_blocks_early_publication</td><td>passed</td></tr><tr><td>test_model_cannot_disable_gate</td><td>passed</td></tr><tr><td>test_overview_shows_event_author_and_omitted_count</td><td>passed</td></tr><tr><td>test_payload_cap_is_logged_before_gate</td><td>passed</td></tr><tr><td>test_policy_cannot_disable_or_replace_gate</td><td>passed</td></tr><tr><td>test_quote_in_source_but_not_delivered_is_rejected</td><td>passed</td></tr><tr><td>test_request_and_policy_limits_are_enforced</td><td>passed</td></tr><tr><td>test_required_selector_rejects_wrong_tool_and_empty_selection</td><td>passed</td></tr><tr><td>test_retrieval_round_budget_cannot_be_exceeded</td><td>passed</td></tr><tr><td>test_retyped_quote_is_not_an_allowed_citation</td><td>passed</td></tr><tr><td>test_runner_cannot_publish_early_even_if_model_ignores_selection</td><td>passed</td></tr><tr><td>test_runner_executes_model_selected_expansion_before_diagnosis</td><td>passed</td></tr><tr><td>test_span_text_tampering_is_rejected</td><td>passed</td></tr><tr><td>test_successful_expansion_allows_publication</td><td>passed</td></tr><tr><td>test_token_totals_include_all_calls</td><td>passed</td></tr><tr><td>test_trace_instructions_cannot_disable_gate</td><td>passed</td></tr><tr><td>test_undelivered_full_chunk_id_is_rejected</td><td>passed</td></tr><tr><td>test_valid_citation_is_published</td><td>passed</td></tr><tr><td>test_valid_forced_tool_call_with_stop_finish_is_accepted</td><td>passed</td></tr><tr><td>test_whole_input_token_budget_is_enforced</td><td>passed</td></tr><tr><td>test_wrong_json_escape_is_a_real_text_difference</td><td>passed</td></tr></table></div>
+<h2>Decoded-string verification</h2><pre>{
+  &quot;status&quot;: &quot;verified&quot;,
+  &quot;matching&quot;: &quot;decoded strings; no fuzzy matching or extra unescaping&quot;,
+  &quot;findings&quot;: [
+    {
+      &quot;arm&quot;: &quot;full&quot;,
+      &quot;quote_type&quot;: &quot;str&quot;,
+      &quot;delivered_text_type&quot;: &quot;str&quot;,
+      &quot;decoded_exact_match&quot;: false,
+      &quot;contains_form_feed&quot;: true,
+      &quot;json_roundtrip_preserves_delivered_text&quot;: true
+    },
+    {
+      &quot;arm&quot;: &quot;full&quot;,
+      &quot;quote_type&quot;: &quot;str&quot;,
+      &quot;delivered_text_type&quot;: &quot;str&quot;,
+      &quot;decoded_exact_match&quot;: false,
+      &quot;contains_form_feed&quot;: true,
+      &quot;json_roundtrip_preserves_delivered_text&quot;: true
+    },
+    {
+      &quot;arm&quot;: &quot;full&quot;,
+      &quot;quote_type&quot;: &quot;str&quot;,
+      &quot;delivered_text_type&quot;: &quot;str&quot;,
+      &quot;decoded_exact_match&quot;: false,
+      &quot;contains_form_feed&quot;: true,
+      &quot;json_roundtrip_preserves_delivered_text&quot;: true
+    },
+    {
+      &quot;arm&quot;: &quot;short&quot;,
+      &quot;quote_type&quot;: &quot;str&quot;,
+      &quot;delivered_text_type&quot;: &quot;str&quot;,
+      &quot;decoded_exact_match&quot;: false,
+      &quot;contains_form_feed&quot;: false,
+      &quot;json_roundtrip_preserves_delivered_text&quot;: true
+    },
+    {
+      &quot;arm&quot;: &quot;short_targeted&quot;,
+      &quot;quote_type&quot;: &quot;str&quot;,
+      &quot;delivered_text_type&quot;: &quot;str&quot;,
+      &quot;decoded_exact_match&quot;: false,
+      &quot;contains_form_feed&quot;: false,
+      &quot;json_roundtrip_preserves_delivered_text&quot;: true
+    }
+  ]
+}</pre>
+<h2>Limits and persistence</h2><ul><li>Single S4 example, one session per arm; no general accuracy conclusion.</li><li>The gate verifies citation provenance, not whether a quotation logically proves the claim.</li><li>Mandatory first expansion is a fixed protocol rule, not learned retrieval. The investigator chooses events without label access.</li><li>All round inputs and outputs count toward usage, including provisional and rejected claims.</li><li>Prompt and evidence framing now require citations; these results are not identical-prompt reruns of the old baseline.</li></ul>
+<pre>{
+  &quot;status&quot;: &quot;verified&quot;,
+  &quot;verified_at&quot;: &quot;2026-10-11T22:18:40.547443+00:00&quot;,
+  &quot;database&quot;: &quot;aperture&quot;,
+  &quot;runs&quot;: 3,
+  &quot;calls&quot;: 4,
+  &quot;deliveries&quot;: 4,
+  &quot;retrievals&quot;: 1,
+  &quot;evaluations&quot;: 3,
+  &quot;accepted_published_results&quot;: 3,
+  &quot;gate_tests&quot;: 44
+}</pre>
+<p>Exact prompts and post-truncation chunks: <a href="deliveries.json">deliveries.json</a>. Other audit files: <a href="calls.json">calls</a> · <a href="retrievals.json">retrievals</a> · <a href="comparison.json">comparison</a> · <a href="gate-tests.json">tests</a> · <a href="configuration.json">settings and code hashes</a>.</p>
+<p>API usage fields follow the <a href="https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create">official OpenAI API reference</a>. Application cache keys include the protocol, source, settings, policy, prompt and code versions; the old uncited cache is never read.</p></main></html>

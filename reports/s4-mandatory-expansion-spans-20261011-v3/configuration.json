@@ -1,0 +1,38 @@
+{
+  "protocol": "mandatory-expansion-spans-v3",
+  "gate_version": "decoded-delivered-spans-v2",
+  "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+  "source_sha256": "8cb9cec6318660c5217c1b615690eb057c0d7d9ad3291eec88e834b3f4905f8d",
+  "known_agents": [
+    "Assistant1",
+    "Assistant2",
+    "Assistant3"
+  ],
+  "policy": {
+    "max_steps_per_round": 5,
+    "chars_per_retrieved_event": 4000
+  },
+  "max_retrieval_rounds": 2,
+  "system_prompt_sha256": "32ad02d195b66c17fb4ab50a13d2354111f04fb545178ecb5745e7cc1c2b44b4",
+  "retrieval_label": "mandatory first expansion",
+  "max_events_per_round": 5,
+  "initial_selection_control": "forced strict select_events function; IDs chosen by investigator",
+  "context_token_budget": 12000,
+  "evidence_token_budget": 10000,
+  "token_budget_note": "tiktoken for model text, plus 256 framing tokens; actual API input usage checked after every call",
+  "model_settings": {
+    "model": "gpt-4o-mini",
+    "temperature": 0,
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_completion_tokens": 2000
+  },
+  "code_sha256": {
+    "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+    "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+    "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+    "run_s4_targeted.py": "566cbbdbe777eed9eda419f1f81dadd369d08dbf77bf0a4ccc9e570149dfe65e",
+    "test_targeted_retrieval.py": "02bf77d158ddf0d5cb5c265e811111a6b3bc805b7f514433af31ce2a2276906e"
+  }
+}

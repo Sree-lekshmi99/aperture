@@ -1,0 +1,396 @@
+{
+  "tests": {
+    "passed": true,
+    "tests_run": 50,
+    "provenance_and_runner": {
+      "tests_run": 44,
+      "passed": true,
+      "results": [
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_cache_version_and_configuration_are_part_of_key",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_claim_without_citations_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_clipped_event_can_support_a_valid_claim",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_cross_author_reference_has_valid_provenance",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_chunk_in_ledger_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_citation_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_decoded_latex_and_unicode_are_exact_not_json_escaped",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_is_immutable_and_tampering_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_roundtrip_preserves_exact_text",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_duplicate_json_keys_are_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_empty_and_whitespace_span_ids_are_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_environment_cannot_disable_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_every_claim_and_every_citation_is_checked",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_five_events_can_be_requested_but_six_cannot",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_forced_selector_uses_only_dynamic_clipped_event_ids",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_foreign_session_span_with_local_chunk_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_generic_requested_step_is_expanded_without_labels",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_ground_truth_metadata_is_not_delivered",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_initial_expansion_only_applies_to_targeted_clipped_overview",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_intermediate_claims_are_not_published",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_invalid_response_is_fail_closed",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_invented_id_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_invented_span_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_mandatory_expansion_blocks_early_publication",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_model_cannot_disable_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_overview_shows_event_author_and_omitted_count",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_payload_cap_is_logged_before_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_policy_cannot_disable_or_replace_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_quote_in_source_but_not_delivered_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_request_and_policy_limits_are_enforced",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_required_selector_rejects_wrong_tool_and_empty_selection",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_retrieval_round_budget_cannot_be_exceeded",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_retyped_quote_is_not_an_allowed_citation",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_runner_cannot_publish_early_even_if_model_ignores_selection",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_runner_executes_model_selected_expansion_before_diagnosis",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_span_text_tampering_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_successful_expansion_allows_publication",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_token_totals_include_all_calls",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_trace_instructions_cannot_disable_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_undelivered_full_chunk_id_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_valid_citation_is_published",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_valid_forced_tool_call_with_stop_finish_is_accepted",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_whole_input_token_budget_is_enforced",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_wrong_json_escape_is_a_real_text_difference",
+          "status": "passed"
+        }
+      ]
+    },
+    "packing_tests": {
+      "tests_run": 6,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "local_packing_replays": [
+    {
+      "source_study": "l2-frozen-mandatory-expansion-20261011-v1",
+      "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+      "selected_saved_fixture": [
+        5,
+        8,
+        11,
+        25,
+        39
+      ],
+      "packing": {
+        "status": "ready",
+        "prepared_steps": [
+          5,
+          8,
+          11,
+          25,
+          39
+        ],
+        "input_tokens_with_framing_reserve": 11935,
+        "context_token_budget": 12000,
+        "evidence_tokens": 9499,
+        "retained_history": "one current chunk per event; no prior message transcript",
+        "selection_order": [
+          5,
+          8,
+          11,
+          25,
+          39
+        ]
+      },
+      "events": [
+        {
+          "step": 5,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 316,
+          "source_chars": 316,
+          "omitted_chars": 0,
+          "additional_chars": 136,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 8,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 1787,
+          "source_chars": 1787,
+          "omitted_chars": 0,
+          "additional_chars": 1607,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 11,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 2288,
+          "source_chars": 2288,
+          "omitted_chars": 0,
+          "additional_chars": 2108,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 25,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 2653,
+          "source_chars": 2653,
+          "omitted_chars": 0,
+          "additional_chars": 2473,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 39,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s39:23760412ec85",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 2772,
+          "source_chars": 2772,
+          "omitted_chars": 0,
+          "additional_chars": 2592,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        }
+      ],
+      "model_calls": 0
+    },
+    {
+      "source_study": "s4-mandatory-expansion-spans-20261011-v3",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "selected_saved_fixture": [
+        2,
+        4,
+        6,
+        10,
+        12
+      ],
+      "packing": {
+        "status": "ready",
+        "prepared_steps": [
+          2,
+          4,
+          6,
+          10,
+          12
+        ],
+        "input_tokens_with_framing_reserve": 7304,
+        "context_token_budget": 12000,
+        "evidence_tokens": 5708,
+        "retained_history": "one current chunk per event; no prior message transcript",
+        "selection_order": [
+          2,
+          4,
+          6,
+          10,
+          12
+        ]
+      },
+      "events": [
+        {
+          "step": 2,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 1622,
+          "source_chars": 1622,
+          "omitted_chars": 0,
+          "additional_chars": 1442,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 4,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s4:79a44a962994",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 965,
+          "source_chars": 965,
+          "omitted_chars": 0,
+          "additional_chars": 785,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 6,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s6:938fcfd3f692",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 1268,
+          "source_chars": 1268,
+          "omitted_chars": 0,
+          "additional_chars": 1088,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 10,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 887,
+          "source_chars": 887,
+          "omitted_chars": 0,
+          "additional_chars": 707,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 12,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 896,
+          "source_chars": 896,
+          "omitted_chars": 0,
+          "additional_chars": 716,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        }
+      ],
+      "model_calls": 0
+    }
+  ],
+  "original_L2_overflow_tokens": 14030
+}

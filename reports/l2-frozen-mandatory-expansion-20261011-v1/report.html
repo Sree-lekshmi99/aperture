@@ -1,0 +1,394 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aperture L2 frozen comparison</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;color:#182938;background:#f7fafb;margin:0}main{max-width:1200px;margin:auto;padding:32px 24px}.scroll{overflow-x:auto}table{border-collapse:collapse;background:white;width:100%;font-size:14px}th,td{padding:10px;border-bottom:1px solid #d9e1e6;text-align:left;vertical-align:top}th{background:#e6f0f3}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;padding:16px}details{margin:14px 0}code{overflow-wrap:anywhere}</style><main>
+<p>APERTURE · L2 ONLY · 11 OCTOBER 2026</p><h1>Frozen implementation comparison</h1><p><code>val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9</code></p>
+<p>Unmodified completed S4 implementation: gpt-4o-mini, temperature 0, JSON output, 2,000 completion tokens maximum. Identical span citation protocol and host provenance gate. Short context: 180 characters per event. Targeted: mandatory first expansion when clipped events are visible, investigator-selected events, at most two rounds and five events per round, 4,000 characters per retrieved event. Input budget: 12,000 tokens, evidence subbudget: 10,000 tokens. No prompt tuning or event-selection heuristics.</p>
+<p>Ground truth was read only after every investigator arm finished. Provenance establishes delivered evidence, not correct fault attribution. No failed arm is repaired or rerun.</p>
+<div class="scroll"><table><tr><th>Arm</th><th>Predictions</th><th>Candidate F1</th><th>Exact</th><th>Gate/status</th><th>Rejection reasons</th><th>Input</th><th>Output</th><th>All-call tokens</th><th>Calls</th></tr><tr><td>capped-large</td><td>[&#x27;Searcher&#x27;]</td><td>0.0</td><td>False</td><td>accepted</td><td>[]</td><td>11499</td><td>209</td><td>11708</td><td>1</td></tr><tr><td>short context</td><td>[&#x27;Searcher&#x27;]</td><td>0.0</td><td>False</td><td>accepted</td><td>[]</td><td>9948</td><td>459</td><td>10407</td><td>1</td></tr><tr><td>short + mandatory first expansion</td><td>None</td><td>None</td><td>None</td><td>error</td><td>[]</td><td>10348</td><td>14</td><td>10362</td><td>1</td></tr></table></div>
+<p>Actual faulty agents (evaluation only): Manager</p>
+<h2>Model-selected retrieval and delivery audit</h2><p><strong>No expanded events reached the investigator.</strong> Events 5, 8, 11, 25 and 39 were prepared locally, but the next input required 14,030 tokens against a 12,000-token budget. The request was blocked before sending. The original frozen retrieval log uses “delivered” for this preparation stage; it does not establish API delivery.</p>
+<div class="scroll"><table><tr><th>Round</th><th>Selected events</th><th>Prepared locally (NOT received)</th><th>Details</th></tr><tr><td>1</td><td>[5, 8, 11, 25, 39]</td><td>[5, 8, 11, 25, 39]</td><td>[{&quot;step&quot;: 5, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e&quot;, &quot;delivered_chars&quot;: 316, &quot;source_chars&quot;: 316, &quot;truncated&quot;: false, &quot;expanded_beyond_overview&quot;: true}, {&quot;step&quot;: 8, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c&quot;, &quot;delivered_chars&quot;: 1787, &quot;source_chars&quot;: 1787, &quot;truncated&quot;: false, &quot;expanded_beyond_overview&quot;: true}, {&quot;step&quot;: 11, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e&quot;, &quot;delivered_chars&quot;: 2288, &quot;source_chars&quot;: 2288, &quot;truncated&quot;: false, &quot;expanded_beyond_overview&quot;: true}, {&quot;step&quot;: 25, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa&quot;, &quot;delivered_chars&quot;: 2653, &quot;source_chars&quot;: 2653, &quot;truncated&quot;: false, &quot;expanded_beyond_overview&quot;: true}, {&quot;step&quot;: 39, &quot;status&quot;: &quot;delivered&quot;, &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s39:e36b18addeb2&quot;, &quot;delivered_chars&quot;: 1817, &quot;source_chars&quot;: 2772, &quot;truncated&quot;: true, &quot;expanded_beyond_overview&quot;: true}]</td></tr></table></div>
+<h2>Every call, including selection and provisional diagnoses</h2>
+<div class="scroll"><table><tr><th>Arm</th><th>Round</th><th>Status</th><th>Input</th><th>Output</th><th>Total</th><th>Seconds</th><th>Requested events</th></tr><tr><td>full</td><td>0</td><td>complete</td><td>11499</td><td>209</td><td>11708</td><td>3.834</td><td>[]</td></tr><tr><td>short</td><td>0</td><td>complete</td><td>9948</td><td>459</td><td>10407</td><td>4.391</td><td>[]</td></tr><tr><td>short_targeted</td><td>0</td><td>complete</td><td>10348</td><td>14</td><td>10362</td><td>1.259</td><td>[5, 8, 11, 25, 39]</td></tr></table></div>
+<pre>{
+  &quot;total_api_attempts&quot;: 3,
+  &quot;metered_calls&quot;: 3,
+  &quot;all_calls_usage&quot;: {
+    &quot;prompt_tokens&quot;: 31795,
+    &quot;completion_tokens&quot;: 682,
+    &quot;total_tokens&quot;: 32477
+  },
+  &quot;accepted_arm_calls&quot;: 2,
+  &quot;accepted_arm_usage&quot;: {
+    &quot;prompt_tokens&quot;: 21447,
+    &quot;completion_tokens&quot;: 668,
+    &quot;total_tokens&quot;: 22115
+  },
+  &quot;failed_or_rejected_arm_calls&quot;: 1,
+  &quot;failed_or_rejected_arm_usage&quot;: {
+    &quot;prompt_tokens&quot;: 10348,
+    &quot;completion_tokens&quot;: 14,
+    &quot;total_tokens&quot;: 10362
+  },
+  &quot;unmetered_api_attempts&quot;: [],
+  &quot;automatic_retries&quot;: 0,
+  &quot;experiment_reruns&quot;: 0,
+  &quot;cache_reused&quot;: false,
+  &quot;failures&quot;: [
+    {
+      &quot;arm&quot;: &quot;short_targeted&quot;,
+      &quot;error_class&quot;: &quot;ValueError&quot;,
+      &quot;http_status&quot;: null,
+      &quot;raw_error_redacted&quot;: true,
+      &quot;at&quot;: &quot;2026-10-11T22:39:35.081660+00:00&quot;,
+      &quot;reason&quot;: &quot;Input exceeds host context-token budget&quot;
+    }
+  ],
+  &quot;prior_S4_calls_included&quot;: false,
+  &quot;failed_attempt_stage&quot;: &quot;input_budget_enforcement_before_second_call&quot;,
+  &quot;unsent_requests_after_budget_failure&quot;: 1
+}</pre>
+<h2>Truncation after budget enforcement</h2>
+<div class="scroll"><table><tr><th>Arm</th><th>Call round</th><th>Evidence chars</th><th>Unique source chars delivered</th><th>Unique source chars omitted</th><th>Complete events</th><th>Clipped events</th><th>Entirely omitted</th></tr><tr><td>capped-large</td><td>0</td><td>32236</td><td>26672</td><td>46492</td><td>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]</td><td>[15]</td><td>[16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]</td></tr><tr><td>short context</td><td>0</td><td>16999</td><td>7553</td><td>65611</td><td>[4, 13, 16, 18, 24, 27, 30, 32, 38]</td><td>[1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17, 19, 20, 21, 22, 23, 25, 26, 28, 29, 31, 33, 34, 35, 36, 37, 39, 40, 41, 42, 43, 44, 45]</td><td>[]</td></tr><tr><td>short + mandatory first expansion</td><td>0</td><td>16999</td><td>7553</td><td>65611</td><td>[4, 13, 16, 18, 24, 27, 30, 32, 38]</td><td>[1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17, 19, 20, 21, 22, 23, 25, 26, 28, 29, 31, 33, 34, 35, 36, 37, 39, 40, 41, 42, 43, 44, 45]</td><td>[]</td></tr></table></div>
+<h2>Targeted failure audit</h2><p>The targeted arm produced no final diagnosis, so F1 and exact match are unavailable and the final provenance gate was not reached. Its selection response passed schema validation with zero claims. The accepted baseline diagnoses had valid citations but incorrect attribution.</p><pre>{
+  &quot;stage&quot;: &quot;input_budget_enforcement_before_second_call&quot;,
+  &quot;reason&quot;: &quot;Input exceeds host context-token budget&quot;,
+  &quot;input_tokens_with_framing_reserve&quot;: 14030,
+  &quot;input_token_budget&quot;: 12000,
+  &quot;prepared_evidence_tokens&quot;: 9954,
+  &quot;evidence_token_budget&quot;: 10000,
+  &quot;selected_events&quot;: [
+    5,
+    8,
+    11,
+    25,
+    39
+  ],
+  &quot;prepared_expansions&quot;: [
+    {
+      &quot;step&quot;: 5,
+      &quot;status&quot;: &quot;delivered&quot;,
+      &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e&quot;,
+      &quot;delivered_chars&quot;: 316,
+      &quot;source_chars&quot;: 316,
+      &quot;truncated&quot;: false,
+      &quot;expanded_beyond_overview&quot;: true
+    },
+    {
+      &quot;step&quot;: 8,
+      &quot;status&quot;: &quot;delivered&quot;,
+      &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c&quot;,
+      &quot;delivered_chars&quot;: 1787,
+      &quot;source_chars&quot;: 1787,
+      &quot;truncated&quot;: false,
+      &quot;expanded_beyond_overview&quot;: true
+    },
+    {
+      &quot;step&quot;: 11,
+      &quot;status&quot;: &quot;delivered&quot;,
+      &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e&quot;,
+      &quot;delivered_chars&quot;: 2288,
+      &quot;source_chars&quot;: 2288,
+      &quot;truncated&quot;: false,
+      &quot;expanded_beyond_overview&quot;: true
+    },
+    {
+      &quot;step&quot;: 25,
+      &quot;status&quot;: &quot;delivered&quot;,
+      &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa&quot;,
+      &quot;delivered_chars&quot;: 2653,
+      &quot;source_chars&quot;: 2653,
+      &quot;truncated&quot;: false,
+      &quot;expanded_beyond_overview&quot;: true
+    },
+    {
+      &quot;step&quot;: 39,
+      &quot;status&quot;: &quot;delivered&quot;,
+      &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s39:e36b18addeb2&quot;,
+      &quot;delivered_chars&quot;: 1817,
+      &quot;source_chars&quot;: 2772,
+      &quot;truncated&quot;: true,
+      &quot;expanded_beyond_overview&quot;: true
+    }
+  ],
+  &quot;expanded_events_actually_received_by_investigator&quot;: [],
+  &quot;only_received_evidence&quot;: &quot;mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:delivery0&quot;,
+  &quot;second_api_call_made&quot;: false,
+  &quot;second_delivery_registered&quot;: false,
+  &quot;final_diagnosis_produced&quot;: false,
+  &quot;final_provenance_gate_reached&quot;: false,
+  &quot;selection_gate_note&quot;: &quot;Selection schema passed with zero fault claims; this is not an accepted final diagnosis.&quot;,
+  &quot;frozen_log_note&quot;: &quot;The frozen retrieval log labels prepared chunks as delivered. Transport audit confirms no expansion reached the investigator because the next request failed its input-budget check.&quot;,
+  &quot;cause&quot;: &quot;Evidence fit the 10,000-token subbudget, but instructions, event overview, citation framing and reserve pushed the complete input above 12,000 tokens.&quot;,
+  &quot;audit_method&quot;: &quot;Reconstructed exact prepared context from persisted source, session, initial evidence and model selection; no model calls or source edits.&quot;,
+  &quot;failed_arm_usage&quot;: {
+    &quot;prompt_tokens&quot;: 10348,
+    &quot;completion_tokens&quot;: 14,
+    &quot;total_tokens&quot;: 10362
+  },
+  &quot;failure_reproduced_read_only&quot;: true
+}</pre><p><a href="blocked-context.json">Prepared but unsent context audit</a> is separate from the received-evidence log.</p><h2>Final candidate and gate audit</h2>
+<details open><summary>capped-large</summary><pre>{
+  &quot;candidate&quot;: {
+    &quot;fault_claims&quot;: [
+      {
+        &quot;agent_name&quot;: &quot;Searcher&quot;,
+        &quot;claim&quot;: &quot;failed to extract any Blu-Ray titles from the inventory data despite multiple attempts&quot;,
+        &quot;citations&quot;: [
+          {
+            &quot;chunk_id&quot;: &quot;28e57557c41c4a70978b225ff6d9cda3:s13:c880cee58bbe&quot;,
+            &quot;span_id&quot;: &quot;28e57557c41c4a70978b225ff6d9cda3:s13:c880cee58bbe:p1&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;28e57557c41c4a70978b225ff6d9cda3:s14:79dcc6965ba3&quot;,
+            &quot;span_id&quot;: &quot;28e57557c41c4a70978b225ff6d9cda3:s14:79dcc6965ba3:p1&quot;
+          }
+        ]
+      }
+    ],
+    &quot;retrieve_steps&quot;: []
+  },
+  &quot;gate&quot;: {
+    &quot;version&quot;: &quot;decoded-delivered-spans-v2&quot;,
+    &quot;accepted&quot;: true,
+    &quot;errors&quot;: [],
+    &quot;claims_checked&quot;: 1,
+    &quot;citations_checked&quot;: [
+      {
+        &quot;claim_index&quot;: 0,
+        &quot;citation_index&quot;: 0,
+        &quot;accepted&quot;: true,
+        &quot;reason&quot;: null
+      },
+      {
+        &quot;claim_index&quot;: 0,
+        &quot;citation_index&quot;: 1,
+        &quot;accepted&quot;: true,
+        &quot;reason&quot;: null
+      }
+    ],
+    &quot;session_id&quot;: &quot;28e57557c41c4a70978b225ff6d9cda3&quot;,
+    &quot;evidence_sha256&quot;: &quot;4c1f75aab347e35704b4197e48de5ee0e41f3faab35ffd45a35f44c30eb553ac&quot;,
+    &quot;resolved_claims&quot;: [
+      {
+        &quot;agent_name&quot;: &quot;Searcher&quot;,
+        &quot;claim&quot;: &quot;failed to extract any Blu-Ray titles from the inventory data despite multiple attempts&quot;,
+        &quot;citations&quot;: [
+          {
+            &quot;chunk_id&quot;: &quot;28e57557c41c4a70978b225ff6d9cda3:s13:c880cee58bbe&quot;,
+            &quot;span_id&quot;: &quot;28e57557c41c4a70978b225ff6d9cda3:s13:c880cee58bbe:p1&quot;,
+            &quot;quote&quot;: &quot;[{&#x27;type&#x27;: &#x27;text&#x27;, &#x27;text&#x27;: &#x27;Observation:\\nExecution logs:\\nNo Blu-Ray titles found.\\nLast output from code snippet:\\nParty&#x27;}]&quot;,
+            &quot;start&quot;: 0,
+            &quot;end&quot;: 124,
+            &quot;source_author&quot;: &quot;Searcher&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;28e57557c41c4a70978b225ff6d9cda3:s14:79dcc6965ba3&quot;,
+            &quot;span_id&quot;: &quot;28e57557c41c4a70978b225ff6d9cda3:s14:79dcc6965ba3:p1&quot;,
+            &quot;quote&quot;: &quot;[{&#x27;type&#x27;: &#x27;text&#x27;, &#x27;text&#x27;: &#x27;It appears that while attempting to locate the Blu-Ray titles, I wasn\\&#x27;t able to extract any data, likely due to how the data is separated or structured in the spreadsheet.\\n\\nGiven that the output states \&quot;No Blu-Ray titles found,\&quot; I will take a different approach. Instead of splitting by the pipe character, which may not be the delimiter in this context, I will try to simply read the lines and look for the \&quot;Blu-Ray\&quot; section without assuming any specific delimiters.\\n\\nI will redefine my method to handle the data extraction more flexibly without assuming the specific&quot;,
+            &quot;start&quot;: 0,
+            &quot;end&quot;: 600,
+            &quot;source_author&quot;: &quot;Manager&quot;
+          }
+        ]
+      }
+    ],
+    &quot;provenance_accepted&quot;: true,
+    &quot;protocol_errors&quot;: []
+  },
+  &quot;error&quot;: null
+}</pre></details>
+<details open><summary>short context</summary><pre>{
+  &quot;candidate&quot;: {
+    &quot;fault_claims&quot;: [
+      {
+        &quot;agent_name&quot;: &quot;Searcher&quot;,
+        &quot;claim&quot;: &quot;Failed to extract any valid Blu-Ray titles from the inventory despite multiple attempts.&quot;,
+        &quot;citations&quot;: [
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s13:c880cee58bbe&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s13:c880cee58bbe:p1&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s24:5548fa7f2c0b&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s24:5548fa7f2c0b:p1&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s30:7a436d068c54&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s30:7a436d068c54:p1&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s41:20ccdf8cc1e8&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s41:20ccdf8cc1e8:p1&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s42:71c3260a6d92&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s42:71c3260a6d92:p1&quot;
+          }
+        ]
+      }
+    ],
+    &quot;retrieve_steps&quot;: []
+  },
+  &quot;gate&quot;: {
+    &quot;version&quot;: &quot;decoded-delivered-spans-v2&quot;,
+    &quot;accepted&quot;: true,
+    &quot;errors&quot;: [],
+    &quot;claims_checked&quot;: 1,
+    &quot;citations_checked&quot;: [
+      {
+        &quot;claim_index&quot;: 0,
+        &quot;citation_index&quot;: 0,
+        &quot;accepted&quot;: true,
+        &quot;reason&quot;: null
+      },
+      {
+        &quot;claim_index&quot;: 0,
+        &quot;citation_index&quot;: 1,
+        &quot;accepted&quot;: true,
+        &quot;reason&quot;: null
+      },
+      {
+        &quot;claim_index&quot;: 0,
+        &quot;citation_index&quot;: 2,
+        &quot;accepted&quot;: true,
+        &quot;reason&quot;: null
+      },
+      {
+        &quot;claim_index&quot;: 0,
+        &quot;citation_index&quot;: 3,
+        &quot;accepted&quot;: true,
+        &quot;reason&quot;: null
+      },
+      {
+        &quot;claim_index&quot;: 0,
+        &quot;citation_index&quot;: 4,
+        &quot;accepted&quot;: true,
+        &quot;reason&quot;: null
+      }
+    ],
+    &quot;session_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d&quot;,
+    &quot;evidence_sha256&quot;: &quot;67e2ea7c5071de8baaa0d4c2cb532d2f2a978145beb2efd38498ce5b156ce1f3&quot;,
+    &quot;resolved_claims&quot;: [
+      {
+        &quot;agent_name&quot;: &quot;Searcher&quot;,
+        &quot;claim&quot;: &quot;Failed to extract any valid Blu-Ray titles from the inventory despite multiple attempts.&quot;,
+        &quot;citations&quot;: [
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s13:c880cee58bbe&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s13:c880cee58bbe:p1&quot;,
+            &quot;quote&quot;: &quot;[{&#x27;type&#x27;: &#x27;text&#x27;, &#x27;text&#x27;: &#x27;Observation:\\nExecution logs:\\nNo Blu-Ray titles found.\\nLast output from code snippet:\\nParty&#x27;}]&quot;,
+            &quot;start&quot;: 0,
+            &quot;end&quot;: 124,
+            &quot;source_author&quot;: &quot;Searcher&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s24:5548fa7f2c0b&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s24:5548fa7f2c0b:p1&quot;,
+            &quot;quote&quot;: &quot;[{&#x27;type&#x27;: &#x27;text&#x27;, &#x27;text&#x27;: &#x27;Observation:\\nExecution logs:\\nNo Blu-Ray titles found in the Blu-Ray section.\\nLast output from code snippet:\\nAdventure&#x27;}]&quot;,
+            &quot;start&quot;: 0,
+            &quot;end&quot;: 151,
+            &quot;source_author&quot;: &quot;Searcher&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s30:7a436d068c54&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s30:7a436d068c54:p1&quot;,
+            &quot;quote&quot;: &quot;[{&#x27;type&#x27;: &#x27;text&#x27;, &#x27;text&#x27;: &#x27;Observation:\\nExecution logs:\\nNo valid Blu-Ray titles found in the section.\\nLast output from code snippet:\\nAdventure&#x27;}]&quot;,
+            &quot;start&quot;: 0,
+            &quot;end&quot;: 149,
+            &quot;source_author&quot;: &quot;Searcher&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s41:20ccdf8cc1e8&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s41:20ccdf8cc1e8:p1&quot;,
+            &quot;quote&quot;: &quot;[{&#x27;type&#x27;: &#x27;text&#x27;, &#x27;text&#x27;: &#x27;Observation:\\nExecution logs:\\nCollected Blu-Ray titles and years: []\\nNo valid Blu-Ray titles found in the section.\\nLast output from code snippet:\\nAdv&quot;,
+            &quot;start&quot;: 0,
+            &quot;end&quot;: 180,
+            &quot;source_author&quot;: &quot;Searcher&quot;
+          },
+          {
+            &quot;chunk_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s42:71c3260a6d92&quot;,
+            &quot;span_id&quot;: &quot;a8641f5ad49f418e9776fbe63b40ea4d:s42:71c3260a6d92:p1&quot;,
+            &quot;quote&quot;: &quot;[{&#x27;type&#x27;: &#x27;text&#x27;, &#x27;text&#x27;: &#x27;It is evident from the collected output that my attempts to retrieve valid Blu-Ray titles from the inventory have not succeeded. The data extraction proc&quot;,
+            &quot;start&quot;: 0,
+            &quot;end&quot;: 180,
+            &quot;source_author&quot;: &quot;Manager&quot;
+          }
+        ]
+      }
+    ],
+    &quot;provenance_accepted&quot;: true,
+    &quot;protocol_errors&quot;: []
+  },
+  &quot;error&quot;: null
+}</pre></details>
+<details open><summary>short + mandatory first expansion</summary><pre>{
+  &quot;candidate&quot;: null,
+  &quot;gate&quot;: null,
+  &quot;error&quot;: &quot;ValueError&quot;
+}</pre></details>
+<h2>Freeze, tests, and Atlas verification</h2><pre>{
+  &quot;freeze&quot;: {
+    &quot;reference_study&quot;: &quot;s4-mandatory-expansion-spans-20261011-v3&quot;,
+    &quot;code_sha256_before&quot;: {
+      &quot;aperture.py&quot;: &quot;061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912&quot;,
+      &quot;provenance_gate.py&quot;: &quot;91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f&quot;,
+      &quot;targeted_retrieval.py&quot;: &quot;3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a&quot;,
+      &quot;run_s4_targeted.py&quot;: &quot;ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1&quot;,
+      &quot;test_targeted_retrieval.py&quot;: &quot;400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02&quot;
+    },
+    &quot;additional_hashes_before&quot;: {
+      &quot;dashboard.py&quot;: &quot;9ec718351b361260975e420d8335a7d8fd03afe020f28f58faec1d902e3bda3c&quot;,
+      &quot;requirements.txt&quot;: &quot;44b29ae6ee8f0ce63c8c1839e56fffeddfde19de7406a9e8032c11d7fcc61821&quot;
+    },
+    &quot;matches_completed_s4&quot;: true,
+    &quot;driver_sha256&quot;: &quot;f1fdbcce2fcf1406223acd899cce43a7f93fa2ea45a6e82ffac7bb1216c78ecd&quot;,
+    &quot;only_runtime_overrides&quot;: [
+      &quot;TRACE_ID&quot;,
+      &quot;STUDY_ID&quot;,
+      &quot;OUT&quot;
+    ],
+    &quot;only_config_differences&quot;: [
+      &quot;trace_id&quot;,
+      &quot;source_sha256&quot;,
+      &quot;known_agents&quot;,
+      &quot;code_sha256 (completed S4 decoder recovery)&quot;,
+      &quot;experiment_id (fresh-cache namespace)&quot;
+    ],
+    &quot;code_sha256_after&quot;: {
+      &quot;aperture.py&quot;: &quot;061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912&quot;,
+      &quot;provenance_gate.py&quot;: &quot;91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f&quot;,
+      &quot;targeted_retrieval.py&quot;: &quot;3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a&quot;,
+      &quot;run_s4_targeted.py&quot;: &quot;ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1&quot;,
+      &quot;test_targeted_retrieval.py&quot;: &quot;400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02&quot;
+    },
+    &quot;additional_hashes_after&quot;: {
+      &quot;dashboard.py&quot;: &quot;9ec718351b361260975e420d8335a7d8fd03afe020f28f58faec1d902e3bda3c&quot;,
+      &quot;requirements.txt&quot;: &quot;44b29ae6ee8f0ce63c8c1839e56fffeddfde19de7406a9e8032c11d7fcc61821&quot;
+    },
+    &quot;unchanged_after_comparison&quot;: true
+  },
+  &quot;tests&quot;: {
+    &quot;passed&quot;: true,
+    &quot;tests_run&quot;: 44
+  },
+  &quot;persistence&quot;: {
+    &quot;status&quot;: &quot;verified&quot;,
+    &quot;at&quot;: &quot;2026-10-11T22:39:36.436544+00:00&quot;,
+    &quot;database&quot;: &quot;aperture&quot;,
+    &quot;citation_runs&quot;: 3,
+    &quot;citation_calls&quot;: 3,
+    &quot;citation_deliveries&quot;: 3,
+    &quot;citation_retrievals&quot;: 1,
+    &quot;citation_evaluations&quot;: 3,
+    &quot;accepted_published_results&quot;: 2,
+    &quot;tests&quot;: 44
+  },
+  &quot;limitations&quot;: [
+    &quot;One L2 case with one fresh session per arm; no general accuracy conclusion.&quot;,
+    &quot;Provenance acceptance does not establish attribution correctness.&quot;,
+    &quot;Mandatory first expansion is fixed behavior, not learned retrieval.&quot;,
+    &quot;Token totals include every selection, provisional diagnosis, and final diagnosis call.&quot;,
+    &quot;Unknown usage on a failed API attempt would be reported separately, never counted as zero.&quot;
+  ]
+}</pre>
+<p>Audit files: <a href="comparison.json">comparison</a> · <a href="deliveries.json">exact delivered evidence and prompts</a> · <a href="calls.json">all calls</a> · <a href="retrievals.json">retrievals</a> · <a href="configuration.json">configuration</a> · <a href="freeze.json">freeze manifest</a> · <a href="gate-tests.json">tests</a> · <a href="run_l2_frozen.py">experiment driver</a>.</p></main></html>

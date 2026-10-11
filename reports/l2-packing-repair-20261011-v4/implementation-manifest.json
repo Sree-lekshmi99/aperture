@@ -1,0 +1,22 @@
+{
+  "before": {
+    "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+    "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+    "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+    "run_s4_targeted.py": "ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1",
+    "test_targeted_retrieval.py": "400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02"
+  },
+  "after": {
+    "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+    "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+    "targeted_retrieval.py": "436112cffc7e73812d130e76d31be2af81477eb6ff6ce3230ec61b5134810433",
+    "run_s4_targeted.py": "b2b60286713bf68e80243bc722cb16cea6d2c42c6b19d14b1c5ea57bcc97146d",
+    "test_targeted_retrieval.py": "a8ea7e7a0fdfcc0ebe550db625164c62de75f495f9854c73803fecb6eaf1a0ea"
+  },
+  "new_tests": [
+    "test_context_packing.py",
+    "frozen_targeted_retrieval.py"
+  ],
+  "unchanged_gate": true,
+  "unchanged_harness_and_scoring": true
+}

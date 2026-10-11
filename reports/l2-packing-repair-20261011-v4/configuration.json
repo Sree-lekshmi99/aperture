@@ -1,0 +1,39 @@
+{
+  "protocol": "mandatory-expansion-spans-v4-packing",
+  "gate_version": "decoded-delivered-spans-v2",
+  "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+  "source_sha256": "86411ae3bba5f908192da2a8d75701d876a6542fc212d7dda1f3825c2c8df137",
+  "known_agents": [
+    "Manager",
+    "Searcher"
+  ],
+  "policy": {
+    "max_steps_per_round": 5,
+    "chars_per_retrieved_event": 4000
+  },
+  "max_retrieval_rounds": 2,
+  "system_prompt_sha256": "32ad02d195b66c17fb4ab50a13d2354111f04fb545178ecb5745e7cc1c2b44b4",
+  "retrieval_label": "mandatory first expansion",
+  "max_events_per_round": 5,
+  "initial_selection_control": "forced strict select_events function; IDs chosen by investigator",
+  "context_token_budget": 12000,
+  "evidence_token_budget": 10000,
+  "token_budget_note": "serialized full message/tool/response-format payload plus the existing 256-token reserve; verified before sending and against actual API usage",
+  "model_settings": {
+    "model": "gpt-4o-mini",
+    "temperature": 0,
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_completion_tokens": 2000
+  },
+  "code_sha256": {
+    "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+    "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+    "targeted_retrieval.py": "436112cffc7e73812d130e76d31be2af81477eb6ff6ce3230ec61b5134810433",
+    "run_s4_targeted.py": "b2b60286713bf68e80243bc722cb16cea6d2c42c6b19d14b1c5ea57bcc97146d",
+    "test_targeted_retrieval.py": "a8ea7e7a0fdfcc0ebe550db625164c62de75f495f9854c73803fecb6eaf1a0ea"
+  },
+  "experiment_id": "l2-packing-repair-20261011-v4",
+  "packing": "compact timeline; replace previews; deterministic prefixes in selection order"
+}

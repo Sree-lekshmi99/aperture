@@ -1,0 +1,78 @@
+{
+  "stage": "input_budget_enforcement_before_second_call",
+  "reason": "Input exceeds host context-token budget",
+  "input_tokens_with_framing_reserve": 14030,
+  "input_token_budget": 12000,
+  "prepared_evidence_tokens": 9954,
+  "evidence_token_budget": 10000,
+  "selected_events": [
+    5,
+    8,
+    11,
+    25,
+    39
+  ],
+  "prepared_expansions": [
+    {
+      "step": 5,
+      "status": "delivered",
+      "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e",
+      "delivered_chars": 316,
+      "source_chars": 316,
+      "truncated": false,
+      "expanded_beyond_overview": true
+    },
+    {
+      "step": 8,
+      "status": "delivered",
+      "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c",
+      "delivered_chars": 1787,
+      "source_chars": 1787,
+      "truncated": false,
+      "expanded_beyond_overview": true
+    },
+    {
+      "step": 11,
+      "status": "delivered",
+      "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e",
+      "delivered_chars": 2288,
+      "source_chars": 2288,
+      "truncated": false,
+      "expanded_beyond_overview": true
+    },
+    {
+      "step": 25,
+      "status": "delivered",
+      "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa",
+      "delivered_chars": 2653,
+      "source_chars": 2653,
+      "truncated": false,
+      "expanded_beyond_overview": true
+    },
+    {
+      "step": 39,
+      "status": "delivered",
+      "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s39:e36b18addeb2",
+      "delivered_chars": 1817,
+      "source_chars": 2772,
+      "truncated": true,
+      "expanded_beyond_overview": true
+    }
+  ],
+  "expanded_events_actually_received_by_investigator": [],
+  "only_received_evidence": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:delivery0",
+  "second_api_call_made": false,
+  "second_delivery_registered": false,
+  "final_diagnosis_produced": false,
+  "final_provenance_gate_reached": false,
+  "selection_gate_note": "Selection schema passed with zero fault claims; this is not an accepted final diagnosis.",
+  "frozen_log_note": "The frozen retrieval log labels prepared chunks as delivered. Transport audit confirms no expansion reached the investigator because the next request failed its input-budget check.",
+  "cause": "Evidence fit the 10,000-token subbudget, but instructions, event overview, citation framing and reserve pushed the complete input above 12,000 tokens.",
+  "audit_method": "Reconstructed exact prepared context from persisted source, session, initial evidence and model selection; no model calls or source edits.",
+  "failed_arm_usage": {
+    "prompt_tokens": 10348,
+    "completion_tokens": 14,
+    "total_tokens": 10362
+  },
+  "failure_reproduced_read_only": true
+}

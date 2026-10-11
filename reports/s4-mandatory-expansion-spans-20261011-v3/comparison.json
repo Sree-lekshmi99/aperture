@@ -1,0 +1,887 @@
+{
+  "study_id": "s4-mandatory-expansion-spans-20261011-v3",
+  "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+  "config": {
+    "protocol": "mandatory-expansion-spans-v3",
+    "gate_version": "decoded-delivered-spans-v2",
+    "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+    "source_sha256": "8cb9cec6318660c5217c1b615690eb057c0d7d9ad3291eec88e834b3f4905f8d",
+    "known_agents": [
+      "Assistant1",
+      "Assistant2",
+      "Assistant3"
+    ],
+    "policy": {
+      "max_steps_per_round": 5,
+      "chars_per_retrieved_event": 4000
+    },
+    "max_retrieval_rounds": 2,
+    "system_prompt_sha256": "32ad02d195b66c17fb4ab50a13d2354111f04fb545178ecb5745e7cc1c2b44b4",
+    "retrieval_label": "mandatory first expansion",
+    "max_events_per_round": 5,
+    "initial_selection_control": "forced strict select_events function; IDs chosen by investigator",
+    "context_token_budget": 12000,
+    "evidence_token_budget": 10000,
+    "token_budget_note": "tiktoken for model text, plus 256 framing tokens; actual API input usage checked after every call",
+    "model_settings": {
+      "model": "gpt-4o-mini",
+      "temperature": 0,
+      "response_format": {
+        "type": "json_object"
+      },
+      "max_completion_tokens": 2000
+    },
+    "code_sha256": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+      "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+      "run_s4_targeted.py": "566cbbdbe777eed9eda419f1f81dadd369d08dbf77bf0a4ccc9e570149dfe65e",
+      "test_targeted_retrieval.py": "02bf77d158ddf0d5cb5c265e811111a6b3bc805b7f514433af31ce2a2276906e"
+    }
+  },
+  "runs": [
+    {
+      "_id": "mandatory-expansion-spans-v3:full:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "study_id": "s4-mandatory-expansion-spans-20261011-v3",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "full",
+      "session_id": "cbfd9061a588454b8b7517e54b8e5f06",
+      "status": "accepted",
+      "created_at": "2026-10-11T22:14:14.960913+00:00",
+      "config_hash": "464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "cache_used": true,
+      "completed_at": "2026-10-11T22:14:19.361668+00:00",
+      "gate": {
+        "version": "decoded-delivered-spans-v2",
+        "accepted": true,
+        "errors": [],
+        "claims_checked": 2,
+        "citations_checked": [
+          {
+            "claim_index": 0,
+            "citation_index": 0,
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "claim_index": 1,
+            "citation_index": 0,
+            "accepted": true,
+            "reason": null
+          }
+        ],
+        "session_id": "cbfd9061a588454b8b7517e54b8e5f06",
+        "evidence_sha256": "8a020437e7c5703e7f6a3fd3c79af7b3ba30d4b758e10117c29d194440627e86",
+        "resolved_claims": [
+          {
+            "agent_name": "Assistant1",
+            "claim": "Incorrectly used the edge length of 6 cm instead of 5 cm in the volume calculation.",
+            "citations": [
+              {
+                "chunk_id": "cbfd9061a588454b8b7517e54b8e5f06:s2:ef0ea5351b2b",
+                "span_id": "cbfd9061a588454b8b7517e54b8e5f06:s2:ef0ea5351b2b:p6",
+                "quote": "- \\(a = 3 \\, \\text{cm}\\)\n- \\(b = 4 \\, \\text{cm}\\)\n- \\(c = 6 \\, \\text{cm}\\)\n\n",
+                "start": 623,
+                "end": 699,
+                "source_author": "Assistant1"
+              }
+            ]
+          },
+          {
+            "agent_name": "Assistant3",
+            "claim": "Incorrectly calculated the volume using the formula for a tetrahedron with a factor of 1/12 instead of 1/6.",
+            "citations": [
+              {
+                "chunk_id": "cbfd9061a588454b8b7517e54b8e5f06:s10:d7d992712400",
+                "span_id": "cbfd9061a588454b8b7517e54b8e5f06:s10:d7d992712400:p2",
+                "quote": "\\[\nV = \\frac{1}{12} \\times a \\times b \\times c\n\\]\n\n",
+                "start": 337,
+                "end": 388,
+                "source_author": "Assistant3"
+              }
+            ]
+          }
+        ],
+        "provenance_accepted": true,
+        "protocol_errors": []
+      },
+      "final_call_id": "mandatory-expansion-spans-v3:full:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c:call0",
+      "candidate_predicted_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "published_predicted_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "usage": {
+        "prompt_tokens": 11244,
+        "completion_tokens": 274,
+        "total_tokens": 11518
+      },
+      "call_count": 1,
+      "retrieval_rounds": 0,
+      "requested_steps": [],
+      "actually_delivered_steps": [],
+      "actually_expanded_steps": [],
+      "mandatory_first_expansion": false,
+      "context_label": "capped-large",
+      "initial_context_clipped": true,
+      "retrieval_label": "fixed context",
+      "total_execution_seconds": 3.372,
+      "context_chars_by_call": [
+        23697
+      ],
+      "returned_models": [
+        "gpt-4o-mini-2024-07-18"
+      ]
+    },
+    {
+      "_id": "mandatory-expansion-spans-v3:short:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "study_id": "s4-mandatory-expansion-spans-20261011-v3",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "short",
+      "session_id": "a3790ab4191a461a9de879b63753aa37",
+      "status": "accepted",
+      "created_at": "2026-10-11T22:14:19.452725+00:00",
+      "config_hash": "464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "cache_used": true,
+      "completed_at": "2026-10-11T22:14:21.598555+00:00",
+      "gate": {
+        "version": "decoded-delivered-spans-v2",
+        "accepted": true,
+        "errors": [],
+        "claims_checked": 1,
+        "citations_checked": [
+          {
+            "claim_index": 0,
+            "citation_index": 0,
+            "accepted": true,
+            "reason": null
+          }
+        ],
+        "session_id": "a3790ab4191a461a9de879b63753aa37",
+        "evidence_sha256": "8d88df6aeae649abd812ca6621411801dec81ea6e31ca33654710e3e3f3ef3da",
+        "resolved_claims": [
+          {
+            "agent_name": "Assistant1",
+            "claim": "Incorrectly stated one of the edge lengths as 6 cm instead of 5 cm.",
+            "citations": [
+              {
+                "chunk_id": "a3790ab4191a461a9de879b63753aa37:s2:74a0191240eb",
+                "span_id": "a3790ab4191a461a9de879b63753aa37:s2:74a0191240eb:p1",
+                "quote": "To find the volume of the tetrahedron with three mutually perpendicular edges of lengths \\(3 \\, \\text{cm}\\), \\(4 \\, \\text{cm}\\), and \\(6 \\, \\text{cm}\\), we can use the formula for ",
+                "start": 0,
+                "end": 180,
+                "source_author": "Assistant1"
+              }
+            ]
+          }
+        ],
+        "provenance_accepted": true,
+        "protocol_errors": []
+      },
+      "final_call_id": "mandatory-expansion-spans-v3:short:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c:call0",
+      "candidate_predicted_agents": [
+        "Assistant1"
+      ],
+      "published_predicted_agents": [
+        "Assistant1"
+      ],
+      "usage": {
+        "prompt_tokens": 3007,
+        "completion_tokens": 133,
+        "total_tokens": 3140
+      },
+      "call_count": 1,
+      "retrieval_rounds": 0,
+      "requested_steps": [],
+      "actually_delivered_steps": [],
+      "actually_expanded_steps": [],
+      "mandatory_first_expansion": false,
+      "context_label": "short context",
+      "initial_context_clipped": true,
+      "retrieval_label": "fixed context",
+      "total_execution_seconds": 1.537,
+      "context_chars_by_call": [
+        4920
+      ],
+      "returned_models": [
+        "gpt-4o-mini-2024-07-18"
+      ]
+    },
+    {
+      "_id": "mandatory-expansion-spans-v3:short_targeted:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "study_id": "s4-mandatory-expansion-spans-20261011-v3",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "short_targeted",
+      "session_id": "fc821c1ca07141b6a46e95c8594a236c",
+      "status": "accepted",
+      "created_at": "2026-10-11T22:14:21.724468+00:00",
+      "config_hash": "464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "cache_used": false,
+      "completed_at": "2026-10-11T22:18:39.454361+00:00",
+      "gate": {
+        "version": "decoded-delivered-spans-v2",
+        "accepted": true,
+        "errors": [],
+        "claims_checked": 3,
+        "citations_checked": [
+          {
+            "claim_index": 0,
+            "citation_index": 0,
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "claim_index": 1,
+            "citation_index": 0,
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "claim_index": 2,
+            "citation_index": 0,
+            "accepted": true,
+            "reason": null
+          }
+        ],
+        "session_id": "fc821c1ca07141b6a46e95c8594a236c",
+        "evidence_sha256": "5fa6fa4b6487479e48d2633d06c45c5e4746bbfe1bdabcbe2f7d75512aa9156f",
+        "resolved_claims": [
+          {
+            "agent_name": "Assistant1",
+            "claim": "incorrectly calculated the volume of the tetrahedron as 12 cm³ instead of 10 cm³",
+            "citations": [
+              {
+                "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b",
+                "span_id": "fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b:p11",
+                "quote": "\\[\nV = \\frac{72}{6} = 12 \\, \\text{cm}^3\n\\]\n\n",
+                "start": 937,
+                "end": 981,
+                "source_author": "Assistant1"
+              }
+            ]
+          },
+          {
+            "agent_name": "Assistant3",
+            "claim": "incorrectly calculated the volume of the tetrahedron as 5 cm³ instead of 10 cm³",
+            "citations": [
+              {
+                "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400",
+                "span_id": "fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400:p11",
+                "quote": "\\[\n\\boxed{5 \\, \\text{cm}^3}\n\\]",
+                "start": 857,
+                "end": 887,
+                "source_author": "Assistant3"
+              }
+            ]
+          },
+          {
+            "agent_name": "Assistant3",
+            "claim": "incorrectly calculated the volume of the tetrahedron as 36 cm³ instead of 10 cm³",
+            "citations": [
+              {
+                "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88",
+                "span_id": "fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88:p14",
+                "quote": "\\[\n\\boxed{36 \\, \\text{cm}^3}\n\\]",
+                "start": 865,
+                "end": 896,
+                "source_author": "Assistant3"
+              }
+            ]
+          }
+        ],
+        "provenance_accepted": true,
+        "protocol_errors": []
+      },
+      "final_call_id": "mandatory-expansion-spans-v3:short_targeted:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c:call1",
+      "candidate_predicted_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "published_predicted_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "usage": {
+        "prompt_tokens": 11264,
+        "completion_tokens": 404,
+        "total_tokens": 11668
+      },
+      "call_count": 2,
+      "retrieval_rounds": 1,
+      "requested_steps": [
+        [
+          2,
+          4,
+          6,
+          10,
+          12
+        ]
+      ],
+      "actually_delivered_steps": [
+        [
+          2,
+          4,
+          6,
+          10,
+          12
+        ]
+      ],
+      "actually_expanded_steps": [
+        2,
+        4,
+        6,
+        10,
+        12
+      ],
+      "mandatory_first_expansion": true,
+      "context_label": "short + mandatory first expansion",
+      "initial_context_clipped": true,
+      "retrieval_label": "mandatory first expansion",
+      "total_execution_seconds": 5.399,
+      "context_chars_by_call": [
+        4920,
+        15817
+      ],
+      "returned_models": [
+        "gpt-4o-mini-2024-07-18"
+      ],
+      "decoder_recovery": {
+        "reason": "Valid forced tool call returned finish_reason=stop; re-decoded without a model call.",
+        "at": "2026-10-11T22:18:33.924493+00:00",
+        "original_candidate": {
+          "invalid_required_selection": true
+        },
+        "original_gate": {
+          "version": "decoded-delivered-spans-v2",
+          "accepted": false,
+          "errors": [
+            "response_schema",
+            "response_lists_required"
+          ],
+          "claims_checked": 0,
+          "citations_checked": [],
+          "session_id": "fc821c1ca07141b6a46e95c8594a236c",
+          "evidence_sha256": "e7b34fc853d2091ee64be1a35abdcc3faf2229161a232568cc266b719b10cf3d",
+          "resolved_claims": []
+        },
+        "original_protocol_errors": [
+          "mandatory_first_expansion_selection_required"
+        ],
+        "original_code_sha256": {
+          "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+          "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+          "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+          "run_s4_targeted.py": "566cbbdbe777eed9eda419f1f81dadd369d08dbf77bf0a4ccc9e570149dfe65e",
+          "test_targeted_retrieval.py": "02bf77d158ddf0d5cb5c265e811111a6b3bc805b7f514433af31ce2a2276906e"
+        },
+        "recovery_code_sha256": {
+          "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+          "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+          "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+          "run_s4_targeted.py": "ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1",
+          "test_targeted_retrieval.py": "400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02"
+        }
+      }
+    }
+  ],
+  "evaluations": [
+    {
+      "_id": "mandatory-expansion-spans-v3:full:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "study_id": "s4-mandatory-expansion-spans-20261011-v3",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "full",
+      "actual_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "candidate_predicted_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "candidate_f1": 1.0,
+      "candidate_exact_match": true,
+      "published_f1": 1.0,
+      "published_exact_match": true,
+      "false_positives": [],
+      "false_negatives": []
+    },
+    {
+      "_id": "mandatory-expansion-spans-v3:short:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "study_id": "s4-mandatory-expansion-spans-20261011-v3",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "short",
+      "actual_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "candidate_predicted_agents": [
+        "Assistant1"
+      ],
+      "candidate_f1": 0.6667,
+      "candidate_exact_match": false,
+      "published_f1": 0.6667,
+      "published_exact_match": false,
+      "false_positives": [],
+      "false_negatives": [
+        "Assistant3"
+      ]
+    },
+    {
+      "_id": "mandatory-expansion-spans-v3:short_targeted:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "study_id": "s4-mandatory-expansion-spans-20261011-v3",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "short_targeted",
+      "actual_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "candidate_predicted_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "candidate_f1": 1.0,
+      "candidate_exact_match": true,
+      "published_f1": 1.0,
+      "published_exact_match": true,
+      "false_positives": [],
+      "false_negatives": []
+    }
+  ],
+  "formula_visibility": [
+    {
+      "arm": "full",
+      "formulas": [
+        {
+          "step": 10,
+          "formula": "V = \\frac{1}{12} \\times a \\times b \\times c",
+          "delivered": true,
+          "first_call_round": 0
+        },
+        {
+          "step": 12,
+          "formula": "V = \\frac{1}{4} \\times (a + b + c)^2",
+          "delivered": false,
+          "first_call_round": null
+        }
+      ]
+    },
+    {
+      "arm": "short",
+      "formulas": [
+        {
+          "step": 10,
+          "formula": "V = \\frac{1}{12} \\times a \\times b \\times c",
+          "delivered": false,
+          "first_call_round": null
+        },
+        {
+          "step": 12,
+          "formula": "V = \\frac{1}{4} \\times (a + b + c)^2",
+          "delivered": false,
+          "first_call_round": null
+        }
+      ]
+    },
+    {
+      "arm": "short_targeted",
+      "formulas": [
+        {
+          "step": 10,
+          "formula": "V = \\frac{1}{12} \\times a \\times b \\times c",
+          "delivered": true,
+          "first_call_round": 1
+        },
+        {
+          "step": 12,
+          "formula": "V = \\frac{1}{4} \\times (a + b + c)^2",
+          "delivered": true,
+          "first_call_round": 1
+        }
+      ]
+    }
+  ],
+  "gate_tests": {
+    "tests_run": 44,
+    "passed": true,
+    "results": [
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cache_version_and_configuration_are_part_of_key",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_claim_without_citations_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_clipped_event_can_support_a_valid_claim",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cross_author_reference_has_valid_provenance",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_chunk_in_ledger_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_citation_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_decoded_latex_and_unicode_are_exact_not_json_escaped",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_is_immutable_and_tampering_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_roundtrip_preserves_exact_text",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_duplicate_json_keys_are_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_empty_and_whitespace_span_ids_are_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_environment_cannot_disable_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_every_claim_and_every_citation_is_checked",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_five_events_can_be_requested_but_six_cannot",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_forced_selector_uses_only_dynamic_clipped_event_ids",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_foreign_session_span_with_local_chunk_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_generic_requested_step_is_expanded_without_labels",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_ground_truth_metadata_is_not_delivered",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_initial_expansion_only_applies_to_targeted_clipped_overview",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_intermediate_claims_are_not_published",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_invalid_response_is_fail_closed",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_invented_id_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_invented_span_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_mandatory_expansion_blocks_early_publication",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_model_cannot_disable_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_overview_shows_event_author_and_omitted_count",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_payload_cap_is_logged_before_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_policy_cannot_disable_or_replace_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_quote_in_source_but_not_delivered_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_request_and_policy_limits_are_enforced",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_required_selector_rejects_wrong_tool_and_empty_selection",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_retrieval_round_budget_cannot_be_exceeded",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_retyped_quote_is_not_an_allowed_citation",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_runner_cannot_publish_early_even_if_model_ignores_selection",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_runner_executes_model_selected_expansion_before_diagnosis",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_span_text_tampering_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_successful_expansion_allows_publication",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_token_totals_include_all_calls",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_trace_instructions_cannot_disable_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_undelivered_full_chunk_id_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_valid_citation_is_published",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_valid_forced_tool_call_with_stop_finish_is_accepted",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_whole_input_token_budget_is_enforced",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_wrong_json_escape_is_a_real_text_difference",
+        "status": "passed"
+      }
+    ]
+  },
+  "decoding_audit": {
+    "status": "verified",
+    "matching": "decoded strings; no fuzzy matching or extra unescaping",
+    "findings": [
+      {
+        "arm": "full",
+        "quote_type": "str",
+        "delivered_text_type": "str",
+        "decoded_exact_match": false,
+        "contains_form_feed": true,
+        "json_roundtrip_preserves_delivered_text": true
+      },
+      {
+        "arm": "full",
+        "quote_type": "str",
+        "delivered_text_type": "str",
+        "decoded_exact_match": false,
+        "contains_form_feed": true,
+        "json_roundtrip_preserves_delivered_text": true
+      },
+      {
+        "arm": "full",
+        "quote_type": "str",
+        "delivered_text_type": "str",
+        "decoded_exact_match": false,
+        "contains_form_feed": true,
+        "json_roundtrip_preserves_delivered_text": true
+      },
+      {
+        "arm": "short",
+        "quote_type": "str",
+        "delivered_text_type": "str",
+        "decoded_exact_match": false,
+        "contains_form_feed": false,
+        "json_roundtrip_preserves_delivered_text": true
+      },
+      {
+        "arm": "short_targeted",
+        "quote_type": "str",
+        "delivered_text_type": "str",
+        "decoded_exact_match": false,
+        "contains_form_feed": false,
+        "json_roundtrip_preserves_delivered_text": true
+      }
+    ]
+  },
+  "all_calls_usage": {
+    "prompt_tokens": 25515,
+    "completion_tokens": 811,
+    "total_tokens": 26326
+  },
+  "retrievals": [
+    {
+      "_id": "mandatory-expansion-spans-v3:short_targeted:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c:retrieval1",
+      "study_id": "s4-mandatory-expansion-spans-20261011-v3",
+      "run_id": "mandatory-expansion-spans-v3:short_targeted:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c",
+      "round": 1,
+      "requested_steps": [
+        2,
+        4,
+        6,
+        10,
+        12
+      ],
+      "selected_by": "investigator_response",
+      "request_call_id": "mandatory-expansion-spans-v3:short_targeted:464cb5c7aca958c968253d8529335ab6371bf952e71cb8dfe80ce311f9ca8d5c:call0",
+      "actually_delivered_steps": [
+        2,
+        4,
+        6,
+        10,
+        12
+      ],
+      "log": [
+        {
+          "step": 2,
+          "status": "delivered",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b",
+          "delivered_chars": 1622,
+          "source_chars": 1622,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 4,
+          "status": "delivered",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s4:79a44a962994",
+          "delivered_chars": 965,
+          "source_chars": 965,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 6,
+          "status": "delivered",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s6:938fcfd3f692",
+          "delivered_chars": 1268,
+          "source_chars": 1268,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 10,
+          "status": "delivered",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400",
+          "delivered_chars": 887,
+          "source_chars": 887,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 12,
+          "status": "delivered",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88",
+          "delivered_chars": 896,
+          "source_chars": 896,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        }
+      ],
+      "before_chars": 4920,
+      "after_chars": 15817,
+      "retrieval_model_tokens": 0
+    }
+  ],
+  "decoder_recovery": {
+    "reason": "Valid forced tool call returned finish_reason=stop; re-decoded without a model call.",
+    "at": "2026-10-11T22:18:33.924493+00:00",
+    "original_candidate": {
+      "invalid_required_selection": true
+    },
+    "original_gate": {
+      "version": "decoded-delivered-spans-v2",
+      "accepted": false,
+      "errors": [
+        "response_schema",
+        "response_lists_required"
+      ],
+      "claims_checked": 0,
+      "citations_checked": [],
+      "session_id": "fc821c1ca07141b6a46e95c8594a236c",
+      "evidence_sha256": "e7b34fc853d2091ee64be1a35abdcc3faf2229161a232568cc266b719b10cf3d",
+      "resolved_claims": []
+    },
+    "original_protocol_errors": [
+      "mandatory_first_expansion_selection_required"
+    ],
+    "original_code_sha256": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+      "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+      "run_s4_targeted.py": "566cbbdbe777eed9eda419f1f81dadd369d08dbf77bf0a4ccc9e570149dfe65e",
+      "test_targeted_retrieval.py": "02bf77d158ddf0d5cb5c265e811111a6b3bc805b7f514433af31ce2a2276906e"
+    },
+    "recovery_code_sha256": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+      "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+      "run_s4_targeted.py": "ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1",
+      "test_targeted_retrieval.py": "400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02"
+    }
+  },
+  "prior_attempt": {
+    "study_id": "s4-mandatory-expansion-spans-20261011-v2",
+    "calls": 3,
+    "usage": {
+      "prompt_tokens": 17165,
+      "completion_tokens": 726,
+      "total_tokens": 17891
+    },
+    "reason": "JSON-only mandatory selection was ignored; host rejected premature diagnosis. Preserved, not reused."
+  },
+  "request_total_usage_including_prior_attempt": {
+    "prompt_tokens": 42680,
+    "completion_tokens": 1537,
+    "total_tokens": 44217
+  },
+  "request_total_calls_including_prior_attempt": 7,
+  "total_model_calls": 4,
+  "retrieval_model_calls": 0,
+  "limitations": [
+    "Single S4 example, one session per arm; no general accuracy conclusion.",
+    "The gate verifies citation provenance, not whether a quotation logically proves the claim.",
+    "Mandatory first expansion is a fixed protocol rule, not learned retrieval. The investigator chooses events without label access.",
+    "All round inputs and outputs count toward usage, including provisional and rejected claims.",
+    "Prompt and evidence framing now require citations; these results are not identical-prompt reruns of the old baseline."
+  ],
+  "persistence_verification": {
+    "status": "verified",
+    "verified_at": "2026-10-11T22:18:40.547443+00:00",
+    "database": "aperture",
+    "runs": 3,
+    "calls": 4,
+    "deliveries": 4,
+    "retrievals": 1,
+    "evaluations": 3,
+    "accepted_published_results": 3,
+    "gate_tests": 44
+  }
+}

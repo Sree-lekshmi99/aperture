@@ -1,0 +1,170 @@
+{
+  "tests_run": 41,
+  "passed": true,
+  "results": [
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_cache_version_and_configuration_are_part_of_key",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_claim_without_citations_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_clipped_event_can_support_a_valid_claim",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_cross_author_reference_has_valid_provenance",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_chunk_in_ledger_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_citation_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_decoded_latex_and_unicode_are_exact_not_json_escaped",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_is_immutable_and_tampering_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_roundtrip_preserves_exact_text",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_duplicate_json_keys_are_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_empty_and_whitespace_span_ids_are_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_environment_cannot_disable_gate",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_every_claim_and_every_citation_is_checked",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_five_events_can_be_requested_but_six_cannot",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_foreign_session_span_with_local_chunk_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_generic_requested_step_is_expanded_without_labels",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_ground_truth_metadata_is_not_delivered",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_initial_expansion_only_applies_to_targeted_clipped_overview",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_intermediate_claims_are_not_published",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_invalid_response_is_fail_closed",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_invented_id_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_invented_span_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_mandatory_expansion_blocks_early_publication",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_model_cannot_disable_gate",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_overview_shows_event_author_and_omitted_count",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_payload_cap_is_logged_before_gate",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_policy_cannot_disable_or_replace_gate",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_quote_in_source_but_not_delivered_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_request_and_policy_limits_are_enforced",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_retrieval_round_budget_cannot_be_exceeded",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_retyped_quote_is_not_an_allowed_citation",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_runner_cannot_publish_early_even_if_model_ignores_selection",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_runner_executes_model_selected_expansion_before_diagnosis",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_span_text_tampering_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_successful_expansion_allows_publication",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_token_totals_include_all_calls",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_trace_instructions_cannot_disable_gate",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_undelivered_full_chunk_id_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_valid_citation_is_published",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_whole_input_token_budget_is_enforced",
+      "status": "passed"
+    },
+    {
+      "name": "test_targeted_retrieval.ProvenanceTests.test_wrong_json_escape_is_a_real_text_difference",
+      "status": "passed"
+    }
+  ]
+}

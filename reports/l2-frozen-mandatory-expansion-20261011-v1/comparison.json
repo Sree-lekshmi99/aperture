@@ -1,0 +1,2145 @@
+{
+  "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+  "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+  "config": {
+    "protocol": "mandatory-expansion-spans-v3",
+    "gate_version": "decoded-delivered-spans-v2",
+    "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+    "source_sha256": "86411ae3bba5f908192da2a8d75701d876a6542fc212d7dda1f3825c2c8df137",
+    "known_agents": [
+      "Manager",
+      "Searcher"
+    ],
+    "policy": {
+      "max_steps_per_round": 5,
+      "chars_per_retrieved_event": 4000
+    },
+    "max_retrieval_rounds": 2,
+    "system_prompt_sha256": "32ad02d195b66c17fb4ab50a13d2354111f04fb545178ecb5745e7cc1c2b44b4",
+    "retrieval_label": "mandatory first expansion",
+    "max_events_per_round": 5,
+    "initial_selection_control": "forced strict select_events function; IDs chosen by investigator",
+    "context_token_budget": 12000,
+    "evidence_token_budget": 10000,
+    "token_budget_note": "tiktoken for model text, plus 256 framing tokens; actual API input usage checked after every call",
+    "model_settings": {
+      "model": "gpt-4o-mini",
+      "temperature": 0,
+      "response_format": {
+        "type": "json_object"
+      },
+      "max_completion_tokens": 2000
+    },
+    "code_sha256": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+      "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+      "run_s4_targeted.py": "ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1",
+      "test_targeted_retrieval.py": "400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02"
+    },
+    "experiment_id": "l2-frozen-mandatory-expansion-20261011-v1"
+  },
+  "freeze": {
+    "reference_study": "s4-mandatory-expansion-spans-20261011-v3",
+    "code_sha256_before": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+      "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+      "run_s4_targeted.py": "ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1",
+      "test_targeted_retrieval.py": "400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02"
+    },
+    "additional_hashes_before": {
+      "dashboard.py": "9ec718351b361260975e420d8335a7d8fd03afe020f28f58faec1d902e3bda3c",
+      "requirements.txt": "44b29ae6ee8f0ce63c8c1839e56fffeddfde19de7406a9e8032c11d7fcc61821"
+    },
+    "matches_completed_s4": true,
+    "driver_sha256": "f1fdbcce2fcf1406223acd899cce43a7f93fa2ea45a6e82ffac7bb1216c78ecd",
+    "only_runtime_overrides": [
+      "TRACE_ID",
+      "STUDY_ID",
+      "OUT"
+    ],
+    "only_config_differences": [
+      "trace_id",
+      "source_sha256",
+      "known_agents",
+      "code_sha256 (completed S4 decoder recovery)",
+      "experiment_id (fresh-cache namespace)"
+    ],
+    "code_sha256_after": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+      "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+      "run_s4_targeted.py": "ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1",
+      "test_targeted_retrieval.py": "400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02"
+    },
+    "additional_hashes_after": {
+      "dashboard.py": "9ec718351b361260975e420d8335a7d8fd03afe020f28f58faec1d902e3bda3c",
+      "requirements.txt": "44b29ae6ee8f0ce63c8c1839e56fffeddfde19de7406a9e8032c11d7fcc61821"
+    },
+    "unchanged_after_comparison": true
+  },
+  "source_summary": {
+    "events": 45,
+    "source_characters": 73164
+  },
+  "runs": [
+    {
+      "_id": "mandatory-expansion-spans-v3:full:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+      "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+      "arm": "full",
+      "session_id": "28e57557c41c4a70978b225ff6d9cda3",
+      "status": "accepted",
+      "created_at": "2026-10-11T22:39:22.491193+00:00",
+      "config_hash": "3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "cache_used": false,
+      "completed_at": "2026-10-11T22:39:28.093570+00:00",
+      "gate": {
+        "version": "decoded-delivered-spans-v2",
+        "accepted": true,
+        "errors": [],
+        "claims_checked": 1,
+        "citations_checked": [
+          {
+            "claim_index": 0,
+            "citation_index": 0,
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "claim_index": 0,
+            "citation_index": 1,
+            "accepted": true,
+            "reason": null
+          }
+        ],
+        "session_id": "28e57557c41c4a70978b225ff6d9cda3",
+        "evidence_sha256": "4c1f75aab347e35704b4197e48de5ee0e41f3faab35ffd45a35f44c30eb553ac",
+        "resolved_claims": [
+          {
+            "agent_name": "Searcher",
+            "claim": "failed to extract any Blu-Ray titles from the inventory data despite multiple attempts",
+            "citations": [
+              {
+                "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s13:c880cee58bbe",
+                "span_id": "28e57557c41c4a70978b225ff6d9cda3:s13:c880cee58bbe:p1",
+                "quote": "[{'type': 'text', 'text': 'Observation:\\nExecution logs:\\nNo Blu-Ray titles found.\\nLast output from code snippet:\\nParty'}]",
+                "start": 0,
+                "end": 124,
+                "source_author": "Searcher"
+              },
+              {
+                "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s14:79dcc6965ba3",
+                "span_id": "28e57557c41c4a70978b225ff6d9cda3:s14:79dcc6965ba3:p1",
+                "quote": "[{'type': 'text', 'text': 'It appears that while attempting to locate the Blu-Ray titles, I wasn\\'t able to extract any data, likely due to how the data is separated or structured in the spreadsheet.\\n\\nGiven that the output states \"No Blu-Ray titles found,\" I will take a different approach. Instead of splitting by the pipe character, which may not be the delimiter in this context, I will try to simply read the lines and look for the \"Blu-Ray\" section without assuming any specific delimiters.\\n\\nI will redefine my method to handle the data extraction more flexibly without assuming the specific",
+                "start": 0,
+                "end": 600,
+                "source_author": "Manager"
+              }
+            ]
+          }
+        ],
+        "provenance_accepted": true,
+        "protocol_errors": []
+      },
+      "final_call_id": "mandatory-expansion-spans-v3:full:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:call0",
+      "candidate_predicted_agents": [
+        "Searcher"
+      ],
+      "published_predicted_agents": [
+        "Searcher"
+      ],
+      "usage": {
+        "prompt_tokens": 11499,
+        "completion_tokens": 209,
+        "total_tokens": 11708
+      },
+      "call_count": 1,
+      "retrieval_rounds": 0,
+      "requested_steps": [],
+      "actually_delivered_steps": [],
+      "actually_expanded_steps": [],
+      "mandatory_first_expansion": false,
+      "context_label": "capped-large",
+      "initial_context_clipped": true,
+      "retrieval_label": "fixed context",
+      "total_execution_seconds": 3.834,
+      "context_chars_by_call": [
+        32236
+      ],
+      "returned_models": [
+        "gpt-4o-mini-2024-07-18"
+      ]
+    },
+    {
+      "_id": "mandatory-expansion-spans-v3:short:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+      "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+      "arm": "short",
+      "session_id": "a8641f5ad49f418e9776fbe63b40ea4d",
+      "status": "accepted",
+      "created_at": "2026-10-11T22:39:28.197455+00:00",
+      "config_hash": "3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "cache_used": false,
+      "completed_at": "2026-10-11T22:39:33.048825+00:00",
+      "gate": {
+        "version": "decoded-delivered-spans-v2",
+        "accepted": true,
+        "errors": [],
+        "claims_checked": 1,
+        "citations_checked": [
+          {
+            "claim_index": 0,
+            "citation_index": 0,
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "claim_index": 0,
+            "citation_index": 1,
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "claim_index": 0,
+            "citation_index": 2,
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "claim_index": 0,
+            "citation_index": 3,
+            "accepted": true,
+            "reason": null
+          },
+          {
+            "claim_index": 0,
+            "citation_index": 4,
+            "accepted": true,
+            "reason": null
+          }
+        ],
+        "session_id": "a8641f5ad49f418e9776fbe63b40ea4d",
+        "evidence_sha256": "67e2ea7c5071de8baaa0d4c2cb532d2f2a978145beb2efd38498ce5b156ce1f3",
+        "resolved_claims": [
+          {
+            "agent_name": "Searcher",
+            "claim": "Failed to extract any valid Blu-Ray titles from the inventory despite multiple attempts.",
+            "citations": [
+              {
+                "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s13:c880cee58bbe",
+                "span_id": "a8641f5ad49f418e9776fbe63b40ea4d:s13:c880cee58bbe:p1",
+                "quote": "[{'type': 'text', 'text': 'Observation:\\nExecution logs:\\nNo Blu-Ray titles found.\\nLast output from code snippet:\\nParty'}]",
+                "start": 0,
+                "end": 124,
+                "source_author": "Searcher"
+              },
+              {
+                "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s24:5548fa7f2c0b",
+                "span_id": "a8641f5ad49f418e9776fbe63b40ea4d:s24:5548fa7f2c0b:p1",
+                "quote": "[{'type': 'text', 'text': 'Observation:\\nExecution logs:\\nNo Blu-Ray titles found in the Blu-Ray section.\\nLast output from code snippet:\\nAdventure'}]",
+                "start": 0,
+                "end": 151,
+                "source_author": "Searcher"
+              },
+              {
+                "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s30:7a436d068c54",
+                "span_id": "a8641f5ad49f418e9776fbe63b40ea4d:s30:7a436d068c54:p1",
+                "quote": "[{'type': 'text', 'text': 'Observation:\\nExecution logs:\\nNo valid Blu-Ray titles found in the section.\\nLast output from code snippet:\\nAdventure'}]",
+                "start": 0,
+                "end": 149,
+                "source_author": "Searcher"
+              },
+              {
+                "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s41:20ccdf8cc1e8",
+                "span_id": "a8641f5ad49f418e9776fbe63b40ea4d:s41:20ccdf8cc1e8:p1",
+                "quote": "[{'type': 'text', 'text': 'Observation:\\nExecution logs:\\nCollected Blu-Ray titles and years: []\\nNo valid Blu-Ray titles found in the section.\\nLast output from code snippet:\\nAdv",
+                "start": 0,
+                "end": 180,
+                "source_author": "Searcher"
+              },
+              {
+                "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s42:71c3260a6d92",
+                "span_id": "a8641f5ad49f418e9776fbe63b40ea4d:s42:71c3260a6d92:p1",
+                "quote": "[{'type': 'text', 'text': 'It is evident from the collected output that my attempts to retrieve valid Blu-Ray titles from the inventory have not succeeded. The data extraction proc",
+                "start": 0,
+                "end": 180,
+                "source_author": "Manager"
+              }
+            ]
+          }
+        ],
+        "provenance_accepted": true,
+        "protocol_errors": []
+      },
+      "final_call_id": "mandatory-expansion-spans-v3:short:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:call0",
+      "candidate_predicted_agents": [
+        "Searcher"
+      ],
+      "published_predicted_agents": [
+        "Searcher"
+      ],
+      "usage": {
+        "prompt_tokens": 9948,
+        "completion_tokens": 459,
+        "total_tokens": 10407
+      },
+      "call_count": 1,
+      "retrieval_rounds": 0,
+      "requested_steps": [],
+      "actually_delivered_steps": [],
+      "actually_expanded_steps": [],
+      "mandatory_first_expansion": false,
+      "context_label": "short context",
+      "initial_context_clipped": true,
+      "retrieval_label": "fixed context",
+      "total_execution_seconds": 4.391,
+      "context_chars_by_call": [
+        16999
+      ],
+      "returned_models": [
+        "gpt-4o-mini-2024-07-18"
+      ]
+    },
+    {
+      "_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+      "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+      "arm": "short_targeted",
+      "session_id": "9a19bf5f63f449b79b6bf4b2d741e743",
+      "status": "error",
+      "created_at": "2026-10-11T22:39:33.219885+00:00",
+      "config_hash": "3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "cache_used": false,
+      "at": "2026-10-11T22:39:35.081660+00:00",
+      "error_class": "ValueError",
+      "http_status": null,
+      "raw_error_redacted": true,
+      "raw_execution_run": {
+        "_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+        "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+        "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+        "arm": "short_targeted",
+        "session_id": "9a19bf5f63f449b79b6bf4b2d741e743",
+        "status": "error",
+        "created_at": "2026-10-11T22:39:33.219885+00:00",
+        "config_hash": "3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+        "cache_used": false,
+        "at": "2026-10-11T22:39:35.081660+00:00",
+        "error_class": "ValueError",
+        "http_status": null,
+        "raw_error_redacted": true
+      },
+      "context_label": "short + mandatory first expansion",
+      "usage": {
+        "prompt_tokens": 10348,
+        "completion_tokens": 14,
+        "total_tokens": 10362
+      },
+      "call_count": 1,
+      "retrieval_rounds": 1,
+      "requested_steps": [
+        [
+          5,
+          8,
+          11,
+          25,
+          39
+        ]
+      ],
+      "actually_delivered_steps": [],
+      "actually_expanded_steps": [],
+      "candidate_predicted_agents": null,
+      "total_execution_seconds": 1.259,
+      "failure_analysis": {
+        "stage": "input_budget_enforcement_before_second_call",
+        "reason": "Input exceeds host context-token budget",
+        "input_tokens_with_framing_reserve": 14030,
+        "input_token_budget": 12000,
+        "prepared_evidence_tokens": 9954,
+        "evidence_token_budget": 10000,
+        "selected_events": [
+          5,
+          8,
+          11,
+          25,
+          39
+        ],
+        "prepared_expansions": [
+          {
+            "step": 5,
+            "status": "delivered",
+            "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e",
+            "delivered_chars": 316,
+            "source_chars": 316,
+            "truncated": false,
+            "expanded_beyond_overview": true
+          },
+          {
+            "step": 8,
+            "status": "delivered",
+            "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c",
+            "delivered_chars": 1787,
+            "source_chars": 1787,
+            "truncated": false,
+            "expanded_beyond_overview": true
+          },
+          {
+            "step": 11,
+            "status": "delivered",
+            "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e",
+            "delivered_chars": 2288,
+            "source_chars": 2288,
+            "truncated": false,
+            "expanded_beyond_overview": true
+          },
+          {
+            "step": 25,
+            "status": "delivered",
+            "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa",
+            "delivered_chars": 2653,
+            "source_chars": 2653,
+            "truncated": false,
+            "expanded_beyond_overview": true
+          },
+          {
+            "step": 39,
+            "status": "delivered",
+            "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s39:e36b18addeb2",
+            "delivered_chars": 1817,
+            "source_chars": 2772,
+            "truncated": true,
+            "expanded_beyond_overview": true
+          }
+        ],
+        "expanded_events_actually_received_by_investigator": [],
+        "only_received_evidence": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:delivery0",
+        "second_api_call_made": false,
+        "second_delivery_registered": false,
+        "final_diagnosis_produced": false,
+        "final_provenance_gate_reached": false,
+        "selection_gate_note": "Selection schema passed with zero fault claims; this is not an accepted final diagnosis.",
+        "frozen_log_note": "The frozen retrieval log labels prepared chunks as delivered. Transport audit confirms no expansion reached the investigator because the next request failed its input-budget check.",
+        "cause": "Evidence fit the 10,000-token subbudget, but instructions, event overview, citation framing and reserve pushed the complete input above 12,000 tokens.",
+        "audit_method": "Reconstructed exact prepared context from persisted source, session, initial evidence and model selection; no model calls or source edits.",
+        "failed_arm_usage": {
+          "prompt_tokens": 10348,
+          "completion_tokens": 14,
+          "total_tokens": 10362
+        },
+        "failure_reproduced_read_only": true
+      },
+      "gate_status": "not reached: context budget blocked final diagnosis"
+    }
+  ],
+  "evaluations": [
+    {
+      "_id": "mandatory-expansion-spans-v3:full:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+      "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+      "arm": "full",
+      "actual_agents": [
+        "Manager"
+      ],
+      "candidate_predicted_agents": [
+        "Searcher"
+      ],
+      "candidate_f1": 0.0,
+      "candidate_exact_match": false,
+      "published_f1": 0.0,
+      "published_exact_match": false,
+      "false_positives": [
+        "Searcher"
+      ],
+      "false_negatives": [
+        "Manager"
+      ]
+    },
+    {
+      "_id": "mandatory-expansion-spans-v3:short:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+      "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+      "arm": "short",
+      "actual_agents": [
+        "Manager"
+      ],
+      "candidate_predicted_agents": [
+        "Searcher"
+      ],
+      "candidate_f1": 0.0,
+      "candidate_exact_match": false,
+      "published_f1": 0.0,
+      "published_exact_match": false,
+      "false_positives": [
+        "Searcher"
+      ],
+      "false_negatives": [
+        "Manager"
+      ]
+    },
+    {
+      "_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+      "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+      "arm": "short_targeted",
+      "actual_agents": [
+        "Manager"
+      ],
+      "candidate_predicted_agents": null,
+      "candidate_f1": null,
+      "candidate_exact_match": null,
+      "published_f1": null,
+      "published_exact_match": null,
+      "false_positives": null,
+      "false_negatives": null
+    }
+  ],
+  "actual_agents": [
+    "Manager"
+  ],
+  "accounting": {
+    "total_api_attempts": 3,
+    "metered_calls": 3,
+    "all_calls_usage": {
+      "prompt_tokens": 31795,
+      "completion_tokens": 682,
+      "total_tokens": 32477
+    },
+    "accepted_arm_calls": 2,
+    "accepted_arm_usage": {
+      "prompt_tokens": 21447,
+      "completion_tokens": 668,
+      "total_tokens": 22115
+    },
+    "failed_or_rejected_arm_calls": 1,
+    "failed_or_rejected_arm_usage": {
+      "prompt_tokens": 10348,
+      "completion_tokens": 14,
+      "total_tokens": 10362
+    },
+    "unmetered_api_attempts": [],
+    "automatic_retries": 0,
+    "experiment_reruns": 0,
+    "cache_reused": false,
+    "failures": [
+      {
+        "arm": "short_targeted",
+        "error_class": "ValueError",
+        "http_status": null,
+        "raw_error_redacted": true,
+        "at": "2026-10-11T22:39:35.081660+00:00",
+        "reason": "Input exceeds host context-token budget"
+      }
+    ],
+    "prior_S4_calls_included": false,
+    "failed_attempt_stage": "input_budget_enforcement_before_second_call",
+    "unsent_requests_after_budget_failure": 1
+  },
+  "retrievals": [
+    {
+      "_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:retrieval1",
+      "study_id": "l2-frozen-mandatory-expansion-20261011-v1",
+      "run_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "round": 1,
+      "requested_steps": [
+        5,
+        8,
+        11,
+        25,
+        39
+      ],
+      "selected_by": "investigator_response",
+      "request_call_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:call0",
+      "actually_delivered_steps": [
+        5,
+        8,
+        11,
+        25,
+        39
+      ],
+      "log": [
+        {
+          "step": 5,
+          "status": "delivered",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e",
+          "delivered_chars": 316,
+          "source_chars": 316,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 8,
+          "status": "delivered",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c",
+          "delivered_chars": 1787,
+          "source_chars": 1787,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 11,
+          "status": "delivered",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e",
+          "delivered_chars": 2288,
+          "source_chars": 2288,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 25,
+          "status": "delivered",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa",
+          "delivered_chars": 2653,
+          "source_chars": 2653,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 39,
+          "status": "delivered",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s39:e36b18addeb2",
+          "delivered_chars": 1817,
+          "source_chars": 2772,
+          "truncated": true,
+          "expanded_beyond_overview": true
+        }
+      ],
+      "before_chars": 16999,
+      "after_chars": 27690,
+      "retrieval_model_tokens": 0,
+      "transport_audit": {
+        "expanded_events_received_by_investigator": [],
+        "status": "blocked_before_next_api_call",
+        "original_actually_delivered_steps_means": "prepared locally only"
+      }
+    }
+  ],
+  "truncation": [
+    {
+      "delivery_id": "mandatory-expansion-spans-v3:full:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:delivery0",
+      "run_id": "mandatory-expansion-spans-v3:full:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "round": 0,
+      "evidence_characters": 32236,
+      "evidence_tokens": 9999,
+      "input_estimate_with_reserve": 11746,
+      "event_ids_present": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "complete_event_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "clipped_event_ids": [
+        15
+      ],
+      "entirely_omitted_event_ids": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "unique_source_characters_delivered": 26672,
+      "unique_source_characters_omitted": 46492,
+      "chunks": [
+        {
+          "event_id": 1,
+          "author": "System",
+          "delivered_characters": 10593,
+          "source_characters": 10593,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s1:64455d04cf9c"
+        },
+        {
+          "event_id": 2,
+          "author": "User",
+          "delivered_characters": 1104,
+          "source_characters": 1104,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s2:a464de7d05ec"
+        },
+        {
+          "event_id": 3,
+          "author": "Manager",
+          "delivered_characters": 1862,
+          "source_characters": 1862,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s3:f2944c08eab7"
+        },
+        {
+          "event_id": 4,
+          "author": "User",
+          "delivered_characters": 66,
+          "source_characters": 66,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s4:63629fb3311b"
+        },
+        {
+          "event_id": 5,
+          "author": "Manager",
+          "delivered_characters": 316,
+          "source_characters": 316,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s5:9040c8ea676e"
+        },
+        {
+          "event_id": 6,
+          "author": "Searcher",
+          "delivered_characters": 436,
+          "source_characters": 436,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s6:1c2f81fab83f"
+        },
+        {
+          "event_id": 7,
+          "author": "Searcher",
+          "delivered_characters": 1958,
+          "source_characters": 1958,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s7:d8c7e0300a75"
+        },
+        {
+          "event_id": 8,
+          "author": "Manager",
+          "delivered_characters": 1787,
+          "source_characters": 1787,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s8:fea3351c1e5c"
+        },
+        {
+          "event_id": 9,
+          "author": "Searcher",
+          "delivered_characters": 1375,
+          "source_characters": 1375,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s9:431f5aa41994"
+        },
+        {
+          "event_id": 10,
+          "author": "Searcher",
+          "delivered_characters": 318,
+          "source_characters": 318,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s10:a2272766f231"
+        },
+        {
+          "event_id": 11,
+          "author": "Manager",
+          "delivered_characters": 2288,
+          "source_characters": 2288,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s11:70e6b15d364e"
+        },
+        {
+          "event_id": 12,
+          "author": "Searcher",
+          "delivered_characters": 1938,
+          "source_characters": 1938,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s12:606bfd26a420"
+        },
+        {
+          "event_id": 13,
+          "author": "Searcher",
+          "delivered_characters": 124,
+          "source_characters": 124,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s13:c880cee58bbe"
+        },
+        {
+          "event_id": 14,
+          "author": "Manager",
+          "delivered_characters": 2464,
+          "source_characters": 2464,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s14:79dcc6965ba3"
+        },
+        {
+          "event_id": 15,
+          "author": "Searcher",
+          "delivered_characters": 43,
+          "source_characters": 2077,
+          "omitted_characters": 2034,
+          "clipped": true,
+          "chunk_id": "28e57557c41c4a70978b225ff6d9cda3:s15:9579555684bb"
+        }
+      ]
+    },
+    {
+      "delivery_id": "mandatory-expansion-spans-v3:short:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:delivery0",
+      "run_id": "mandatory-expansion-spans-v3:short:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "round": 0,
+      "evidence_characters": 16999,
+      "evidence_tokens": 6504,
+      "input_estimate_with_reserve": 10195,
+      "event_ids_present": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "complete_event_ids": [
+        4,
+        13,
+        16,
+        18,
+        24,
+        27,
+        30,
+        32,
+        38
+      ],
+      "clipped_event_ids": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        28,
+        29,
+        31,
+        33,
+        34,
+        35,
+        36,
+        37,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "entirely_omitted_event_ids": [],
+      "unique_source_characters_delivered": 7553,
+      "unique_source_characters_omitted": 65611,
+      "chunks": [
+        {
+          "event_id": 1,
+          "author": "System",
+          "delivered_characters": 180,
+          "source_characters": 10593,
+          "omitted_characters": 10413,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s1:1c772b03dd3f"
+        },
+        {
+          "event_id": 2,
+          "author": "User",
+          "delivered_characters": 180,
+          "source_characters": 1104,
+          "omitted_characters": 924,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s2:85fcc17ad6bf"
+        },
+        {
+          "event_id": 3,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 1862,
+          "omitted_characters": 1682,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s3:a0af4597db73"
+        },
+        {
+          "event_id": 4,
+          "author": "User",
+          "delivered_characters": 66,
+          "source_characters": 66,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s4:63629fb3311b"
+        },
+        {
+          "event_id": 5,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 316,
+          "omitted_characters": 136,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s5:9b98f37d14ce"
+        },
+        {
+          "event_id": 6,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 436,
+          "omitted_characters": 256,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s6:035a3ca905a3"
+        },
+        {
+          "event_id": 7,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1958,
+          "omitted_characters": 1778,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s7:e15109878cca"
+        },
+        {
+          "event_id": 8,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 1787,
+          "omitted_characters": 1607,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s8:12ad304816da"
+        },
+        {
+          "event_id": 9,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1375,
+          "omitted_characters": 1195,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s9:4cc7629918de"
+        },
+        {
+          "event_id": 10,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 318,
+          "omitted_characters": 138,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s10:ede1101c8132"
+        },
+        {
+          "event_id": 11,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2288,
+          "omitted_characters": 2108,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s11:4980f89d6235"
+        },
+        {
+          "event_id": 12,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1938,
+          "omitted_characters": 1758,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s12:1b3e1578683b"
+        },
+        {
+          "event_id": 13,
+          "author": "Searcher",
+          "delivered_characters": 124,
+          "source_characters": 124,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s13:c880cee58bbe"
+        },
+        {
+          "event_id": 14,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2464,
+          "omitted_characters": 2284,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s14:c7cebe533d1e"
+        },
+        {
+          "event_id": 15,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2077,
+          "omitted_characters": 1897,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s15:d250bcc4e8f6"
+        },
+        {
+          "event_id": 16,
+          "author": "Searcher",
+          "delivered_characters": 151,
+          "source_characters": 151,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s16:5548fa7f2c0b"
+        },
+        {
+          "event_id": 17,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 3299,
+          "omitted_characters": 3119,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s17:abf50c751006"
+        },
+        {
+          "event_id": 18,
+          "author": "User",
+          "delivered_characters": 66,
+          "source_characters": 66,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s18:63629fb3311b"
+        },
+        {
+          "event_id": 19,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 586,
+          "omitted_characters": 406,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s19:ac36fe867f15"
+        },
+        {
+          "event_id": 20,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 444,
+          "omitted_characters": 264,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s20:bda9c23a2a54"
+        },
+        {
+          "event_id": 21,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1958,
+          "omitted_characters": 1778,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s21:e15109878cca"
+        },
+        {
+          "event_id": 22,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2297,
+          "omitted_characters": 2117,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s22:125b9fe04aa4"
+        },
+        {
+          "event_id": 23,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2123,
+          "omitted_characters": 1943,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s23:47b81edfbe9b"
+        },
+        {
+          "event_id": 24,
+          "author": "Searcher",
+          "delivered_characters": 151,
+          "source_characters": 151,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s24:5548fa7f2c0b"
+        },
+        {
+          "event_id": 25,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2653,
+          "omitted_characters": 2473,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s25:91095e483d20"
+        },
+        {
+          "event_id": 26,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2145,
+          "omitted_characters": 1965,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s26:89b07417068f"
+        },
+        {
+          "event_id": 27,
+          "author": "Searcher",
+          "delivered_characters": 151,
+          "source_characters": 151,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s27:5548fa7f2c0b"
+        },
+        {
+          "event_id": 28,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2567,
+          "omitted_characters": 2387,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s28:b1b57c090ce6"
+        },
+        {
+          "event_id": 29,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2025,
+          "omitted_characters": 1845,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s29:2e2cc9b4092a"
+        },
+        {
+          "event_id": 30,
+          "author": "Searcher",
+          "delivered_characters": 149,
+          "source_characters": 149,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s30:7a436d068c54"
+        },
+        {
+          "event_id": 31,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 3121,
+          "omitted_characters": 2941,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s31:abf50c751006"
+        },
+        {
+          "event_id": 32,
+          "author": "User",
+          "delivered_characters": 66,
+          "source_characters": 66,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s32:63629fb3311b"
+        },
+        {
+          "event_id": 33,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 624,
+          "omitted_characters": 444,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s33:87b2ba0637f4"
+        },
+        {
+          "event_id": 34,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 494,
+          "omitted_characters": 314,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s34:ddec2e62c0ae"
+        },
+        {
+          "event_id": 35,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1958,
+          "omitted_characters": 1778,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s35:e15109878cca"
+        },
+        {
+          "event_id": 36,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2795,
+          "omitted_characters": 2615,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s36:f71b6fefa771"
+        },
+        {
+          "event_id": 37,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2137,
+          "omitted_characters": 1957,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s37:040b3bdb8877"
+        },
+        {
+          "event_id": 38,
+          "author": "Searcher",
+          "delivered_characters": 149,
+          "source_characters": 149,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s38:7a436d068c54"
+        },
+        {
+          "event_id": 39,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2772,
+          "omitted_characters": 2592,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s39:5d82c239010e"
+        },
+        {
+          "event_id": 40,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2284,
+          "omitted_characters": 2104,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s40:0fa5bfa95a77"
+        },
+        {
+          "event_id": 41,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 189,
+          "omitted_characters": 9,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s41:20ccdf8cc1e8"
+        },
+        {
+          "event_id": 42,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2991,
+          "omitted_characters": 2811,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s42:71c3260a6d92"
+        },
+        {
+          "event_id": 43,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2467,
+          "omitted_characters": 2287,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s43:dbaf35d0ac6d"
+        },
+        {
+          "event_id": 44,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1457,
+          "omitted_characters": 1277,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s44:d99a505c8b62"
+        },
+        {
+          "event_id": 45,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 189,
+          "omitted_characters": 9,
+          "clipped": true,
+          "chunk_id": "a8641f5ad49f418e9776fbe63b40ea4d:s45:71d6c0027443"
+        }
+      ]
+    },
+    {
+      "delivery_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:delivery0",
+      "run_id": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a",
+      "round": 0,
+      "evidence_characters": 16999,
+      "evidence_tokens": 6684,
+      "input_estimate_with_reserve": 10664,
+      "event_ids_present": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "complete_event_ids": [
+        4,
+        13,
+        16,
+        18,
+        24,
+        27,
+        30,
+        32,
+        38
+      ],
+      "clipped_event_ids": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        28,
+        29,
+        31,
+        33,
+        34,
+        35,
+        36,
+        37,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "entirely_omitted_event_ids": [],
+      "unique_source_characters_delivered": 7553,
+      "unique_source_characters_omitted": 65611,
+      "chunks": [
+        {
+          "event_id": 1,
+          "author": "System",
+          "delivered_characters": 180,
+          "source_characters": 10593,
+          "omitted_characters": 10413,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s1:1c772b03dd3f"
+        },
+        {
+          "event_id": 2,
+          "author": "User",
+          "delivered_characters": 180,
+          "source_characters": 1104,
+          "omitted_characters": 924,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s2:85fcc17ad6bf"
+        },
+        {
+          "event_id": 3,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 1862,
+          "omitted_characters": 1682,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s3:a0af4597db73"
+        },
+        {
+          "event_id": 4,
+          "author": "User",
+          "delivered_characters": 66,
+          "source_characters": 66,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s4:63629fb3311b"
+        },
+        {
+          "event_id": 5,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 316,
+          "omitted_characters": 136,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s5:9b98f37d14ce"
+        },
+        {
+          "event_id": 6,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 436,
+          "omitted_characters": 256,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s6:035a3ca905a3"
+        },
+        {
+          "event_id": 7,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1958,
+          "omitted_characters": 1778,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s7:e15109878cca"
+        },
+        {
+          "event_id": 8,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 1787,
+          "omitted_characters": 1607,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s8:12ad304816da"
+        },
+        {
+          "event_id": 9,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1375,
+          "omitted_characters": 1195,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s9:4cc7629918de"
+        },
+        {
+          "event_id": 10,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 318,
+          "omitted_characters": 138,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s10:ede1101c8132"
+        },
+        {
+          "event_id": 11,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2288,
+          "omitted_characters": 2108,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s11:4980f89d6235"
+        },
+        {
+          "event_id": 12,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1938,
+          "omitted_characters": 1758,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s12:1b3e1578683b"
+        },
+        {
+          "event_id": 13,
+          "author": "Searcher",
+          "delivered_characters": 124,
+          "source_characters": 124,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s13:c880cee58bbe"
+        },
+        {
+          "event_id": 14,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2464,
+          "omitted_characters": 2284,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s14:c7cebe533d1e"
+        },
+        {
+          "event_id": 15,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2077,
+          "omitted_characters": 1897,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s15:d250bcc4e8f6"
+        },
+        {
+          "event_id": 16,
+          "author": "Searcher",
+          "delivered_characters": 151,
+          "source_characters": 151,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s16:5548fa7f2c0b"
+        },
+        {
+          "event_id": 17,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 3299,
+          "omitted_characters": 3119,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s17:abf50c751006"
+        },
+        {
+          "event_id": 18,
+          "author": "User",
+          "delivered_characters": 66,
+          "source_characters": 66,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s18:63629fb3311b"
+        },
+        {
+          "event_id": 19,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 586,
+          "omitted_characters": 406,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s19:ac36fe867f15"
+        },
+        {
+          "event_id": 20,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 444,
+          "omitted_characters": 264,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s20:bda9c23a2a54"
+        },
+        {
+          "event_id": 21,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1958,
+          "omitted_characters": 1778,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s21:e15109878cca"
+        },
+        {
+          "event_id": 22,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2297,
+          "omitted_characters": 2117,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s22:125b9fe04aa4"
+        },
+        {
+          "event_id": 23,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2123,
+          "omitted_characters": 1943,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s23:47b81edfbe9b"
+        },
+        {
+          "event_id": 24,
+          "author": "Searcher",
+          "delivered_characters": 151,
+          "source_characters": 151,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s24:5548fa7f2c0b"
+        },
+        {
+          "event_id": 25,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2653,
+          "omitted_characters": 2473,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s25:91095e483d20"
+        },
+        {
+          "event_id": 26,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2145,
+          "omitted_characters": 1965,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s26:89b07417068f"
+        },
+        {
+          "event_id": 27,
+          "author": "Searcher",
+          "delivered_characters": 151,
+          "source_characters": 151,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s27:5548fa7f2c0b"
+        },
+        {
+          "event_id": 28,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2567,
+          "omitted_characters": 2387,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s28:b1b57c090ce6"
+        },
+        {
+          "event_id": 29,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2025,
+          "omitted_characters": 1845,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s29:2e2cc9b4092a"
+        },
+        {
+          "event_id": 30,
+          "author": "Searcher",
+          "delivered_characters": 149,
+          "source_characters": 149,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s30:7a436d068c54"
+        },
+        {
+          "event_id": 31,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 3121,
+          "omitted_characters": 2941,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s31:abf50c751006"
+        },
+        {
+          "event_id": 32,
+          "author": "User",
+          "delivered_characters": 66,
+          "source_characters": 66,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s32:63629fb3311b"
+        },
+        {
+          "event_id": 33,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 624,
+          "omitted_characters": 444,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s33:87b2ba0637f4"
+        },
+        {
+          "event_id": 34,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 494,
+          "omitted_characters": 314,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s34:ddec2e62c0ae"
+        },
+        {
+          "event_id": 35,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1958,
+          "omitted_characters": 1778,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s35:e15109878cca"
+        },
+        {
+          "event_id": 36,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2795,
+          "omitted_characters": 2615,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s36:f71b6fefa771"
+        },
+        {
+          "event_id": 37,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2137,
+          "omitted_characters": 1957,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s37:040b3bdb8877"
+        },
+        {
+          "event_id": 38,
+          "author": "Searcher",
+          "delivered_characters": 149,
+          "source_characters": 149,
+          "omitted_characters": 0,
+          "clipped": false,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s38:7a436d068c54"
+        },
+        {
+          "event_id": 39,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2772,
+          "omitted_characters": 2592,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s39:5d82c239010e"
+        },
+        {
+          "event_id": 40,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2284,
+          "omitted_characters": 2104,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s40:0fa5bfa95a77"
+        },
+        {
+          "event_id": 41,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 189,
+          "omitted_characters": 9,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s41:20ccdf8cc1e8"
+        },
+        {
+          "event_id": 42,
+          "author": "Manager",
+          "delivered_characters": 180,
+          "source_characters": 2991,
+          "omitted_characters": 2811,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s42:71c3260a6d92"
+        },
+        {
+          "event_id": 43,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 2467,
+          "omitted_characters": 2287,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s43:dbaf35d0ac6d"
+        },
+        {
+          "event_id": 44,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 1457,
+          "omitted_characters": 1277,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s44:d99a505c8b62"
+        },
+        {
+          "event_id": 45,
+          "author": "Searcher",
+          "delivered_characters": 180,
+          "source_characters": 189,
+          "omitted_characters": 9,
+          "clipped": true,
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s45:71d6c0027443"
+        }
+      ]
+    }
+  ],
+  "gate_tests": {
+    "tests_run": 44,
+    "passed": true,
+    "results": [
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cache_version_and_configuration_are_part_of_key",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_claim_without_citations_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_clipped_event_can_support_a_valid_claim",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cross_author_reference_has_valid_provenance",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_chunk_in_ledger_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_citation_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_decoded_latex_and_unicode_are_exact_not_json_escaped",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_is_immutable_and_tampering_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_roundtrip_preserves_exact_text",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_duplicate_json_keys_are_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_empty_and_whitespace_span_ids_are_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_environment_cannot_disable_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_every_claim_and_every_citation_is_checked",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_five_events_can_be_requested_but_six_cannot",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_forced_selector_uses_only_dynamic_clipped_event_ids",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_foreign_session_span_with_local_chunk_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_generic_requested_step_is_expanded_without_labels",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_ground_truth_metadata_is_not_delivered",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_initial_expansion_only_applies_to_targeted_clipped_overview",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_intermediate_claims_are_not_published",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_invalid_response_is_fail_closed",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_invented_id_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_invented_span_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_mandatory_expansion_blocks_early_publication",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_model_cannot_disable_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_overview_shows_event_author_and_omitted_count",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_payload_cap_is_logged_before_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_policy_cannot_disable_or_replace_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_quote_in_source_but_not_delivered_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_request_and_policy_limits_are_enforced",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_required_selector_rejects_wrong_tool_and_empty_selection",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_retrieval_round_budget_cannot_be_exceeded",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_retyped_quote_is_not_an_allowed_citation",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_runner_cannot_publish_early_even_if_model_ignores_selection",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_runner_executes_model_selected_expansion_before_diagnosis",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_span_text_tampering_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_successful_expansion_allows_publication",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_token_totals_include_all_calls",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_trace_instructions_cannot_disable_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_undelivered_full_chunk_id_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_valid_citation_is_published",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_valid_forced_tool_call_with_stop_finish_is_accepted",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_whole_input_token_budget_is_enforced",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_wrong_json_escape_is_a_real_text_difference",
+        "status": "passed"
+      }
+    ]
+  },
+  "labels_read_after_all_calls": true,
+  "limitations": [
+    "One L2 case with one fresh session per arm; no general accuracy conclusion.",
+    "Provenance acceptance does not establish attribution correctness.",
+    "Mandatory first expansion is fixed behavior, not learned retrieval.",
+    "Token totals include every selection, provisional diagnosis, and final diagnosis call.",
+    "Unknown usage on a failed API attempt would be reported separately, never counted as zero."
+  ],
+  "persistence_verification": {
+    "status": "verified",
+    "at": "2026-10-11T22:39:36.436544+00:00",
+    "database": "aperture",
+    "citation_runs": 3,
+    "citation_calls": 3,
+    "citation_deliveries": 3,
+    "citation_retrievals": 1,
+    "citation_evaluations": 3,
+    "accepted_published_results": 2,
+    "tests": 44
+  },
+  "failure_analysis": {
+    "stage": "input_budget_enforcement_before_second_call",
+    "reason": "Input exceeds host context-token budget",
+    "input_tokens_with_framing_reserve": 14030,
+    "input_token_budget": 12000,
+    "prepared_evidence_tokens": 9954,
+    "evidence_token_budget": 10000,
+    "selected_events": [
+      5,
+      8,
+      11,
+      25,
+      39
+    ],
+    "prepared_expansions": [
+      {
+        "step": 5,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e",
+        "delivered_chars": 316,
+        "source_chars": 316,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 8,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c",
+        "delivered_chars": 1787,
+        "source_chars": 1787,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 11,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e",
+        "delivered_chars": 2288,
+        "source_chars": 2288,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 25,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa",
+        "delivered_chars": 2653,
+        "source_chars": 2653,
+        "truncated": false,
+        "expanded_beyond_overview": true
+      },
+      {
+        "step": 39,
+        "status": "delivered",
+        "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s39:e36b18addeb2",
+        "delivered_chars": 1817,
+        "source_chars": 2772,
+        "truncated": true,
+        "expanded_beyond_overview": true
+      }
+    ],
+    "expanded_events_actually_received_by_investigator": [],
+    "only_received_evidence": "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a:delivery0",
+    "second_api_call_made": false,
+    "second_delivery_registered": false,
+    "final_diagnosis_produced": false,
+    "final_provenance_gate_reached": false,
+    "selection_gate_note": "Selection schema passed with zero fault claims; this is not an accepted final diagnosis.",
+    "frozen_log_note": "The frozen retrieval log labels prepared chunks as delivered. Transport audit confirms no expansion reached the investigator because the next request failed its input-budget check.",
+    "cause": "Evidence fit the 10,000-token subbudget, but instructions, event overview, citation framing and reserve pushed the complete input above 12,000 tokens.",
+    "audit_method": "Reconstructed exact prepared context from persisted source, session, initial evidence and model selection; no model calls or source edits.",
+    "failed_arm_usage": {
+      "prompt_tokens": 10348,
+      "completion_tokens": 14,
+      "total_tokens": 10362
+    },
+    "failure_reproduced_read_only": true
+  },
+  "blocked_context_file": "blocked-context.json",
+  "report_audit_at": "2026-10-11T22:46:06.434805+00:00"
+}

@@ -1,0 +1,32 @@
+{
+  "protocol": "cited-targeted-v1",
+  "gate_version": "verbatim-session-v1",
+  "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+  "source_sha256": "8cb9cec6318660c5217c1b615690eb057c0d7d9ad3291eec88e834b3f4905f8d",
+  "known_agents": [
+    "Assistant1",
+    "Assistant2",
+    "Assistant3"
+  ],
+  "policy": {
+    "max_steps_per_round": 3,
+    "chars_per_retrieved_event": 4000
+  },
+  "max_retrieval_rounds": 2,
+  "system_prompt_sha256": "7e103ac268aa9b62c559538e891e9bf6606d0c830bab8ab3d07507df7c50f8f9",
+  "model_settings": {
+    "model": "gpt-4o-mini",
+    "temperature": 0,
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_completion_tokens": 2000
+  },
+  "code_sha256": {
+    "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+    "provenance_gate.py": "e52f5be2c4aa079ceb44d846243fefee2ca900d7ec5c1477232cd8259737d90b",
+    "targeted_retrieval.py": "0aa30b35adc1e214d022bda3b83fc8d8cfdb81e8f18095de105cd602be3b56e3",
+    "run_s4_targeted.py": "3d1cfad8a3efdb6b53d535b326d60b9cf87dd39ab2c325b8b8ce26a938cf8c68",
+    "test_targeted_retrieval.py": "6b25d6d133248a63d00e88d37d2268131bd23eeb933f9de3fdcd0cb7529eee9a"
+  }
+}

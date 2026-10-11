@@ -1,0 +1,465 @@
+{
+  "study_id": "s4-targeted-citations-20261011-v1",
+  "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+  "config": {
+    "protocol": "cited-targeted-v1",
+    "gate_version": "verbatim-session-v1",
+    "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+    "source_sha256": "8cb9cec6318660c5217c1b615690eb057c0d7d9ad3291eec88e834b3f4905f8d",
+    "known_agents": [
+      "Assistant1",
+      "Assistant2",
+      "Assistant3"
+    ],
+    "policy": {
+      "max_steps_per_round": 3,
+      "chars_per_retrieved_event": 4000
+    },
+    "max_retrieval_rounds": 2,
+    "system_prompt_sha256": "7e103ac268aa9b62c559538e891e9bf6606d0c830bab8ab3d07507df7c50f8f9",
+    "model_settings": {
+      "model": "gpt-4o-mini",
+      "temperature": 0,
+      "response_format": {
+        "type": "json_object"
+      },
+      "max_completion_tokens": 2000
+    },
+    "code_sha256": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "e52f5be2c4aa079ceb44d846243fefee2ca900d7ec5c1477232cd8259737d90b",
+      "targeted_retrieval.py": "0aa30b35adc1e214d022bda3b83fc8d8cfdb81e8f18095de105cd602be3b56e3",
+      "run_s4_targeted.py": "3d1cfad8a3efdb6b53d535b326d60b9cf87dd39ab2c325b8b8ce26a938cf8c68",
+      "test_targeted_retrieval.py": "6b25d6d133248a63d00e88d37d2268131bd23eeb933f9de3fdcd0cb7529eee9a"
+    }
+  },
+  "runs": [
+    {
+      "_id": "cited-targeted-v1:full:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+      "study_id": "s4-targeted-citations-20261011-v1",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "full",
+      "session_id": "3619b98424f740e582ce322bcf3c9873",
+      "status": "rejected",
+      "created_at": "2026-10-11T21:36:39.593489+00:00",
+      "config_hash": "30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+      "cache_used": false,
+      "completed_at": "2026-10-11T21:36:44.575407+00:00",
+      "gate": {
+        "version": "verbatim-session-v1",
+        "accepted": false,
+        "errors": [
+          "claim_0:citation_0:quote_not_verbatim_in_delivered_chunk",
+          "claim_0:no_citation_from_claimed_agent",
+          "claim_1:citation_0:quote_not_verbatim_in_delivered_chunk",
+          "claim_1:no_citation_from_claimed_agent",
+          "claim_2:citation_0:quote_not_verbatim_in_delivered_chunk",
+          "claim_2:no_citation_from_claimed_agent"
+        ],
+        "claims_checked": 3,
+        "citations_checked": [
+          {
+            "claim_index": 0,
+            "citation_index": 0,
+            "accepted": false,
+            "reason": "quote_not_verbatim_in_delivered_chunk"
+          },
+          {
+            "claim_index": 1,
+            "citation_index": 0,
+            "accepted": false,
+            "reason": "quote_not_verbatim_in_delivered_chunk"
+          },
+          {
+            "claim_index": 2,
+            "citation_index": 0,
+            "accepted": false,
+            "reason": "quote_not_verbatim_in_delivered_chunk"
+          }
+        ],
+        "session_id": "3619b98424f740e582ce322bcf3c9873",
+        "evidence_sha256": "3944f76a400867f4e01cba1c8360f0f2e2263a4c99c1b0d530512d73a7e98ca3"
+      },
+      "final_call_id": "cited-targeted-v1:full:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923:call0",
+      "candidate_predicted_agents": [
+        "Assistant1",
+        "Assistant2",
+        "Assistant3"
+      ],
+      "published_predicted_agents": null,
+      "usage": {
+        "prompt_tokens": 6315,
+        "completion_tokens": 317,
+        "total_tokens": 6632
+      },
+      "call_count": 1,
+      "retrieval_rounds": 0,
+      "requested_steps": [],
+      "total_execution_seconds": 4.329,
+      "context_chars_by_call": [
+        17789
+      ],
+      "returned_models": [
+        "gpt-4o-mini-2024-07-18"
+      ]
+    },
+    {
+      "_id": "cited-targeted-v1:short:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+      "study_id": "s4-targeted-citations-20261011-v1",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "short",
+      "session_id": "6ef01a3ff8c74b16aabbf41250a17a8a",
+      "status": "rejected",
+      "created_at": "2026-10-11T21:36:44.834614+00:00",
+      "config_hash": "30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+      "cache_used": false,
+      "completed_at": "2026-10-11T21:36:46.957107+00:00",
+      "gate": {
+        "version": "verbatim-session-v1",
+        "accepted": false,
+        "errors": [
+          "claim_0:citation_0:quote_not_verbatim_in_delivered_chunk",
+          "claim_0:no_citation_from_claimed_agent"
+        ],
+        "claims_checked": 1,
+        "citations_checked": [
+          {
+            "claim_index": 0,
+            "citation_index": 0,
+            "accepted": false,
+            "reason": "quote_not_verbatim_in_delivered_chunk"
+          }
+        ],
+        "session_id": "6ef01a3ff8c74b16aabbf41250a17a8a",
+        "evidence_sha256": "6b39b605ec6e16bef65c43f9599da63154bca3a3c1e125067fd50b504e2796ed"
+      },
+      "final_call_id": "cited-targeted-v1:short:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923:call0",
+      "candidate_predicted_agents": [
+        "Assistant1"
+      ],
+      "published_predicted_agents": null,
+      "usage": {
+        "prompt_tokens": 1576,
+        "completion_tokens": 131,
+        "total_tokens": 1707
+      },
+      "call_count": 1,
+      "retrieval_rounds": 0,
+      "requested_steps": [],
+      "total_execution_seconds": 1.939,
+      "context_chars_by_call": [
+        3496
+      ],
+      "returned_models": [
+        "gpt-4o-mini-2024-07-18"
+      ]
+    },
+    {
+      "_id": "cited-targeted-v1:short_targeted:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+      "study_id": "s4-targeted-citations-20261011-v1",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "short_targeted",
+      "session_id": "e9463c1af4e441d1a34415adb79023cd",
+      "status": "rejected",
+      "created_at": "2026-10-11T21:36:47.015977+00:00",
+      "config_hash": "30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+      "cache_used": false,
+      "completed_at": "2026-10-11T21:36:48.788147+00:00",
+      "gate": {
+        "version": "verbatim-session-v1",
+        "accepted": false,
+        "errors": [
+          "claim_0:citation_0:quote_not_verbatim_in_delivered_chunk",
+          "claim_0:no_citation_from_claimed_agent"
+        ],
+        "claims_checked": 1,
+        "citations_checked": [
+          {
+            "claim_index": 0,
+            "citation_index": 0,
+            "accepted": false,
+            "reason": "quote_not_verbatim_in_delivered_chunk"
+          }
+        ],
+        "session_id": "e9463c1af4e441d1a34415adb79023cd",
+        "evidence_sha256": "7f989bad6c195236d0c0cc6bc25967355e15b7d4e714bf04bd88e83d793fd173"
+      },
+      "final_call_id": "cited-targeted-v1:short_targeted:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923:call0",
+      "candidate_predicted_agents": [
+        "Assistant1"
+      ],
+      "published_predicted_agents": null,
+      "usage": {
+        "prompt_tokens": 1528,
+        "completion_tokens": 125,
+        "total_tokens": 1653
+      },
+      "call_count": 1,
+      "retrieval_rounds": 0,
+      "requested_steps": [],
+      "total_execution_seconds": 1.636,
+      "context_chars_by_call": [
+        3496
+      ],
+      "returned_models": [
+        "gpt-4o-mini-2024-07-18"
+      ]
+    }
+  ],
+  "evaluations": [
+    {
+      "_id": "cited-targeted-v1:full:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+      "study_id": "s4-targeted-citations-20261011-v1",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "full",
+      "actual_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "candidate_predicted_agents": [
+        "Assistant1",
+        "Assistant2",
+        "Assistant3"
+      ],
+      "candidate_f1": 0.8,
+      "candidate_exact_match": false,
+      "published_f1": null,
+      "published_exact_match": null,
+      "false_positives": [
+        "Assistant2"
+      ],
+      "false_negatives": []
+    },
+    {
+      "_id": "cited-targeted-v1:short:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+      "study_id": "s4-targeted-citations-20261011-v1",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "short",
+      "actual_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "candidate_predicted_agents": [
+        "Assistant1"
+      ],
+      "candidate_f1": 0.6667,
+      "candidate_exact_match": false,
+      "published_f1": null,
+      "published_exact_match": null,
+      "false_positives": [],
+      "false_negatives": [
+        "Assistant3"
+      ]
+    },
+    {
+      "_id": "cited-targeted-v1:short_targeted:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+      "study_id": "s4-targeted-citations-20261011-v1",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "arm": "short_targeted",
+      "actual_agents": [
+        "Assistant1",
+        "Assistant3"
+      ],
+      "candidate_predicted_agents": [
+        "Assistant1"
+      ],
+      "candidate_f1": 0.6667,
+      "candidate_exact_match": false,
+      "published_f1": null,
+      "published_exact_match": null,
+      "false_positives": [],
+      "false_negatives": [
+        "Assistant3"
+      ]
+    }
+  ],
+  "formula_visibility": [
+    {
+      "arm": "full",
+      "formulas": [
+        {
+          "step": 10,
+          "formula": "\\frac{1}{12}",
+          "delivered": true,
+          "first_call_round": 0
+        },
+        {
+          "step": 12,
+          "formula": "\\frac{1}{4}",
+          "delivered": true,
+          "first_call_round": 0
+        }
+      ]
+    },
+    {
+      "arm": "short",
+      "formulas": [
+        {
+          "step": 10,
+          "formula": "\\frac{1}{12}",
+          "delivered": false,
+          "first_call_round": null
+        },
+        {
+          "step": 12,
+          "formula": "\\frac{1}{4}",
+          "delivered": false,
+          "first_call_round": null
+        }
+      ]
+    },
+    {
+      "arm": "short_targeted",
+      "formulas": [
+        {
+          "step": 10,
+          "formula": "\\frac{1}{12}",
+          "delivered": false,
+          "first_call_round": null
+        },
+        {
+          "step": 12,
+          "formula": "\\frac{1}{4}",
+          "delivered": false,
+          "first_call_round": null
+        }
+      ]
+    }
+  ],
+  "gate_tests": {
+    "tests_run": 26,
+    "passed": true,
+    "results": [
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cache_version_and_configuration_are_part_of_key",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_claim_without_citations_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_chunk_in_ledger_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_citation_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_is_immutable_and_tampering_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_roundtrip_preserves_exact_text",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_duplicate_json_keys_are_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_empty_and_whitespace_quotes_are_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_environment_cannot_disable_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_every_claim_and_every_citation_is_checked",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_generic_requested_step_is_expanded_without_labels",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_ground_truth_metadata_is_not_delivered",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_intermediate_claims_are_not_published",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_invalid_response_is_fail_closed",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_invented_id_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_model_cannot_disable_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_nonverbatim_quote_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_payload_cap_is_logged_before_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_policy_cannot_disable_or_replace_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_quote_in_source_but_not_delivered_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_request_and_policy_limits_are_enforced",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_retrieval_round_budget_cannot_be_exceeded",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_token_totals_include_all_calls",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_trace_instructions_cannot_disable_gate",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_undelivered_full_chunk_id_is_rejected",
+        "status": "passed"
+      },
+      {
+        "name": "test_targeted_retrieval.ProvenanceTests.test_valid_citation_is_published",
+        "status": "passed"
+      }
+    ]
+  },
+  "all_calls_usage": {
+    "prompt_tokens": 9419,
+    "completion_tokens": 573,
+    "total_tokens": 9992
+  },
+  "total_model_calls": 3,
+  "retrieval_model_calls": 0,
+  "limitations": [
+    "Single S4 example, one session per arm; no general accuracy conclusion.",
+    "The gate verifies citation provenance, not whether a quotation logically proves the claim.",
+    "Retrieval is model-selected event expansion from the same trace; no separate retrieval model.",
+    "All round inputs and outputs count toward usage, including provisional and rejected claims.",
+    "Prompt and evidence framing now require citations; these results are not identical-prompt reruns of the old baseline."
+  ],
+  "persistence_verification": {
+    "status": "verified",
+    "verified_at": "2026-10-11T21:36:50.688425+00:00",
+    "database": "aperture",
+    "runs": 3,
+    "calls": 3,
+    "deliveries": 3,
+    "retrievals": 0,
+    "evaluations": 3,
+    "accepted_published_results": 0,
+    "gate_tests": 26
+  }
+}

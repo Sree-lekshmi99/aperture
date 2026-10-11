@@ -1,0 +1,30 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*
+secrets*
+.aws/
+# Python environments and generated files
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+# Downloaded datasets and local output
+data/
+*.jsonl
+*.parquet
+*.arrow
+*.log
+# Editor and system files
+.DS_Store
+.vscode/
+.idea/
+.streamlit/secrets.toml
+.env

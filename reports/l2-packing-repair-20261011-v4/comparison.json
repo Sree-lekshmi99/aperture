@@ -1,0 +1,835 @@
+{
+  "study_id": "l2-packing-repair-20261011-v4",
+  "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+  "config": {
+    "protocol": "mandatory-expansion-spans-v4-packing",
+    "gate_version": "decoded-delivered-spans-v2",
+    "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+    "source_sha256": "86411ae3bba5f908192da2a8d75701d876a6542fc212d7dda1f3825c2c8df137",
+    "known_agents": [
+      "Manager",
+      "Searcher"
+    ],
+    "policy": {
+      "max_steps_per_round": 5,
+      "chars_per_retrieved_event": 4000
+    },
+    "max_retrieval_rounds": 2,
+    "system_prompt_sha256": "32ad02d195b66c17fb4ab50a13d2354111f04fb545178ecb5745e7cc1c2b44b4",
+    "retrieval_label": "mandatory first expansion",
+    "max_events_per_round": 5,
+    "initial_selection_control": "forced strict select_events function; IDs chosen by investigator",
+    "context_token_budget": 12000,
+    "evidence_token_budget": 10000,
+    "token_budget_note": "serialized full message/tool/response-format payload plus the existing 256-token reserve; verified before sending and against actual API usage",
+    "model_settings": {
+      "model": "gpt-4o-mini",
+      "temperature": 0,
+      "response_format": {
+        "type": "json_object"
+      },
+      "max_completion_tokens": 2000
+    },
+    "code_sha256": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+      "targeted_retrieval.py": "436112cffc7e73812d130e76d31be2af81477eb6ff6ce3230ec61b5134810433",
+      "run_s4_targeted.py": "b2b60286713bf68e80243bc722cb16cea6d2c42c6b19d14b1c5ea57bcc97146d",
+      "test_targeted_retrieval.py": "a8ea7e7a0fdfcc0ebe550db625164c62de75f495f9854c73803fecb6eaf1a0ea"
+    },
+    "experiment_id": "l2-packing-repair-20261011-v4",
+    "packing": "compact timeline; replace previews; deterministic prefixes in selection order"
+  },
+  "run": {
+    "_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d",
+    "study_id": "l2-packing-repair-20261011-v4",
+    "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+    "arm": "short_targeted",
+    "session_id": "77bc38380c8b493d9ece615513d972a4",
+    "status": "accepted",
+    "created_at": "2026-10-11T23:02:09.106054+00:00",
+    "config_hash": "4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d",
+    "cache_used": false,
+    "completed_at": "2026-10-11T23:02:17.032632+00:00",
+    "gate": {
+      "version": "decoded-delivered-spans-v2",
+      "accepted": true,
+      "errors": [],
+      "claims_checked": 2,
+      "citations_checked": [
+        {
+          "claim_index": 0,
+          "citation_index": 0,
+          "accepted": true,
+          "reason": null
+        },
+        {
+          "claim_index": 1,
+          "citation_index": 0,
+          "accepted": true,
+          "reason": null
+        }
+      ],
+      "session_id": "77bc38380c8b493d9ece615513d972a4",
+      "evidence_sha256": "94bf9ae5c20b9ad0cd5773aac69369651403732e98650ddfd732523d5f4b89b4",
+      "resolved_claims": [
+        {
+          "agent_name": "Searcher",
+          "claim": "Failed to extract any valid Blu-Ray titles from the inventory despite multiple attempts.",
+          "citations": [
+            {
+              "chunk_id": "77bc38380c8b493d9ece615513d972a4:s41:20ccdf8cc1e8",
+              "span_id": "77bc38380c8b493d9ece615513d972a4:s41:20ccdf8cc1e8:p1",
+              "quote": "[{'type': 'text', 'text': 'Observation:\\nExecution logs:\\nCollected Blu-Ray titles and years: []\\nNo valid Blu-Ray titles found in the section.\\nLast output from code snippet:\\nAdv",
+              "start": 0,
+              "end": 180,
+              "source_author": "Searcher"
+            }
+          ]
+        },
+        {
+          "agent_name": "Manager",
+          "claim": "Repeatedly failed to recognize the correct entries under the 'Blu-Ray' section.",
+          "citations": [
+            {
+              "chunk_id": "77bc38380c8b493d9ece615513d972a4:s39:23760412ec85",
+              "span_id": "77bc38380c8b493d9ece615513d972a4:s39:23760412ec85:p1",
+              "quote": "[{'type': 'text', 'text': 'It seems that I am still unable to extract any valid Blu-Ray titles from the data. In previous attempts, the formatting issues seem to persist and I have failed to recognize the correct entries under the \"Blu-Ray\" section.\\n\\nTo address this more effectively:\\n1. I will directly re-check the way I\\'m splitting the lines; this time I will focus on removing any separators that could be incorrectly interpreted.\\n2. I will analyze the structure of the Blu-Ray section and ensure I capture all data directly while also displaying the data being processed to debug if necessa",
+              "start": 0,
+              "end": 600,
+              "source_author": "Manager"
+            }
+          ]
+        }
+      ],
+      "provenance_accepted": true,
+      "protocol_errors": []
+    },
+    "final_call_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d:call1",
+    "candidate_predicted_agents": [
+      "Manager",
+      "Searcher"
+    ],
+    "published_predicted_agents": [
+      "Manager",
+      "Searcher"
+    ],
+    "usage": {
+      "prompt_tokens": 19620,
+      "completion_tokens": 258,
+      "total_tokens": 19878
+    },
+    "call_count": 2,
+    "retrieval_rounds": 1,
+    "requested_steps": [
+      [
+        5,
+        8,
+        19,
+        25,
+        39
+      ]
+    ],
+    "actually_delivered_steps": [
+      [
+        5,
+        8,
+        19,
+        25,
+        39
+      ]
+    ],
+    "actually_expanded_steps": [
+      5,
+      8,
+      19,
+      25,
+      39
+    ],
+    "mandatory_first_expansion": true,
+    "context_label": "short + mandatory first expansion",
+    "initial_context_clipped": true,
+    "retrieval_label": "mandatory first expansion",
+    "total_execution_seconds": 5.748,
+    "context_chars_by_call": [
+      16999,
+      24805
+    ],
+    "returned_models": [
+      "gpt-4o-mini-2024-07-18"
+    ]
+  },
+  "evaluation": {
+    "_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d",
+    "study_id": "l2-packing-repair-20261011-v4",
+    "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+    "arm": "short_targeted",
+    "actual_agents": [
+      "Manager"
+    ],
+    "candidate_predicted_agents": [
+      "Manager",
+      "Searcher"
+    ],
+    "candidate_f1": 0.6667,
+    "candidate_exact_match": false,
+    "published_f1": 0.6667,
+    "published_exact_match": false
+  },
+  "actual_agents": [
+    "Manager"
+  ],
+  "accounting": {
+    "new_calls": 2,
+    "new_usage": {
+      "prompt_tokens": 19620,
+      "completion_tokens": 258,
+      "total_tokens": 19878
+    },
+    "unmetered_new_attempts": [],
+    "previous_baseline_calls": 2,
+    "previous_baseline_usage": {
+      "prompt_tokens": 21447,
+      "completion_tokens": 668,
+      "total_tokens": 22115
+    },
+    "previous_failed_targeted_calls": 1,
+    "previous_failed_targeted_usage": {
+      "prompt_tokens": 10348,
+      "completion_tokens": 14,
+      "total_tokens": 10362
+    },
+    "all_L2_versions_calls": 5,
+    "all_L2_versions_usage": {
+      "prompt_tokens": 51415,
+      "completion_tokens": 940,
+      "total_tokens": 52355
+    },
+    "automatic_retries": 0,
+    "new_targeted_runs": 1,
+    "new_failed_attempts": null,
+    "new_gate_rejected": false
+  },
+  "retrievals": [
+    {
+      "_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d:retrieval1",
+      "study_id": "l2-packing-repair-20261011-v4",
+      "run_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d",
+      "round": 1,
+      "requested_steps": [
+        5,
+        8,
+        19,
+        25,
+        39
+      ],
+      "selected_by": "investigator_response",
+      "request_call_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d:call0",
+      "actually_delivered_steps": [
+        5,
+        8,
+        19,
+        25,
+        39
+      ],
+      "packing": {
+        "status": "ready",
+        "prepared_steps": [
+          5,
+          8,
+          19,
+          25,
+          39
+        ],
+        "input_tokens_with_framing_reserve": 10900,
+        "context_token_budget": 12000,
+        "evidence_tokens": 8530,
+        "retained_history": "one current chunk per event; no prior message transcript",
+        "selection_order": [
+          5,
+          8,
+          19,
+          25,
+          39
+        ]
+      },
+      "delivery_status": "received_by_investigator",
+      "log": [
+        {
+          "step": 5,
+          "status": "prepared",
+          "chunk_id": "77bc38380c8b493d9ece615513d972a4:s5:9040c8ea676e",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 316,
+          "source_chars": 316,
+          "omitted_chars": 0,
+          "additional_chars": 136,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 8,
+          "status": "prepared",
+          "chunk_id": "77bc38380c8b493d9ece615513d972a4:s8:fea3351c1e5c",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 1787,
+          "source_chars": 1787,
+          "omitted_chars": 0,
+          "additional_chars": 1607,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 19,
+          "status": "prepared",
+          "chunk_id": "77bc38380c8b493d9ece615513d972a4:s19:6363217d2a5c",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 586,
+          "source_chars": 586,
+          "omitted_chars": 0,
+          "additional_chars": 406,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 25,
+          "status": "prepared",
+          "chunk_id": "77bc38380c8b493d9ece615513d972a4:s25:a4a91d9189aa",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 2653,
+          "source_chars": 2653,
+          "omitted_chars": 0,
+          "additional_chars": 2473,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 39,
+          "status": "prepared",
+          "chunk_id": "77bc38380c8b493d9ece615513d972a4:s39:23760412ec85",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 2772,
+          "source_chars": 2772,
+          "omitted_chars": 0,
+          "additional_chars": 2592,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        }
+      ],
+      "before_chars": 16999,
+      "after_chars": 24805,
+      "retrieval_model_tokens": 0,
+      "received_call_id": "mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d:call1"
+    }
+  ],
+  "failure": null,
+  "final_candidate": {
+    "fault_claims": [
+      {
+        "agent_name": "Searcher",
+        "claim": "Failed to extract any valid Blu-Ray titles from the inventory despite multiple attempts.",
+        "citations": [
+          {
+            "chunk_id": "77bc38380c8b493d9ece615513d972a4:s41:20ccdf8cc1e8",
+            "span_id": "77bc38380c8b493d9ece615513d972a4:s41:20ccdf8cc1e8:p1"
+          }
+        ]
+      },
+      {
+        "agent_name": "Manager",
+        "claim": "Repeatedly failed to recognize the correct entries under the 'Blu-Ray' section.",
+        "citations": [
+          {
+            "chunk_id": "77bc38380c8b493d9ece615513d972a4:s39:23760412ec85",
+            "span_id": "77bc38380c8b493d9ece615513d972a4:s39:23760412ec85:p1"
+          }
+        ]
+      }
+    ],
+    "retrieve_steps": []
+  },
+  "comparison_rows": [
+    [
+      "v3 / capped-large",
+      [
+        "Searcher"
+      ],
+      0.0,
+      false,
+      "accepted",
+      11708,
+      0
+    ],
+    [
+      "v3 / short context",
+      [
+        "Searcher"
+      ],
+      0.0,
+      false,
+      "accepted",
+      10407,
+      0
+    ],
+    [
+      "v3 / short + mandatory first expansion",
+      null,
+      null,
+      null,
+      "error",
+      10362,
+      0
+    ],
+    [
+      "v4 packing / targeted",
+      [
+        "Manager",
+        "Searcher"
+      ],
+      0.6667,
+      false,
+      "accepted",
+      19878,
+      2
+    ]
+  ],
+  "baseline_reference_study": "l2-frozen-mandatory-expansion-20261011-v1",
+  "prior_run_hashes": {
+    "mandatory-expansion-spans-v3:full:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a": "d377fbd38702906dc34395bf09ebdf3fe09ff2c96674175530394e17da7f7218",
+    "mandatory-expansion-spans-v3:short:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a": "55420717347b994d11ac18b4ac123c2fa77b740f78ad0437c733360c2ed5abda",
+    "mandatory-expansion-spans-v3:short_targeted:3742fd5522a7e0fc98bc9456f48a6a0f7e67f64d792125de3f5703dfb2ab602a": "77e3878a0469e399559b6027873d4cc4919762273df944df4e85fcda54fa6e8d"
+  },
+  "tests": {
+    "passed": true,
+    "tests_run": 50,
+    "provenance_and_runner": {
+      "tests_run": 44,
+      "passed": true,
+      "results": [
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_cache_version_and_configuration_are_part_of_key",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_claim_without_citations_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_clipped_event_can_support_a_valid_claim",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_cross_author_reference_has_valid_provenance",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_chunk_in_ledger_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_cross_session_citation_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_decoded_latex_and_unicode_are_exact_not_json_escaped",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_is_immutable_and_tampering_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_delivery_roundtrip_preserves_exact_text",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_duplicate_json_keys_are_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_empty_and_whitespace_span_ids_are_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_environment_cannot_disable_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_every_claim_and_every_citation_is_checked",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_five_events_can_be_requested_but_six_cannot",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_forced_selector_uses_only_dynamic_clipped_event_ids",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_foreign_session_span_with_local_chunk_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_generic_requested_step_is_expanded_without_labels",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_ground_truth_metadata_is_not_delivered",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_initial_expansion_only_applies_to_targeted_clipped_overview",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_intermediate_claims_are_not_published",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_invalid_response_is_fail_closed",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_invented_id_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_invented_span_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_mandatory_expansion_blocks_early_publication",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_model_cannot_disable_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_overview_shows_event_author_and_omitted_count",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_payload_cap_is_logged_before_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_policy_cannot_disable_or_replace_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_quote_in_source_but_not_delivered_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_request_and_policy_limits_are_enforced",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_required_selector_rejects_wrong_tool_and_empty_selection",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_retrieval_round_budget_cannot_be_exceeded",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_retyped_quote_is_not_an_allowed_citation",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_runner_cannot_publish_early_even_if_model_ignores_selection",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_runner_executes_model_selected_expansion_before_diagnosis",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_span_text_tampering_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_successful_expansion_allows_publication",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_token_totals_include_all_calls",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_trace_instructions_cannot_disable_gate",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_undelivered_full_chunk_id_is_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_valid_citation_is_published",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_valid_forced_tool_call_with_stop_finish_is_accepted",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_whole_input_token_budget_is_enforced",
+          "status": "passed"
+        },
+        {
+          "name": "test_targeted_retrieval.ProvenanceTests.test_wrong_json_escape_is_a_real_text_difference",
+          "status": "passed"
+        }
+      ]
+    },
+    "packing_tests": {
+      "tests_run": 6,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "local_packing_replays": [
+    {
+      "source_study": "l2-frozen-mandatory-expansion-20261011-v1",
+      "trace_id": "val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9",
+      "selected_saved_fixture": [
+        5,
+        8,
+        11,
+        25,
+        39
+      ],
+      "packing": {
+        "status": "ready",
+        "prepared_steps": [
+          5,
+          8,
+          11,
+          25,
+          39
+        ],
+        "input_tokens_with_framing_reserve": 11935,
+        "context_token_budget": 12000,
+        "evidence_tokens": 9499,
+        "retained_history": "one current chunk per event; no prior message transcript",
+        "selection_order": [
+          5,
+          8,
+          11,
+          25,
+          39
+        ]
+      },
+      "events": [
+        {
+          "step": 5,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 316,
+          "source_chars": 316,
+          "omitted_chars": 0,
+          "additional_chars": 136,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 8,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 1787,
+          "source_chars": 1787,
+          "omitted_chars": 0,
+          "additional_chars": 1607,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 11,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 2288,
+          "source_chars": 2288,
+          "omitted_chars": 0,
+          "additional_chars": 2108,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 25,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 2653,
+          "source_chars": 2653,
+          "omitted_chars": 0,
+          "additional_chars": 2473,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 39,
+          "status": "prepared",
+          "chunk_id": "9a19bf5f63f449b79b6bf4b2d741e743:s39:23760412ec85",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 2772,
+          "source_chars": 2772,
+          "omitted_chars": 0,
+          "additional_chars": 2592,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        }
+      ],
+      "model_calls": 0
+    },
+    {
+      "source_study": "s4-mandatory-expansion-spans-20261011-v3",
+      "trace_id": "val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c",
+      "selected_saved_fixture": [
+        2,
+        4,
+        6,
+        10,
+        12
+      ],
+      "packing": {
+        "status": "ready",
+        "prepared_steps": [
+          2,
+          4,
+          6,
+          10,
+          12
+        ],
+        "input_tokens_with_framing_reserve": 7304,
+        "context_token_budget": 12000,
+        "evidence_tokens": 5708,
+        "retained_history": "one current chunk per event; no prior message transcript",
+        "selection_order": [
+          2,
+          4,
+          6,
+          10,
+          12
+        ]
+      },
+      "events": [
+        {
+          "step": 2,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 1622,
+          "source_chars": 1622,
+          "omitted_chars": 0,
+          "additional_chars": 1442,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 4,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s4:79a44a962994",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 965,
+          "source_chars": 965,
+          "omitted_chars": 0,
+          "additional_chars": 785,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 6,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s6:938fcfd3f692",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 1268,
+          "source_chars": 1268,
+          "omitted_chars": 0,
+          "additional_chars": 1088,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 10,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 887,
+          "source_chars": 887,
+          "omitted_chars": 0,
+          "additional_chars": 707,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        },
+        {
+          "step": 12,
+          "status": "prepared",
+          "chunk_id": "fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88",
+          "packing_status": "complete",
+          "previous_chars": 180,
+          "delivered_chars": 896,
+          "source_chars": 896,
+          "omitted_chars": 0,
+          "additional_chars": 716,
+          "truncated": false,
+          "expanded_beyond_overview": true
+        }
+      ],
+      "model_calls": 0
+    }
+  ],
+  "implementation_manifest": {
+    "before": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+      "targeted_retrieval.py": "3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a",
+      "run_s4_targeted.py": "ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1",
+      "test_targeted_retrieval.py": "400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02"
+    },
+    "after": {
+      "aperture.py": "061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912",
+      "provenance_gate.py": "91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f",
+      "targeted_retrieval.py": "436112cffc7e73812d130e76d31be2af81477eb6ff6ce3230ec61b5134810433",
+      "run_s4_targeted.py": "b2b60286713bf68e80243bc722cb16cea6d2c42c6b19d14b1c5ea57bcc97146d",
+      "test_targeted_retrieval.py": "a8ea7e7a0fdfcc0ebe550db625164c62de75f495f9854c73803fecb6eaf1a0ea"
+    },
+    "new_tests": [
+      "test_context_packing.py",
+      "frozen_targeted_retrieval.py"
+    ],
+    "unchanged_gate": true,
+    "unchanged_harness_and_scoring": true
+  },
+  "labels_read_after_all_calls": true,
+  "persistence_verification": {
+    "status": "verified",
+    "at": "2026-10-11T23:02:20.706593+00:00",
+    "database": "aperture",
+    "citation_runs": 1,
+    "citation_calls": 2,
+    "citation_deliveries": 2,
+    "citation_retrievals": 1,
+    "citation_evaluations": 1,
+    "previous_runs_unchanged": true,
+    "implementation_matches_manifest": true
+  }
+}

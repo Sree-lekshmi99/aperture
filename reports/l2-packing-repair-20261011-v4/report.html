@@ -1,0 +1,665 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aperture L2 packing repair</title>
+<style>body{font:16px/1.5 system-ui;background:#f7fafb;color:#182938;margin:0}main{max-width:1200px;margin:auto;padding:32px 24px}.scroll{overflow-x:auto}table{border-collapse:collapse;background:white;width:100%}th,td{padding:10px;border-bottom:1px solid #ccd9df;text-align:left;vertical-align:top}th{background:#e6f0f3}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;padding:16px}code{overflow-wrap:anywhere}</style><main><p>APERTURE · L2 ONLY · 11 OCTOBER 2026</p><h1>Targeted context packing repair</h1><p><code>val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9</code></p>
+<p>One new targeted run. Baseline rows and the previous failed targeted row are preserved historical results, not new calls. Model gpt-4o-mini, temperature 0, 2,000 output-token cap, original diagnosis instructions and provenance gate unchanged. Limits remain two rounds, five events per round, 4,000 characters per retrieved event, 12,000 total input tokens and 10,000 evidence tokens.</p>
+<p>The next request uses a compact timeline and one current chunk per event. Selected evidence replaces its preview; unselected previews are retained and counted. Requests are fitted in selection order, with partial/deferred status logged. All instructions, IDs, evidence, message/tool framing and retained messages are counted before sending. No expansion without additional source text can satisfy the mandatory-first-expansion rule.</p>
+<div class="scroll"><table><tr><th>Version / arm</th><th>Prediction</th><th>Candidate F1</th><th>Exact</th><th>Gate/status</th><th>All-call tokens</th><th>New calls this request</th></tr><tr><td>v3 / capped-large</td><td>[&#x27;Searcher&#x27;]</td><td>0.0</td><td>False</td><td>accepted</td><td>11708</td><td>0</td></tr><tr><td>v3 / short context</td><td>[&#x27;Searcher&#x27;]</td><td>0.0</td><td>False</td><td>accepted</td><td>10407</td><td>0</td></tr><tr><td>v3 / short + mandatory first expansion</td><td>None</td><td>None</td><td>None</td><td>error</td><td>10362</td><td>0</td></tr><tr><td>v4 packing / targeted</td><td>[&#x27;Manager&#x27;, &#x27;Searcher&#x27;]</td><td>0.6667</td><td>False</td><td>accepted</td><td>19878</td><td>2</td></tr></table></div>
+<p>Actual faulty agents, evaluated after inference: Manager. Provenance verifies source references, not attribution correctness.</p>
+<h2>New calls</h2>
+<div class="scroll"><table><tr><th>Round</th><th>Input</th><th>Output</th><th>Total</th><th>Requested events</th><th>Status</th></tr><tr><td>0</td><td>9808</td><td>14</td><td>9822</td><td>[5, 8, 19, 25, 39]</td><td>complete</td></tr><tr><td>1</td><td>9812</td><td>244</td><td>10056</td><td>[]</td><td>complete</td></tr></table></div>
+<pre>{
+  &quot;new_calls&quot;: 2,
+  &quot;new_usage&quot;: {
+    &quot;prompt_tokens&quot;: 19620,
+    &quot;completion_tokens&quot;: 258,
+    &quot;total_tokens&quot;: 19878
+  },
+  &quot;unmetered_new_attempts&quot;: [],
+  &quot;previous_baseline_calls&quot;: 2,
+  &quot;previous_baseline_usage&quot;: {
+    &quot;prompt_tokens&quot;: 21447,
+    &quot;completion_tokens&quot;: 668,
+    &quot;total_tokens&quot;: 22115
+  },
+  &quot;previous_failed_targeted_calls&quot;: 1,
+  &quot;previous_failed_targeted_usage&quot;: {
+    &quot;prompt_tokens&quot;: 10348,
+    &quot;completion_tokens&quot;: 14,
+    &quot;total_tokens&quot;: 10362
+  },
+  &quot;all_L2_versions_calls&quot;: 5,
+  &quot;all_L2_versions_usage&quot;: {
+    &quot;prompt_tokens&quot;: 51415,
+    &quot;completion_tokens&quot;: 940,
+    &quot;total_tokens&quot;: 52355
+  },
+  &quot;automatic_retries&quot;: 0,
+  &quot;new_targeted_runs&quot;: 1,
+  &quot;new_failed_attempts&quot;: null,
+  &quot;new_gate_rejected&quot;: false
+}</pre><h2>Retrieval and delivery</h2>
+<pre>{
+  &quot;study_id&quot;: &quot;l2-packing-repair-20261011-v4&quot;,
+  &quot;round&quot;: 1,
+  &quot;requested_steps&quot;: [
+    5,
+    8,
+    19,
+    25,
+    39
+  ],
+  &quot;selected_by&quot;: &quot;investigator_response&quot;,
+  &quot;actually_delivered_steps&quot;: [
+    5,
+    8,
+    19,
+    25,
+    39
+  ],
+  &quot;packing&quot;: {
+    &quot;status&quot;: &quot;ready&quot;,
+    &quot;prepared_steps&quot;: [
+      5,
+      8,
+      19,
+      25,
+      39
+    ],
+    &quot;input_tokens_with_framing_reserve&quot;: 10900,
+    &quot;context_token_budget&quot;: 12000,
+    &quot;evidence_tokens&quot;: 8530,
+    &quot;retained_history&quot;: &quot;one current chunk per event; no prior message transcript&quot;,
+    &quot;selection_order&quot;: [
+      5,
+      8,
+      19,
+      25,
+      39
+    ]
+  },
+  &quot;delivery_status&quot;: &quot;received_by_investigator&quot;,
+  &quot;log&quot;: [
+    {
+      &quot;step&quot;: 5,
+      &quot;status&quot;: &quot;prepared&quot;,
+      &quot;chunk_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s5:9040c8ea676e&quot;,
+      &quot;packing_status&quot;: &quot;complete&quot;,
+      &quot;previous_chars&quot;: 180,
+      &quot;delivered_chars&quot;: 316,
+      &quot;source_chars&quot;: 316,
+      &quot;omitted_chars&quot;: 0,
+      &quot;additional_chars&quot;: 136,
+      &quot;truncated&quot;: false,
+      &quot;expanded_beyond_overview&quot;: true
+    },
+    {
+      &quot;step&quot;: 8,
+      &quot;status&quot;: &quot;prepared&quot;,
+      &quot;chunk_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s8:fea3351c1e5c&quot;,
+      &quot;packing_status&quot;: &quot;complete&quot;,
+      &quot;previous_chars&quot;: 180,
+      &quot;delivered_chars&quot;: 1787,
+      &quot;source_chars&quot;: 1787,
+      &quot;omitted_chars&quot;: 0,
+      &quot;additional_chars&quot;: 1607,
+      &quot;truncated&quot;: false,
+      &quot;expanded_beyond_overview&quot;: true
+    },
+    {
+      &quot;step&quot;: 19,
+      &quot;status&quot;: &quot;prepared&quot;,
+      &quot;chunk_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s19:6363217d2a5c&quot;,
+      &quot;packing_status&quot;: &quot;complete&quot;,
+      &quot;previous_chars&quot;: 180,
+      &quot;delivered_chars&quot;: 586,
+      &quot;source_chars&quot;: 586,
+      &quot;omitted_chars&quot;: 0,
+      &quot;additional_chars&quot;: 406,
+      &quot;truncated&quot;: false,
+      &quot;expanded_beyond_overview&quot;: true
+    },
+    {
+      &quot;step&quot;: 25,
+      &quot;status&quot;: &quot;prepared&quot;,
+      &quot;chunk_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s25:a4a91d9189aa&quot;,
+      &quot;packing_status&quot;: &quot;complete&quot;,
+      &quot;previous_chars&quot;: 180,
+      &quot;delivered_chars&quot;: 2653,
+      &quot;source_chars&quot;: 2653,
+      &quot;omitted_chars&quot;: 0,
+      &quot;additional_chars&quot;: 2473,
+      &quot;truncated&quot;: false,
+      &quot;expanded_beyond_overview&quot;: true
+    },
+    {
+      &quot;step&quot;: 39,
+      &quot;status&quot;: &quot;prepared&quot;,
+      &quot;chunk_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s39:23760412ec85&quot;,
+      &quot;packing_status&quot;: &quot;complete&quot;,
+      &quot;previous_chars&quot;: 180,
+      &quot;delivered_chars&quot;: 2772,
+      &quot;source_chars&quot;: 2772,
+      &quot;omitted_chars&quot;: 0,
+      &quot;additional_chars&quot;: 2592,
+      &quot;truncated&quot;: false,
+      &quot;expanded_beyond_overview&quot;: true
+    }
+  ],
+  &quot;before_chars&quot;: 16999,
+  &quot;after_chars&quot;: 24805,
+  &quot;retrieval_model_tokens&quot;: 0,
+  &quot;received_call_id&quot;: &quot;mandatory-expansion-spans-v4-packing:short_targeted:4fc3ebac9f4fdd5af330aa4505586a916dcc80f8257bedb172e43e0c7871487d:call1&quot;
+}</pre>
+<h2>Final candidate and gate</h2><pre>{
+  &quot;candidate&quot;: {
+    &quot;fault_claims&quot;: [
+      {
+        &quot;agent_name&quot;: &quot;Searcher&quot;,
+        &quot;claim&quot;: &quot;Failed to extract any valid Blu-Ray titles from the inventory despite multiple attempts.&quot;,
+        &quot;citations&quot;: [
+          {
+            &quot;chunk_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s41:20ccdf8cc1e8&quot;,
+            &quot;span_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s41:20ccdf8cc1e8:p1&quot;
+          }
+        ]
+      },
+      {
+        &quot;agent_name&quot;: &quot;Manager&quot;,
+        &quot;claim&quot;: &quot;Repeatedly failed to recognize the correct entries under the &#x27;Blu-Ray&#x27; section.&quot;,
+        &quot;citations&quot;: [
+          {
+            &quot;chunk_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s39:23760412ec85&quot;,
+            &quot;span_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s39:23760412ec85:p1&quot;
+          }
+        ]
+      }
+    ],
+    &quot;retrieve_steps&quot;: []
+  },
+  &quot;gate&quot;: {
+    &quot;version&quot;: &quot;decoded-delivered-spans-v2&quot;,
+    &quot;accepted&quot;: true,
+    &quot;errors&quot;: [],
+    &quot;claims_checked&quot;: 2,
+    &quot;citations_checked&quot;: [
+      {
+        &quot;claim_index&quot;: 0,
+        &quot;citation_index&quot;: 0,
+        &quot;accepted&quot;: true,
+        &quot;reason&quot;: null
+      },
+      {
+        &quot;claim_index&quot;: 1,
+        &quot;citation_index&quot;: 0,
+        &quot;accepted&quot;: true,
+        &quot;reason&quot;: null
+      }
+    ],
+    &quot;session_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4&quot;,
+    &quot;evidence_sha256&quot;: &quot;94bf9ae5c20b9ad0cd5773aac69369651403732e98650ddfd732523d5f4b89b4&quot;,
+    &quot;resolved_claims&quot;: [
+      {
+        &quot;agent_name&quot;: &quot;Searcher&quot;,
+        &quot;claim&quot;: &quot;Failed to extract any valid Blu-Ray titles from the inventory despite multiple attempts.&quot;,
+        &quot;citations&quot;: [
+          {
+            &quot;chunk_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s41:20ccdf8cc1e8&quot;,
+            &quot;span_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s41:20ccdf8cc1e8:p1&quot;,
+            &quot;quote&quot;: &quot;[{&#x27;type&#x27;: &#x27;text&#x27;, &#x27;text&#x27;: &#x27;Observation:\\nExecution logs:\\nCollected Blu-Ray titles and years: []\\nNo valid Blu-Ray titles found in the section.\\nLast output from code snippet:\\nAdv&quot;,
+            &quot;start&quot;: 0,
+            &quot;end&quot;: 180,
+            &quot;source_author&quot;: &quot;Searcher&quot;
+          }
+        ]
+      },
+      {
+        &quot;agent_name&quot;: &quot;Manager&quot;,
+        &quot;claim&quot;: &quot;Repeatedly failed to recognize the correct entries under the &#x27;Blu-Ray&#x27; section.&quot;,
+        &quot;citations&quot;: [
+          {
+            &quot;chunk_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s39:23760412ec85&quot;,
+            &quot;span_id&quot;: &quot;77bc38380c8b493d9ece615513d972a4:s39:23760412ec85:p1&quot;,
+            &quot;quote&quot;: &quot;[{&#x27;type&#x27;: &#x27;text&#x27;, &#x27;text&#x27;: &#x27;It seems that I am still unable to extract any valid Blu-Ray titles from the data. In previous attempts, the formatting issues seem to persist and I have failed to recognize the correct entries under the \&quot;Blu-Ray\&quot; section.\\n\\nTo address this more effectively:\\n1. I will directly re-check the way I\\&#x27;m splitting the lines; this time I will focus on removing any separators that could be incorrectly interpreted.\\n2. I will analyze the structure of the Blu-Ray section and ensure I capture all data directly while also displaying the data being processed to debug if necessa&quot;,
+            &quot;start&quot;: 0,
+            &quot;end&quot;: 600,
+            &quot;source_author&quot;: &quot;Manager&quot;
+          }
+        ]
+      }
+    ],
+    &quot;provenance_accepted&quot;: true,
+    &quot;protocol_errors&quot;: []
+  },
+  &quot;failure&quot;: null
+}</pre>
+<h2>Local reproduction and regressions</h2><pre>{
+  &quot;tests&quot;: {
+    &quot;passed&quot;: true,
+    &quot;tests_run&quot;: 50,
+    &quot;provenance_and_runner&quot;: {
+      &quot;tests_run&quot;: 44,
+      &quot;passed&quot;: true,
+      &quot;results&quot;: [
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_cache_version_and_configuration_are_part_of_key&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_claim_without_citations_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_clipped_event_can_support_a_valid_claim&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_cross_author_reference_has_valid_provenance&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_cross_session_chunk_in_ledger_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_cross_session_citation_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_decoded_latex_and_unicode_are_exact_not_json_escaped&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_delivery_is_immutable_and_tampering_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_delivery_roundtrip_preserves_exact_text&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_duplicate_json_keys_are_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_empty_and_whitespace_span_ids_are_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_environment_cannot_disable_gate&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_every_claim_and_every_citation_is_checked&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_five_events_can_be_requested_but_six_cannot&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_forced_selector_uses_only_dynamic_clipped_event_ids&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_foreign_session_span_with_local_chunk_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_generic_requested_step_is_expanded_without_labels&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_ground_truth_metadata_is_not_delivered&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_initial_expansion_only_applies_to_targeted_clipped_overview&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_intermediate_claims_are_not_published&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_invalid_response_is_fail_closed&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_invented_id_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_invented_span_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_mandatory_expansion_blocks_early_publication&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_model_cannot_disable_gate&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_overview_shows_event_author_and_omitted_count&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_payload_cap_is_logged_before_gate&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_policy_cannot_disable_or_replace_gate&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_quote_in_source_but_not_delivered_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_request_and_policy_limits_are_enforced&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_required_selector_rejects_wrong_tool_and_empty_selection&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_retrieval_round_budget_cannot_be_exceeded&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_retyped_quote_is_not_an_allowed_citation&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_runner_cannot_publish_early_even_if_model_ignores_selection&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_runner_executes_model_selected_expansion_before_diagnosis&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_span_text_tampering_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_successful_expansion_allows_publication&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_token_totals_include_all_calls&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_trace_instructions_cannot_disable_gate&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_undelivered_full_chunk_id_is_rejected&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_valid_citation_is_published&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_valid_forced_tool_call_with_stop_finish_is_accepted&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_whole_input_token_budget_is_enforced&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        },
+        {
+          &quot;name&quot;: &quot;test_targeted_retrieval.ProvenanceTests.test_wrong_json_escape_is_a_real_text_difference&quot;,
+          &quot;status&quot;: &quot;passed&quot;
+        }
+      ]
+    },
+    &quot;packing_tests&quot;: {
+      &quot;tests_run&quot;: 6,
+      &quot;failures&quot;: 0,
+      &quot;errors&quot;: 0
+    }
+  },
+  &quot;local_packing_replays&quot;: [
+    {
+      &quot;source_study&quot;: &quot;l2-frozen-mandatory-expansion-20261011-v1&quot;,
+      &quot;trace_id&quot;: &quot;val:smol+gaia_gpt-4o-mini_smoagents_23_9c7c5be9&quot;,
+      &quot;selected_saved_fixture&quot;: [
+        5,
+        8,
+        11,
+        25,
+        39
+      ],
+      &quot;packing&quot;: {
+        &quot;status&quot;: &quot;ready&quot;,
+        &quot;prepared_steps&quot;: [
+          5,
+          8,
+          11,
+          25,
+          39
+        ],
+        &quot;input_tokens_with_framing_reserve&quot;: 11935,
+        &quot;context_token_budget&quot;: 12000,
+        &quot;evidence_tokens&quot;: 9499,
+        &quot;retained_history&quot;: &quot;one current chunk per event; no prior message transcript&quot;,
+        &quot;selection_order&quot;: [
+          5,
+          8,
+          11,
+          25,
+          39
+        ]
+      },
+      &quot;events&quot;: [
+        {
+          &quot;step&quot;: 5,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s5:9040c8ea676e&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 316,
+          &quot;source_chars&quot;: 316,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 136,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        },
+        {
+          &quot;step&quot;: 8,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s8:fea3351c1e5c&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 1787,
+          &quot;source_chars&quot;: 1787,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 1607,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        },
+        {
+          &quot;step&quot;: 11,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s11:70e6b15d364e&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 2288,
+          &quot;source_chars&quot;: 2288,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 2108,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        },
+        {
+          &quot;step&quot;: 25,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s25:a4a91d9189aa&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 2653,
+          &quot;source_chars&quot;: 2653,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 2473,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        },
+        {
+          &quot;step&quot;: 39,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;9a19bf5f63f449b79b6bf4b2d741e743:s39:23760412ec85&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 2772,
+          &quot;source_chars&quot;: 2772,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 2592,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        }
+      ],
+      &quot;model_calls&quot;: 0
+    },
+    {
+      &quot;source_study&quot;: &quot;s4-mandatory-expansion-spans-20261011-v3&quot;,
+      &quot;trace_id&quot;: &quot;val:SciBench_gpt-4o-mini_llm_debate_29_4444d10c&quot;,
+      &quot;selected_saved_fixture&quot;: [
+        2,
+        4,
+        6,
+        10,
+        12
+      ],
+      &quot;packing&quot;: {
+        &quot;status&quot;: &quot;ready&quot;,
+        &quot;prepared_steps&quot;: [
+          2,
+          4,
+          6,
+          10,
+          12
+        ],
+        &quot;input_tokens_with_framing_reserve&quot;: 7304,
+        &quot;context_token_budget&quot;: 12000,
+        &quot;evidence_tokens&quot;: 5708,
+        &quot;retained_history&quot;: &quot;one current chunk per event; no prior message transcript&quot;,
+        &quot;selection_order&quot;: [
+          2,
+          4,
+          6,
+          10,
+          12
+        ]
+      },
+      &quot;events&quot;: [
+        {
+          &quot;step&quot;: 2,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s2:ef0ea5351b2b&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 1622,
+          &quot;source_chars&quot;: 1622,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 1442,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        },
+        {
+          &quot;step&quot;: 4,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s4:79a44a962994&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 965,
+          &quot;source_chars&quot;: 965,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 785,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        },
+        {
+          &quot;step&quot;: 6,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s6:938fcfd3f692&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 1268,
+          &quot;source_chars&quot;: 1268,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 1088,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        },
+        {
+          &quot;step&quot;: 10,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s10:d7d992712400&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 887,
+          &quot;source_chars&quot;: 887,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 707,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        },
+        {
+          &quot;step&quot;: 12,
+          &quot;status&quot;: &quot;prepared&quot;,
+          &quot;chunk_id&quot;: &quot;fc821c1ca07141b6a46e95c8594a236c:s12:aeec3bcdcf88&quot;,
+          &quot;packing_status&quot;: &quot;complete&quot;,
+          &quot;previous_chars&quot;: 180,
+          &quot;delivered_chars&quot;: 896,
+          &quot;source_chars&quot;: 896,
+          &quot;omitted_chars&quot;: 0,
+          &quot;additional_chars&quot;: 716,
+          &quot;truncated&quot;: false,
+          &quot;expanded_beyond_overview&quot;: true
+        }
+      ],
+      &quot;model_calls&quot;: 0
+    }
+  ]
+}</pre>
+<h2>Preservation and persistence</h2><pre>{
+  &quot;manifest&quot;: {
+    &quot;before&quot;: {
+      &quot;aperture.py&quot;: &quot;061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912&quot;,
+      &quot;provenance_gate.py&quot;: &quot;91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f&quot;,
+      &quot;targeted_retrieval.py&quot;: &quot;3a2e6b5d74fae94172645be0ebd1680ef5a4a9847030c3e9c31a08742117b88a&quot;,
+      &quot;run_s4_targeted.py&quot;: &quot;ea22eed3eaaa3db05a99b9a46015d5f7cc737acf31e3151b219c7e69ce97f9d1&quot;,
+      &quot;test_targeted_retrieval.py&quot;: &quot;400217835ea3090161e6b5ee06ec07368dba8a3b301fa931d946242997541d02&quot;
+    },
+    &quot;after&quot;: {
+      &quot;aperture.py&quot;: &quot;061c293c1252eafb336160c2d1b405af52fd37fe79158aa219828bb85066d912&quot;,
+      &quot;provenance_gate.py&quot;: &quot;91fb7d640a6d4def0e4e29286e80e0f5b2bb27a74af63394046206137985c94f&quot;,
+      &quot;targeted_retrieval.py&quot;: &quot;436112cffc7e73812d130e76d31be2af81477eb6ff6ce3230ec61b5134810433&quot;,
+      &quot;run_s4_targeted.py&quot;: &quot;b2b60286713bf68e80243bc722cb16cea6d2c42c6b19d14b1c5ea57bcc97146d&quot;,
+      &quot;test_targeted_retrieval.py&quot;: &quot;a8ea7e7a0fdfcc0ebe550db625164c62de75f495f9854c73803fecb6eaf1a0ea&quot;
+    },
+    &quot;new_tests&quot;: [
+      &quot;test_context_packing.py&quot;,
+      &quot;frozen_targeted_retrieval.py&quot;
+    ],
+    &quot;unchanged_gate&quot;: true,
+    &quot;unchanged_harness_and_scoring&quot;: true
+  },
+  &quot;verification&quot;: {
+    &quot;status&quot;: &quot;verified&quot;,
+    &quot;at&quot;: &quot;2026-10-11T23:02:20.706593+00:00&quot;,
+    &quot;database&quot;: &quot;aperture&quot;,
+    &quot;citation_runs&quot;: 1,
+    &quot;citation_calls&quot;: 2,
+    &quot;citation_deliveries&quot;: 2,
+    &quot;citation_retrievals&quot;: 1,
+    &quot;citation_evaluations&quot;: 1,
+    &quot;previous_runs_unchanged&quot;: true,
+    &quot;implementation_matches_manifest&quot;: true
+  }
+}</pre>
+<p>Audit: <a href="comparison.json">comparison</a> · <a href="calls.json">calls</a> · <a href="deliveries.json">exact delivered evidence</a> · <a href="retrievals.json">retrievals</a> · <a href="configuration.json">settings</a> · <a href="local-tests.json">tests and packing replays</a> · <a href="../l2-frozen-mandatory-expansion-20261011-v1/report.html">previous frozen comparison</a>.</p><p>Single validation case. No broader experiment or dashboard changes.</p></main></html>

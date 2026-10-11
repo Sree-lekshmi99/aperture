@@ -1,0 +1,78 @@
+{
+  "_id": "cited-targeted-v1:short_targeted:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923:call0",
+  "study_id": "s4-targeted-citations-20261011-v1",
+  "run_id": "cited-targeted-v1:short_targeted:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923",
+  "arm": "short_targeted",
+  "round": 0,
+  "delivery_id": "cited-targeted-v1:short_targeted:30cd056bcf1a97e25ab1ca392850c83cff6ae22876d32b91bafbed7df6b6f923:delivery0",
+  "status": "complete",
+  "started_at": "2026-10-11T21:36:47.106818+00:00",
+  "request_settings": {
+    "model": "gpt-4o-mini",
+    "temperature": 0,
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_completion_tokens": 2000
+  },
+  "completed_at": "2026-10-11T21:36:48.769798+00:00",
+  "raw_response": "{\n  \"fault_claims\": [\n    {\n      \"agent_name\": \"Assistant1\",\n      \"claim\": \"incorrect edge length used\",\n      \"citations\": [\n        {\n          \"chunk_id\": \"e9463c1af4e441d1a34415adb79023cd:s2:74a0191240eb\",\n          \"quote\": \"three mutually perpendicular edges of lengths 3 \\\\, \\\\text{cm}, 4 \\\\, \\\\text{cm}, and 6 \\\\, \\\\text{cm}\"\n        }\n      ]\n    }\n  ],\n  \"retrieve_steps\": []\n}",
+  "candidate": {
+    "fault_claims": [
+      {
+        "agent_name": "Assistant1",
+        "claim": "incorrect edge length used",
+        "citations": [
+          {
+            "chunk_id": "e9463c1af4e441d1a34415adb79023cd:s2:74a0191240eb",
+            "quote": "three mutually perpendicular edges of lengths 3 \\, \\text{cm}, 4 \\, \\text{cm}, and 6 \\, \\text{cm}"
+          }
+        ]
+      }
+    ],
+    "retrieve_steps": []
+  },
+  "usage": {
+    "completion_tokens": 125,
+    "prompt_tokens": 1528,
+    "total_tokens": 1653,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    }
+  },
+  "elapsed_seconds": 1.636,
+  "gate": {
+    "version": "verbatim-session-v1",
+    "accepted": false,
+    "errors": [
+      "claim_0:citation_0:quote_not_verbatim_in_delivered_chunk",
+      "claim_0:no_citation_from_claimed_agent"
+    ],
+    "claims_checked": 1,
+    "citations_checked": [
+      {
+        "claim_index": 0,
+        "citation_index": 0,
+        "accepted": false,
+        "reason": "quote_not_verbatim_in_delivered_chunk"
+      }
+    ],
+    "session_id": "e9463c1af4e441d1a34415adb79023cd",
+    "evidence_sha256": "7f989bad6c195236d0c0cc6bc25967355e15b7d4e714bf04bd88e83d793fd173"
+  },
+  "returned_model": "gpt-4o-mini-2024-07-18",
+  "response_id": "chatcmpl-EXvVnvXLpyotzXmHW98J3ViB8aXRt",
+  "system_fingerprint": "fp_9df689e4ab",
+  "finish_reason": "stop"
+}
